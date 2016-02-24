@@ -110,6 +110,7 @@
     <Compile Include="Forms\SoftwareForm.Designer.cs">
       <DependentUpon>SoftwareForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Software.cs" />
     <Compile Include="User.cs" />
     <EmbeddedResource Include="Forms\AddUser.resx">
       <DependentUpon>AddUser.cs</DependentUpon>
