@@ -72,6 +72,12 @@
     <Compile Include="Forms\Attribute%28s%29.Designer.cs">
       <DependentUpon>Attribute%28s%29.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\CIDoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CIDoc.Designer.cs">
+      <DependentUpon>CIDoc.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\CIForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +116,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Attribute%28s%29.resx">
       <DependentUpon>Attribute%28s%29.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CIDoc.resx">
+      <DependentUpon>CIDoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CIForm.resx">
       <DependentUpon>CIForm.cs</DependentUpon>
