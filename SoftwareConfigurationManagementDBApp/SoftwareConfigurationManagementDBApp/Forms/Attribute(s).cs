@@ -21,5 +21,10 @@ namespace SoftwareConfigurationManagementDBApp.Forms
         {
 
         }
+
+        private void btnAttrSubmit_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
