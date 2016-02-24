@@ -45,6 +45,8 @@
             this.btnSubmit = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.lblSoftwareSystem = new System.Windows.Forms.Label();
+            this.lblGroup = new System.Windows.Forms.Label();
+            this.txtGroup = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblSoftwareName
@@ -103,7 +105,7 @@
             // 
             this.lblResponsibleEngineer.AutoSize = true;
             this.lblResponsibleEngineer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblResponsibleEngineer.Location = new System.Drawing.Point(29, 237);
+            this.lblResponsibleEngineer.Location = new System.Drawing.Point(29, 276);
             this.lblResponsibleEngineer.Name = "lblResponsibleEngineer";
             this.lblResponsibleEngineer.Size = new System.Drawing.Size(222, 25);
             this.lblResponsibleEngineer.TabIndex = 6;
@@ -111,7 +113,7 @@
             // 
             // txtResponsibleEngineer
             // 
-            this.txtResponsibleEngineer.Location = new System.Drawing.Point(258, 239);
+            this.txtResponsibleEngineer.Location = new System.Drawing.Point(258, 278);
             this.txtResponsibleEngineer.Name = "txtResponsibleEngineer";
             this.txtResponsibleEngineer.Size = new System.Drawing.Size(199, 22);
             this.txtResponsibleEngineer.TabIndex = 7;
@@ -120,7 +122,7 @@
             // 
             this.lblDesignAuthority.AutoSize = true;
             this.lblDesignAuthority.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDesignAuthority.Location = new System.Drawing.Point(80, 195);
+            this.lblDesignAuthority.Location = new System.Drawing.Point(80, 234);
             this.lblDesignAuthority.Name = "lblDesignAuthority";
             this.lblDesignAuthority.Size = new System.Drawing.Size(171, 25);
             this.lblDesignAuthority.TabIndex = 8;
@@ -128,7 +130,7 @@
             // 
             // txtDesignAuthority
             // 
-            this.txtDesignAuthority.Location = new System.Drawing.Point(258, 197);
+            this.txtDesignAuthority.Location = new System.Drawing.Point(258, 236);
             this.txtDesignAuthority.Name = "txtDesignAuthority";
             this.txtDesignAuthority.Size = new System.Drawing.Size(199, 22);
             this.txtDesignAuthority.TabIndex = 9;
@@ -137,7 +139,7 @@
             // 
             this.lblManager.AutoSize = true;
             this.lblManager.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblManager.Location = new System.Drawing.Point(154, 277);
+            this.lblManager.Location = new System.Drawing.Point(154, 316);
             this.lblManager.Name = "lblManager";
             this.lblManager.Size = new System.Drawing.Size(97, 25);
             this.lblManager.TabIndex = 10;
@@ -145,7 +147,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(258, 279);
+            this.textBox2.Location = new System.Drawing.Point(258, 318);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(199, 22);
             this.textBox2.TabIndex = 11;
@@ -171,7 +173,7 @@
             // btnSubmit
             // 
             this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmit.Location = new System.Drawing.Point(316, 349);
+            this.btnSubmit.Location = new System.Drawing.Point(319, 400);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(120, 53);
             this.btnSubmit.TabIndex = 14;
@@ -181,7 +183,7 @@
             // btnBack
             // 
             this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.Location = new System.Drawing.Point(677, 349);
+            this.btnBack.Location = new System.Drawing.Point(678, 400);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(120, 53);
             this.btnBack.TabIndex = 15;
@@ -198,11 +200,30 @@
             this.lblSoftwareSystem.TabIndex = 16;
             this.lblSoftwareSystem.Text = "Software System";
             // 
+            // lblGroup
+            // 
+            this.lblGroup.AutoSize = true;
+            this.lblGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGroup.Location = new System.Drawing.Point(176, 193);
+            this.lblGroup.Name = "lblGroup";
+            this.lblGroup.Size = new System.Drawing.Size(71, 25);
+            this.lblGroup.TabIndex = 17;
+            this.lblGroup.Text = "Group";
+            // 
+            // txtGroup
+            // 
+            this.txtGroup.Location = new System.Drawing.Point(258, 193);
+            this.txtGroup.Name = "txtGroup";
+            this.txtGroup.Size = new System.Drawing.Size(199, 22);
+            this.txtGroup.TabIndex = 18;
+            // 
             // SoftwareForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1209, 481);
+            this.Controls.Add(this.txtGroup);
+            this.Controls.Add(this.lblGroup);
             this.Controls.Add(this.lblSoftwareSystem);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnSubmit);
@@ -246,5 +267,7 @@
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Label lblSoftwareSystem;
+        private System.Windows.Forms.Label lblGroup;
+        private System.Windows.Forms.TextBox txtGroup;
     }
 }
