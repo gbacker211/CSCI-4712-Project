@@ -1,7 +1,7 @@
 USE [SCMDatabase]
 GO
 
-/****** Object:  Table [dbo].[ConfigItemDoc]    Script Date: 2/21/2016 5:28:37 PM ******/
+/****** Object:  Table [dbo].[ConfigItemDoc]    Script Date: 2/24/2016 3:03:12 PM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -23,4 +23,5 @@ CREATE TABLE [dbo].[ConfigItemDoc](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
+
 
