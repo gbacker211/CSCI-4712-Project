@@ -60,6 +60,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data Objects\Attributes.cs" />
     <Compile Include="Forms\AddUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,8 +111,8 @@
     <Compile Include="Forms\SoftwareForm.Designer.cs">
       <DependentUpon>SoftwareForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Software.cs" />
-    <Compile Include="User.cs" />
+    <Compile Include="Data Objects\Software.cs" />
+    <Compile Include="Data Objects\User.cs" />
     <EmbeddedResource Include="Forms\AddUser.resx">
       <DependentUpon>AddUser.cs</DependentUpon>
     </EmbeddedResource>
