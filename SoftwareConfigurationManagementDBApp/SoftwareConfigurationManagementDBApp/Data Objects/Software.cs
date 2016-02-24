@@ -26,6 +26,9 @@ namespace SoftwareConfigurationManagementDBApp
         public string Owner { get; set; }
 
         [DataMember]
+        public string Grou { get; set; }
+
+        [DataMember]
         public string ResponsibleEngineer { get; set; }
 
         [DataMember]
