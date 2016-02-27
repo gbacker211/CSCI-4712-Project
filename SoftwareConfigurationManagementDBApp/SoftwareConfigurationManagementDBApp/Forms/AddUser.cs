@@ -24,5 +24,41 @@ namespace SoftwareConfigurationManagementDBApp.Forms
             cmbAccessGroup.Items.Add("Editor");
             cmbAccessGroup.Items.Add("Read-Only");
         }
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            if (txtFname.Text == "" || txtLname.Text == "" || txtUsername.Text == "" || txtPassword.Text == "" || cmbAccessGroup.SelectedIndex == 0)
+                MessageBox.Show("Please make sure that the fields are filled and a User Group is selected.");
+            else
+            {
+                int AccessLvl = 3; // for assigning User access level.
+                switch (cmbAccessGroup.SelectedIndex)
+                {
+                    case 1:
+                        AccessLvl = 1;
+                        break;
+                    case 2:
+                        AccessLvl = 2;
+                        break;
+                    case 3:
+                        AccessLvl = 3;
+                        break;
+                    default:
+                        break;
+                }
+                  
+
+                var obj = new User()
+                {
+                    Fname = txtFname.Text,
+                    Lname = txtLname.Text,
+                    Username = txtUsername.Text,
+                    Password = txtPassword.Text,
+                    AccessGroup = AccessLvl
+                };
+
+                // ** NOTE: ADD CODE FOR 
+            }
+        }
     }
 }

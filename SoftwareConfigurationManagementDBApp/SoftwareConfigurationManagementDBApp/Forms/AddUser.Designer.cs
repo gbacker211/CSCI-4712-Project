@@ -29,15 +29,17 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblFame = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtFname = new System.Windows.Forms.TextBox();
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
             this.cmbAccessGroup = new System.Windows.Forms.ComboBox();
             this.btnSubmit = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtLname = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -51,16 +53,16 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Add User";
             // 
-            // label2
+            // lblFame
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(91, 124);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 27);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Name";
+            this.lblFame.AutoSize = true;
+            this.lblFame.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFame.Location = new System.Drawing.Point(49, 89);
+            this.lblFame.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFame.Name = "lblFame";
+            this.lblFame.Size = new System.Drawing.Size(118, 27);
+            this.lblFame.TabIndex = 1;
+            this.lblFame.Text = "First Name";
             // 
             // label3
             // 
@@ -95,29 +97,29 @@
             this.label5.TabIndex = 4;
             this.label5.Text = "User Group";
             // 
-            // textBox1
+            // txtFname
             // 
-            this.textBox1.Location = new System.Drawing.Point(175, 129);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(132, 22);
-            this.textBox1.TabIndex = 5;
+            this.txtFname.Location = new System.Drawing.Point(175, 94);
+            this.txtFname.Margin = new System.Windows.Forms.Padding(4);
+            this.txtFname.Name = "txtFname";
+            this.txtFname.Size = new System.Drawing.Size(132, 22);
+            this.txtFname.TabIndex = 5;
             // 
-            // textBox2
+            // txtUsername
             // 
-            this.textBox2.Location = new System.Drawing.Point(175, 178);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(132, 22);
-            this.textBox2.TabIndex = 6;
+            this.txtUsername.Location = new System.Drawing.Point(175, 178);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(4);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(132, 22);
+            this.txtUsername.TabIndex = 6;
             // 
-            // textBox3
+            // txtPassword
             // 
-            this.textBox3.Location = new System.Drawing.Point(175, 231);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(132, 22);
-            this.textBox3.TabIndex = 7;
+            this.txtPassword.Location = new System.Drawing.Point(175, 231);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(132, 22);
+            this.txtPassword.TabIndex = 7;
             // 
             // cmbAccessGroup
             // 
@@ -136,21 +138,41 @@
             this.btnSubmit.TabIndex = 10;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(56, 130);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(106, 25);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Last Name";
+            // 
+            // txtLname
+            // 
+            this.txtLname.Location = new System.Drawing.Point(175, 132);
+            this.txtLname.Name = "txtLname";
+            this.txtLname.Size = new System.Drawing.Size(132, 22);
+            this.txtLname.TabIndex = 12;
             // 
             // AddUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 442);
+            this.Controls.Add(this.txtLname);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.cmbAccessGroup);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.txtUsername);
+            this.Controls.Add(this.txtFname);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblFame);
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AddUser";
@@ -164,14 +186,16 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblFame;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtFname;
+        private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.ComboBox cmbAccessGroup;
         private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtLname;
     }
 }
