@@ -17,7 +17,7 @@ namespace SoftwareConfigurationManagementDBApp.Forms
             InitializeComponent();
         }
 
-        private void txtSoftIndexCI_TextChanged(object sender, EventArgs e)
+        private void CIDoc_Load(object sender, EventArgs e)
         {
 
         }
