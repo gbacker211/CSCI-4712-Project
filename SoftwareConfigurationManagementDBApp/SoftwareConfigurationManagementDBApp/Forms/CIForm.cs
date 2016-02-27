@@ -16,5 +16,23 @@ namespace SoftwareConfigurationManagementDBApp.Forms
         {
             InitializeComponent();
         }
+
+        private void CIForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSubmitCI_Click(object sender, EventArgs e)
+        {
+            var Obj = new CI()
+            {
+                Name = txtCIName.Text,
+                Date = Convert.ToString(CIDate.Value.Date),
+                Revision = txtCIRevision.Text,
+                Location = txtCILocation.Text,
+                Description = txtCIInfoCI.Text,
+                ID = 1
+            };
+        }
     }
 }
