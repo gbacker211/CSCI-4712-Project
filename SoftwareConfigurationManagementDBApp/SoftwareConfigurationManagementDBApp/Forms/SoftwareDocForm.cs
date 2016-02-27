@@ -16,5 +16,16 @@ namespace SoftwareConfigurationManagementDBApp
         {
             InitializeComponent();
         }
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            var obj = new SoftwareDoc
+            {
+                Name = txtSoftDocName.Text,
+                Date = Convert.ToString(SoftwarDocDate.Value.Date),
+                Revision = txtSoftDocRevision.Text,
+                Description = txtSoftDocDescription.Text,
+            };
+        }
     }
 }

@@ -16,5 +16,15 @@ namespace SoftwareConfigurationManagementDBApp
         {
             InitializeComponent();
         }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            if (txtUsername.Text == "" || txtPassword.Text == "")
+                MessageBox.Show("Please filled in your Username and Password");
+            else
+            {
+
+            }
+        }
     }
 }

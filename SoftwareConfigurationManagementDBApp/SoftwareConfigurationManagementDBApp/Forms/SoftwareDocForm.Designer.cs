@@ -31,7 +31,6 @@
             this.lblSoftDocName = new System.Windows.Forms.Label();
             this.txtSoftDocName = new System.Windows.Forms.TextBox();
             this.lblSoftDocDate = new System.Windows.Forms.Label();
-            this.txtSoftDocDate = new System.Windows.Forms.TextBox();
             this.lblSoftDocRevision = new System.Windows.Forms.Label();
             this.txtSoftDocRevision = new System.Windows.Forms.TextBox();
             this.lblSoftDocLocation = new System.Windows.Forms.Label();
@@ -41,6 +40,7 @@
             this.lblSoftDoc = new System.Windows.Forms.Label();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
+            this.SoftwarDocDate = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // lblSoftDocName
@@ -69,13 +69,6 @@
             this.lblSoftDocDate.Size = new System.Drawing.Size(57, 25);
             this.lblSoftDocDate.TabIndex = 2;
             this.lblSoftDocDate.Text = "Date";
-            // 
-            // txtSoftDocDate
-            // 
-            this.txtSoftDocDate.Location = new System.Drawing.Point(416, 85);
-            this.txtSoftDocDate.Name = "txtSoftDocDate";
-            this.txtSoftDocDate.Size = new System.Drawing.Size(109, 22);
-            this.txtSoftDocDate.TabIndex = 3;
             // 
             // lblSoftDocRevision
             // 
@@ -148,6 +141,7 @@
             this.btnSubmit.TabIndex = 11;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // btnBack
             // 
@@ -159,11 +153,19 @@
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
             // 
+            // SoftwarDocDate
+            // 
+            this.SoftwarDocDate.Location = new System.Drawing.Point(417, 84);
+            this.SoftwarDocDate.Name = "SoftwarDocDate";
+            this.SoftwarDocDate.Size = new System.Drawing.Size(149, 22);
+            this.SoftwarDocDate.TabIndex = 13;
+            // 
             // SoftwareDocForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1238, 427);
+            this.Controls.Add(this.SoftwarDocDate);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.lblSoftDoc);
@@ -173,7 +175,6 @@
             this.Controls.Add(this.lblSoftDocLocation);
             this.Controls.Add(this.txtSoftDocRevision);
             this.Controls.Add(this.lblSoftDocRevision);
-            this.Controls.Add(this.txtSoftDocDate);
             this.Controls.Add(this.lblSoftDocDate);
             this.Controls.Add(this.txtSoftDocName);
             this.Controls.Add(this.lblSoftDocName);
@@ -189,7 +190,6 @@
         private System.Windows.Forms.Label lblSoftDocName;
         private System.Windows.Forms.TextBox txtSoftDocName;
         private System.Windows.Forms.Label lblSoftDocDate;
-        private System.Windows.Forms.TextBox txtSoftDocDate;
         private System.Windows.Forms.Label lblSoftDocRevision;
         private System.Windows.Forms.TextBox txtSoftDocRevision;
         private System.Windows.Forms.Label lblSoftDocLocation;
@@ -199,5 +199,6 @@
         private System.Windows.Forms.Label lblSoftDoc;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.DateTimePicker SoftwarDocDate;
     }
 }
