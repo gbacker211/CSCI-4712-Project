@@ -16,5 +16,13 @@ namespace SoftwareConfigurationManagementDBApp.Forms
         {
             InitializeComponent();
         }
+
+        private void AddUser_Load(object sender, EventArgs e)
+        {
+            cmbAccessGroup.Items.Add("Select Group");
+            cmbAccessGroup.Items.Add("Admin");
+            cmbAccessGroup.Items.Add("Editor");
+            cmbAccessGroup.Items.Add("Read-Only");
+        }
     }
 }
