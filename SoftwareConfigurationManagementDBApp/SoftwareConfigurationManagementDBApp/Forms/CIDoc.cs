@@ -19,7 +19,19 @@ namespace SoftwareConfigurationManagementDBApp.Forms
 
         private void CIDoc_Load(object sender, EventArgs e)
         {
+            
+        }
 
+        private void btnSubmitCIDoc_Click(object sender, EventArgs e)
+        {
+            var obj = new CIDocs()
+            {
+                Name = txtCIDocName.Text,
+                Date = Convert.ToString(CIDocDate.Value.Date),
+                Revision = txtCIDocRevision.Text,
+                Location = txtCIDocLocation.Text,
+                Description = txtCIInfoCI.Text
+            };
         }
     }
 }

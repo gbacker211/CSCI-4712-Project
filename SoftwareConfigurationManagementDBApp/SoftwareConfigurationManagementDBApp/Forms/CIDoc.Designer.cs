@@ -44,19 +44,20 @@
             // 
             // btnSubmitCIDoc
             // 
-            this.btnSubmitCIDoc.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmitCIDoc.Location = new System.Drawing.Point(386, 507);
-            this.btnSubmitCIDoc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSubmitCIDoc.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSubmitCIDoc.Location = new System.Drawing.Point(320, 425);
+            this.btnSubmitCIDoc.Margin = new System.Windows.Forms.Padding(4);
             this.btnSubmitCIDoc.Name = "btnSubmitCIDoc";
-            this.btnSubmitCIDoc.Size = new System.Drawing.Size(113, 38);
+            this.btnSubmitCIDoc.Size = new System.Drawing.Size(130, 48);
             this.btnSubmitCIDoc.TabIndex = 36;
             this.btnSubmitCIDoc.Text = "Submit";
             this.btnSubmitCIDoc.UseVisualStyleBackColor = true;
+            this.btnSubmitCIDoc.Click += new System.EventHandler(this.btnSubmitCIDoc_Click);
             // 
             // txtCIInfoCI
             // 
-            this.txtCIInfoCI.Location = new System.Drawing.Point(247, 327);
-            this.txtCIInfoCI.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCIInfoCI.Location = new System.Drawing.Point(208, 267);
+            this.txtCIInfoCI.Margin = new System.Windows.Forms.Padding(4);
             this.txtCIInfoCI.Multiline = true;
             this.txtCIInfoCI.Name = "txtCIInfoCI";
             this.txtCIInfoCI.Size = new System.Drawing.Size(528, 121);
@@ -65,7 +66,7 @@
             // txtCIDocRevision
             // 
             this.txtCIDocRevision.Location = new System.Drawing.Point(208, 180);
-            this.txtCIDocRevision.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCIDocRevision.Margin = new System.Windows.Forms.Padding(4);
             this.txtCIDocRevision.Name = "txtCIDocRevision";
             this.txtCIDocRevision.Size = new System.Drawing.Size(225, 22);
             this.txtCIDocRevision.TabIndex = 33;
@@ -73,7 +74,7 @@
             // txtCIDocName
             // 
             this.txtCIDocName.Location = new System.Drawing.Point(208, 105);
-            this.txtCIDocName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCIDocName.Margin = new System.Windows.Forms.Padding(4);
             this.txtCIDocName.Name = "txtCIDocName";
             this.txtCIDocName.Size = new System.Drawing.Size(225, 22);
             this.txtCIDocName.TabIndex = 31;
@@ -81,13 +82,13 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(79, 327);
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(72, 267);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(151, 22);
+            this.label5.Size = new System.Drawing.Size(106, 23);
             this.label5.TabIndex = 29;
-            this.label5.Text = "Othe CI Doc Info:";
+            this.label5.Text = "Description";
             // 
             // lblRevision
             // 
@@ -115,12 +116,12 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(376, 43);
+            this.label1.Location = new System.Drawing.Point(267, 32);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(124, 42);
+            this.label1.Size = new System.Drawing.Size(289, 42);
             this.label1.TabIndex = 25;
-            this.label1.Text = "CI Doc";
+            this.label1.Text = "CI Documentation";
             // 
             // lblDate
             // 
@@ -160,7 +161,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(808, 570);
+            this.ClientSize = new System.Drawing.Size(768, 524);
             this.Controls.Add(this.txtCIDocLocation);
             this.Controls.Add(this.lblCIDocLocation);
             this.Controls.Add(this.CIDocDate);
@@ -173,7 +174,7 @@
             this.Controls.Add(this.lblRevision);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CIDoc";
             this.Text = "CIDoc";
             this.Load += new System.EventHandler(this.CIDoc_Load);

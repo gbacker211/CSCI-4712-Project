@@ -50,6 +50,7 @@ namespace SoftwareConfigurationManagementDBApp.Forms
 
                 var obj = new User()
                 {
+                    User_ID = 1,
                     Fname = txtFname.Text,
                     Lname = txtLname.Text,
                     Username = txtUsername.Text,

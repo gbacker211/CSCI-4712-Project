@@ -133,10 +133,10 @@
             // btnSubmitCI
             // 
             this.btnSubmitCI.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmitCI.Location = new System.Drawing.Point(339, 460);
+            this.btnSubmitCI.Location = new System.Drawing.Point(325, 436);
             this.btnSubmitCI.Margin = new System.Windows.Forms.Padding(4);
             this.btnSubmitCI.Name = "btnSubmitCI";
-            this.btnSubmitCI.Size = new System.Drawing.Size(113, 38);
+            this.btnSubmitCI.Size = new System.Drawing.Size(128, 46);
             this.btnSubmitCI.TabIndex = 12;
             this.btnSubmitCI.Text = "Submit";
             this.btnSubmitCI.UseVisualStyleBackColor = true;

@@ -31,7 +31,6 @@ namespace SoftwareConfigurationManagementDBApp.Forms
                 Revision = txtCIRevision.Text,
                 Location = txtCILocation.Text,
                 Description = txtCIInfoCI.Text,
-                ID = 1
             };
         }
     }

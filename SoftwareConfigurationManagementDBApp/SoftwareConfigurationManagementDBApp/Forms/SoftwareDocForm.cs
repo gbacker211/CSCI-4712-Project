@@ -24,6 +24,7 @@ namespace SoftwareConfigurationManagementDBApp
                 Name = txtSoftDocName.Text,
                 Date = Convert.ToString(SoftwarDocDate.Value.Date),
                 Revision = txtSoftDocRevision.Text,
+                Location = txtSoftDocRevision.Text,
                 Description = txtSoftDocDescription.Text,
             };
         }

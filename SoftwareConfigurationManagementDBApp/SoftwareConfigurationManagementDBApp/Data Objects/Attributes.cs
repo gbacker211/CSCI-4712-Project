@@ -11,7 +11,6 @@ namespace SoftwareConfigurationManagementDBApp
     ///     data into the database. Child classes:
     ///     SoftwareDoc, CI, CIDoc
     /// </summary>
-    
     [DataContract]
      public class Attributes
     {
@@ -37,11 +36,12 @@ namespace SoftwareConfigurationManagementDBApp
     }
 
     /// <summary>
-    ///     Child Class
+    ///     Child Classes
     /// </summary>
+
     public class SoftwareDoc : Attributes {}
 
     public class CI : Attributes {}
 
-    public class CIDoc : Attributes {}
+    public class CIDocs : Attributes {}
 }
