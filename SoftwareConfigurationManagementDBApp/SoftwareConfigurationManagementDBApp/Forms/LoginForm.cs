@@ -48,6 +48,7 @@ namespace SoftwareConfigurationManagementDBApp
                         aUser.User_ID = Convert.ToInt32(dt.Rows[0][1].ToString());
                         aUser.AccessGroup = Convert.ToInt32(dt.Rows[0][0].ToString());
 
+
                         // *** NOTE: ADD CODE TO CHANGE DASHBOARD BASED ON USER *** //
                         // *** SHOULD BE DONE HERE AND IN DASHBOARD *** // ======== //
                     }

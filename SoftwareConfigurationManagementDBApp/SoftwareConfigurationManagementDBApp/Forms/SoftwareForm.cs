@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace SoftwareConfigurationManagementDBApp
 {
@@ -55,7 +56,37 @@ namespace SoftwareConfigurationManagementDBApp
                             Description = txtSoftwareDescription.Text,
                             DesignAuthority = txtDesignAuthority.Text
                         };
+
                         // Add DB Code // 
+                        bool value = false;
+                        SqlConnection conn = new SqlConnection();
+                        conn.ConnectionString = "Data Source=CBRENTEVANSPC\\SQLEXPRESS;Initial Catalog=SCMDatabase;Integrated Security=True";
+
+                        try
+                        {
+                            using (conn)
+                            {
+                                using (SqlCommand cmd = new SqlCommand("usp_Insert_NewSoftware", conn))
+                                {
+                                    conn.Open();
+                                    cmd.CommandType = CommandType.StoredProcedure;
+                                    cmd.Parameters.AddWithValue("@SoftwareName", obj.SoftwareName);
+                                    cmd.Parameters.AddWithValue("@Description", obj.Description);
+                                    cmd.Parameters.AddWithValue("@Classfication", obj.Classification);
+                                    cmd.Parameters.AddWithValue("@SoftwareName", obj.SoftwareName);
+                                    cmd.Parameters.AddWithValue("@SystemName", obj.SystemName);
+                                    cmd.Parameters.AddWithValue("@Engineer", obj.ResponsibleEngineer);
+                                    cmd.Parameters.AddWithValue("@Owner", obj.Owner);
+                                    cmd.Parameters.AddWithValue("@DesignAuthority", obj.DesignAuthority);
+                                    cmd.Parameters.AddWithValue("@GroupName", obj.Group);
+                                }
+                            }
+                        }
+                        finally
+                        {
+                            conn.Close();
+                        }
+
 
                         break;
                     }
