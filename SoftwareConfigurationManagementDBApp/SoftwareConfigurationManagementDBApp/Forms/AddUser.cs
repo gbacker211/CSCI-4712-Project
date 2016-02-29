@@ -19,8 +19,7 @@ namespace SoftwareConfigurationManagementDBApp.Forms
 
         private void AddUser_Load(object sender, EventArgs e)
         {
-            this.BackColor = System.Drawing.Color.DarkBlue;
-
+            
             cmbAccessGroup.Items.Add("Select Group");
             cmbAccessGroup.Items.Add("Admin");
             cmbAccessGroup.Items.Add("Editor");
