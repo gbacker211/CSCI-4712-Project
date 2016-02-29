@@ -28,5 +28,12 @@ namespace SoftwareConfigurationManagementDBApp.Forms
             Form aNewSoftware = new SoftwareForm(aSoftware, 1);
             aNewSoftware.Show();
         }
+
+        private void btnEditSoftw_Click(object sender, EventArgs e)
+        {
+            Software aSoftware = new Software();
+            Form aNewSoftware = new SoftwareForm(aSoftware, 2);
+            aNewSoftware.Show();
+        }
     }
 }

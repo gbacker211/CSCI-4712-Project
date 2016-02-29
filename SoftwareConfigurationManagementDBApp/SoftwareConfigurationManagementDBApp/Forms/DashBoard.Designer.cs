@@ -155,6 +155,7 @@
             this.btnEditSoftw.TabIndex = 28;
             this.btnEditSoftw.Text = "Edit Software";
             this.btnEditSoftw.UseVisualStyleBackColor = true;
+            this.btnEditSoftw.Click += new System.EventHandler(this.btnEditSoftw_Click);
             // 
             // btnAddSoftw
             // 
