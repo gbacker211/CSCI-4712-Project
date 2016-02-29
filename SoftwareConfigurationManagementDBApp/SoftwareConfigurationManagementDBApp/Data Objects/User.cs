@@ -30,6 +30,9 @@ namespace SoftwareConfigurationManagementDBApp
         public string Password { get; set; }
 
         [DataMember]
+        public string Group { get; set; }
+
+        [DataMember]
         public int AccessGroup { get; set; }
         // ================================================= //
     }
