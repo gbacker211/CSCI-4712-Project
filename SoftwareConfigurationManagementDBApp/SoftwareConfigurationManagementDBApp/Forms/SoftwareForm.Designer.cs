@@ -31,7 +31,7 @@
             this.lblSoftwareName = new System.Windows.Forms.Label();
             this.txtSoftwareName = new System.Windows.Forms.TextBox();
             this.lblSoftwareDescription = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtSoftwareDescription = new System.Windows.Forms.TextBox();
             this.lblOwner = new System.Windows.Forms.Label();
             this.txtOwner = new System.Windows.Forms.TextBox();
             this.lblResponsibleEngineer = new System.Windows.Forms.Label();
@@ -47,6 +47,8 @@
             this.lblSoftwareSystem = new System.Windows.Forms.Label();
             this.lblGroup = new System.Windows.Forms.Label();
             this.txtGroup = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtSystemName = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblSoftwareName
@@ -70,19 +72,19 @@
             // 
             this.lblSoftwareDescription.AutoSize = true;
             this.lblSoftwareDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSoftwareDescription.Location = new System.Drawing.Point(502, 108);
+            this.lblSoftwareDescription.Location = new System.Drawing.Point(522, 136);
             this.lblSoftwareDescription.Name = "lblSoftwareDescription";
             this.lblSoftwareDescription.Size = new System.Drawing.Size(120, 25);
             this.lblSoftwareDescription.TabIndex = 2;
             this.lblSoftwareDescription.Text = "Description";
             // 
-            // textBox1
+            // txtSoftwareDescription
             // 
-            this.textBox1.Location = new System.Drawing.Point(629, 110);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(504, 120);
-            this.textBox1.TabIndex = 3;
+            this.txtSoftwareDescription.Location = new System.Drawing.Point(649, 138);
+            this.txtSoftwareDescription.Multiline = true;
+            this.txtSoftwareDescription.Name = "txtSoftwareDescription";
+            this.txtSoftwareDescription.Size = new System.Drawing.Size(504, 120);
+            this.txtSoftwareDescription.TabIndex = 3;
             // 
             // lblOwner
             // 
@@ -105,7 +107,7 @@
             // 
             this.lblResponsibleEngineer.AutoSize = true;
             this.lblResponsibleEngineer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblResponsibleEngineer.Location = new System.Drawing.Point(29, 276);
+            this.lblResponsibleEngineer.Location = new System.Drawing.Point(29, 319);
             this.lblResponsibleEngineer.Name = "lblResponsibleEngineer";
             this.lblResponsibleEngineer.Size = new System.Drawing.Size(222, 25);
             this.lblResponsibleEngineer.TabIndex = 6;
@@ -113,7 +115,7 @@
             // 
             // txtResponsibleEngineer
             // 
-            this.txtResponsibleEngineer.Location = new System.Drawing.Point(258, 278);
+            this.txtResponsibleEngineer.Location = new System.Drawing.Point(258, 321);
             this.txtResponsibleEngineer.Name = "txtResponsibleEngineer";
             this.txtResponsibleEngineer.Size = new System.Drawing.Size(199, 22);
             this.txtResponsibleEngineer.TabIndex = 7;
@@ -122,7 +124,7 @@
             // 
             this.lblDesignAuthority.AutoSize = true;
             this.lblDesignAuthority.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDesignAuthority.Location = new System.Drawing.Point(80, 234);
+            this.lblDesignAuthority.Location = new System.Drawing.Point(80, 277);
             this.lblDesignAuthority.Name = "lblDesignAuthority";
             this.lblDesignAuthority.Size = new System.Drawing.Size(171, 25);
             this.lblDesignAuthority.TabIndex = 8;
@@ -130,7 +132,7 @@
             // 
             // txtDesignAuthority
             // 
-            this.txtDesignAuthority.Location = new System.Drawing.Point(258, 236);
+            this.txtDesignAuthority.Location = new System.Drawing.Point(258, 279);
             this.txtDesignAuthority.Name = "txtDesignAuthority";
             this.txtDesignAuthority.Size = new System.Drawing.Size(199, 22);
             this.txtDesignAuthority.TabIndex = 9;
@@ -139,7 +141,7 @@
             // 
             this.lblManager.AutoSize = true;
             this.lblManager.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblManager.Location = new System.Drawing.Point(154, 316);
+            this.lblManager.Location = new System.Drawing.Point(154, 359);
             this.lblManager.Name = "lblManager";
             this.lblManager.Size = new System.Drawing.Size(97, 25);
             this.lblManager.TabIndex = 10;
@@ -147,7 +149,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(258, 318);
+            this.textBox2.Location = new System.Drawing.Point(258, 361);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(199, 22);
             this.textBox2.TabIndex = 11;
@@ -156,7 +158,7 @@
             // 
             this.lblClass.AutoSize = true;
             this.lblClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClass.Location = new System.Drawing.Point(486, 257);
+            this.lblClass.Location = new System.Drawing.Point(506, 285);
             this.lblClass.Name = "lblClass";
             this.lblClass.Size = new System.Drawing.Size(136, 25);
             this.lblClass.TabIndex = 12;
@@ -165,7 +167,7 @@
             // cmbClass
             // 
             this.cmbClass.FormattingEnabled = true;
-            this.cmbClass.Location = new System.Drawing.Point(629, 256);
+            this.cmbClass.Location = new System.Drawing.Point(649, 284);
             this.cmbClass.Name = "cmbClass";
             this.cmbClass.Size = new System.Drawing.Size(110, 24);
             this.cmbClass.TabIndex = 13;
@@ -179,6 +181,7 @@
             this.btnSubmit.TabIndex = 14;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // btnBack
             // 
@@ -204,7 +207,7 @@
             // 
             this.lblGroup.AutoSize = true;
             this.lblGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGroup.Location = new System.Drawing.Point(176, 193);
+            this.lblGroup.Location = new System.Drawing.Point(176, 236);
             this.lblGroup.Name = "lblGroup";
             this.lblGroup.Size = new System.Drawing.Size(71, 25);
             this.lblGroup.TabIndex = 17;
@@ -212,16 +215,35 @@
             // 
             // txtGroup
             // 
-            this.txtGroup.Location = new System.Drawing.Point(258, 193);
+            this.txtGroup.Location = new System.Drawing.Point(258, 236);
             this.txtGroup.Name = "txtGroup";
             this.txtGroup.Size = new System.Drawing.Size(199, 22);
             this.txtGroup.TabIndex = 18;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(105, 191);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(146, 25);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "System Name";
+            // 
+            // txtSystemName
+            // 
+            this.txtSystemName.Location = new System.Drawing.Point(258, 193);
+            this.txtSystemName.Name = "txtSystemName";
+            this.txtSystemName.Size = new System.Drawing.Size(199, 22);
+            this.txtSystemName.TabIndex = 20;
             // 
             // SoftwareForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1209, 481);
+            this.ClientSize = new System.Drawing.Size(1209, 480);
+            this.Controls.Add(this.txtSystemName);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.txtGroup);
             this.Controls.Add(this.lblGroup);
             this.Controls.Add(this.lblSoftwareSystem);
@@ -237,7 +259,7 @@
             this.Controls.Add(this.lblResponsibleEngineer);
             this.Controls.Add(this.txtOwner);
             this.Controls.Add(this.lblOwner);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtSoftwareDescription);
             this.Controls.Add(this.lblSoftwareDescription);
             this.Controls.Add(this.txtSoftwareName);
             this.Controls.Add(this.lblSoftwareName);
@@ -253,7 +275,7 @@
         private System.Windows.Forms.Label lblSoftwareName;
         private System.Windows.Forms.TextBox txtSoftwareName;
         private System.Windows.Forms.Label lblSoftwareDescription;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtSoftwareDescription;
         private System.Windows.Forms.Label lblOwner;
         private System.Windows.Forms.TextBox txtOwner;
         private System.Windows.Forms.Label lblResponsibleEngineer;
@@ -269,5 +291,7 @@
         private System.Windows.Forms.Label lblSoftwareSystem;
         private System.Windows.Forms.Label lblGroup;
         private System.Windows.Forms.TextBox txtGroup;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtSystemName;
     }
 }
