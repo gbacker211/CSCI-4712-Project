@@ -12,9 +12,11 @@ namespace SoftwareConfigurationManagementDBApp.Forms
 {
     public partial class DashBoard : Form
     {
-        public DashBoard()
+        User mUser;
+        public DashBoard(User aUser)
         {
             InitializeComponent();
+            mUser = aUser;
         }
 
         private void viewlb_Click(object sender, EventArgs e)

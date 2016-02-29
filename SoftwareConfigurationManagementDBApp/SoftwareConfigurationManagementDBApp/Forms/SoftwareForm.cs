@@ -15,12 +15,15 @@ namespace SoftwareConfigurationManagementDBApp
     {
         // Variables for adding or updating.
         Software mSoftware;
+        User mUser;
         private int mAddUpdate;
 
-        public SoftwareForm(Software aSoftware, int aAddUpdate)
+        public SoftwareForm(Software aSoftware, User aUser, int aAddUpdate)
         {
             InitializeComponent();
+
             mSoftware = aSoftware;
+            mUser = aUser;
             AddUpdate = aAddUpdate;
         }
 
@@ -79,6 +82,7 @@ namespace SoftwareConfigurationManagementDBApp
                                     cmd.Parameters.AddWithValue("@Owner", obj.Owner);
                                     cmd.Parameters.AddWithValue("@DesignAuthority", obj.DesignAuthority);
                                     cmd.Parameters.AddWithValue("@GroupName", obj.Group);
+                                    cmd.Parameters.AddWithValue("@UserId", mUser.User_ID);
                                 }
                             }
                         }

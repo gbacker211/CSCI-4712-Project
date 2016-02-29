@@ -49,6 +49,9 @@ namespace SoftwareConfigurationManagementDBApp
                         aUser.AccessGroup = Convert.ToInt32(dt.Rows[0][0].ToString());
 
 
+                        Forms.DashBoard aNewDashboard = new Forms.DashBoard(aUser);
+                        aNewDashboard.Show();
+
                         // *** NOTE: ADD CODE TO CHANGE DASHBOARD BASED ON USER *** //
                         // *** SHOULD BE DONE HERE AND IN DASHBOARD *** // ======== //
                     }
