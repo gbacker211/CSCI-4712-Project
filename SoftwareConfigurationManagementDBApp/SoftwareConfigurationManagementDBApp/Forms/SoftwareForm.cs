@@ -12,18 +12,20 @@ namespace SoftwareConfigurationManagementDBApp
 {
     public partial class SoftwareForm : Form
     {
-        private Software mSoftware;
+        // Variables for adding or updating.
+        Software mSoftware;
         private int mAddUpdate;
 
         public SoftwareForm(Software aSoftware, int aAddUpdate)
         {
             InitializeComponent();
-            nSoftware = aSoftware;
+            mSoftware = aSoftware;
             AddUpdate = aAddUpdate;
         }
 
-        public Software nSoftware { set { value = mSoftware; } get { return mSoftware; } }
-
+        /// <summary>
+        ///     Property for AddUpdate
+        /// </summary>
         public int AddUpdate
         {
             set
@@ -71,6 +73,7 @@ namespace SoftwareConfigurationManagementDBApp
                             DesignAuthority = txtDesignAuthority.Text
                         };
                         break;
+                        // Add DB Code //
                     }
 
                 default:
