@@ -265,6 +265,7 @@
             this.Controls.Add(this.lblSoftwareName);
             this.Name = "SoftwareForm";
             this.Text = "Software System";
+            this.Load += new System.EventHandler(this.SoftwareForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -25,7 +25,9 @@ namespace SoftwareConfigurationManagementDBApp
             else
             {
                 SqlConnection conn = new SqlConnection();
-                conn.ConnectionString = "Data Source=CBRENTEVANSPC\\SQLEXPRESS;Initial Catalog=SCMDatabase;Integrated Security=True";
+
+                // *** NOTE: ADD INDIVIDAUL CONNECTION STRING FOR DEBUGGING *** // =============================================================================== //
+                conn.ConnectionString = "Data Source=CBRENTEVANSPC\\SQLEXPRESS;Initial Catalog=SCMDatabase;Integrated Security=True"; // Brent's Connection String
 
                 try
                 {

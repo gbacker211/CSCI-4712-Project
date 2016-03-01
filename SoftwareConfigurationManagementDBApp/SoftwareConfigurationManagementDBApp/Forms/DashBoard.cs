@@ -27,14 +27,15 @@ namespace SoftwareConfigurationManagementDBApp.Forms
         private void btnAddSoftw_Click(object sender, EventArgs e)
         {
             Software aSoftware = new Software();
-            Form aNewSoftware = new SoftwareForm(aSoftware, 1);
+            Form aNewSoftware = new SoftwareForm(aSoftware, mUser, 1);
             aNewSoftware.Show();
         }
 
         private void btnEditSoftw_Click(object sender, EventArgs e)
         {
+            // *** NOTE: ADD CODE TO SET aSoftware AS SOFTWARE SELECTED IN DATA GRID *** // 
             Software aSoftware = new Software();
-            Form aNewSoftware = new SoftwareForm(aSoftware, 2);
+            Form aNewSoftware = new SoftwareForm(aSoftware, mUser, 2);
             aNewSoftware.Show();
         }
     }

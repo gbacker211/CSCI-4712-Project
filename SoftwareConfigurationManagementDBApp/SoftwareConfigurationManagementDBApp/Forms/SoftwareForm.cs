@@ -43,6 +43,7 @@ namespace SoftwareConfigurationManagementDBApp
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
+            // ** ADD CASE FOR EMPTY FIELDS ** //
             switch (AddUpdate)
             {
                 case 1: // add
@@ -63,7 +64,9 @@ namespace SoftwareConfigurationManagementDBApp
                         // Add DB Code // 
                         bool value = false;
                         SqlConnection conn = new SqlConnection();
-                        conn.ConnectionString = "Data Source=CBRENTEVANSPC\\SQLEXPRESS;Initial Catalog=SCMDatabase;Integrated Security=True";
+
+                        // *** NOTE: ADD INDIVIDAUL CONNECTION STRING FOR DEBUGGING *** // =============================================================================== //
+                        conn.ConnectionString = "Data Source=CBRENTEVANSPC\\SQLEXPRESS;Initial Catalog=SCMDatabase;Integrated Security=True"; // Brent's Connection String
 
                         try
                         {
@@ -83,6 +86,10 @@ namespace SoftwareConfigurationManagementDBApp
                                     cmd.Parameters.AddWithValue("@DesignAuthority", obj.DesignAuthority);
                                     cmd.Parameters.AddWithValue("@GroupName", obj.Group);
                                     cmd.Parameters.AddWithValue("@UserId", mUser.User_ID);
+
+                                    int success = cmd.ExecuteNonQuery();
+                                    value = Convert.ToBoolean(success);
+
                                 }
                             }
                         }
@@ -98,6 +105,7 @@ namespace SoftwareConfigurationManagementDBApp
                     {
                         var obj = new Software()
                         {
+                            Software_ID = mSoftware.Software_ID,
                             SoftwareName = txtSoftwareName.Text,
                             SystemName = txtSystemName.Text,
                             Group = txtGroup.Text,
@@ -107,13 +115,71 @@ namespace SoftwareConfigurationManagementDBApp
                             Description = txtSoftwareDescription.Text,
                             DesignAuthority = txtDesignAuthority.Text
                         };
+
+                        bool value = false;
+                        SqlConnection conn = new SqlConnection();
+
+                        // *** NOTE: ADD INDIVIDAUL CONNECTION STRING FOR DEBUGGING *** // =============================================================================== //
+                        conn.ConnectionString = "Data Source=CBRENTEVANSPC\\SQLEXPRESS;Initial Catalog=SCMDatabase;Integrated Security=True"; // Brent's Connection String
+
+                        try
+                        {
+                            using (conn)
+                            {
+                                using (SqlCommand cmd = new SqlCommand("usp_Update_Software", conn))
+                                {
+                                    conn.Open();
+                                    cmd.CommandType = CommandType.StoredProcedure;
+                                    cmd.Parameters.AddWithValue("@SoftwareID", obj.Software_ID);                                 
+                                    cmd.Parameters.AddWithValue("@Classfication", obj.Classification);
+                                    cmd.Parameters.AddWithValue("@DesignAuthority", obj.DesignAuthority);
+                                    cmd.Parameters.AddWithValue("@SystemName", obj.SystemName);
+                                    cmd.Parameters.AddWithValue("@Engineer", obj.ResponsibleEngineer);
+                                    cmd.Parameters.AddWithValue("@Description", obj.Description);
+                                    cmd.Parameters.AddWithValue("@Owner", obj.Owner);
+                                    cmd.Parameters.AddWithValue("@ManagingGroup", obj.Group);
+
+                                    int success = cmd.ExecuteNonQuery();
+                                    value = Convert.ToBoolean(success);
+
+                                }
+                            }
+                        }
+                        finally
+                        {
+                            conn.Close();
+                        }
+
                         break;
-                        // Add DB Code //
+
                     }
 
                 default:
                     break;
             }
+        }
+
+        private void SoftwareForm_Load(object sender, EventArgs e)
+        {
+            // * For cmbClass * // ================== //
+            cmbClass.Items.Add("Select Classifcation");
+            cmbClass.Items.Add("A");
+            cmbClass.Items.Add("B");
+            cmbClass.Items.Add("C");
+            cmbClass.Items.Add("D");
+            cmbClass.Items.Add("SC");
+            cmbClass.Items.Add("SS");
+            cmbClass.Items.Add("PC");
+            cmbClass.Items.Add("GS");
+
+            txtSoftwareName.Text = mSoftware.SoftwareName;
+            txtSystemName.Text = mSoftware.SystemName;
+            txtOwner.Text = mSoftware.Owner;
+            txtGroup.Text = mSoftware.Group;
+            txtResponsibleEngineer.Text = mSoftware.ResponsibleEngineer;
+            txtDesignAuthority.Text = mSoftware.DesignAuthority;
+            txtSoftwareDescription.Text = mSoftware.Description;
+            cmbClass.SelectedItem = mSoftware.Classification;
         }
     }
 }
