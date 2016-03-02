@@ -120,7 +120,7 @@
             // 
             this.cmbAccessGroup.FormattingEnabled = true;
             this.cmbAccessGroup.Location = new System.Drawing.Point(134, 233);
-            this.cmbAccessGroup.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbAccessGroup.Margin = new System.Windows.Forms.Padding(2);
             this.cmbAccessGroup.Name = "cmbAccessGroup";
             this.cmbAccessGroup.Size = new System.Drawing.Size(98, 21);
             this.cmbAccessGroup.TabIndex = 9;
@@ -129,7 +129,7 @@
             // 
             this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSubmit.Location = new System.Drawing.Point(131, 290);
-            this.btnSubmit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSubmit.Margin = new System.Windows.Forms.Padding(2);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(81, 42);
             this.btnSubmit.TabIndex = 10;
@@ -151,7 +151,7 @@
             // txtLname
             // 
             this.txtLname.Location = new System.Drawing.Point(131, 107);
-            this.txtLname.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtLname.Margin = new System.Windows.Forms.Padding(2);
             this.txtLname.Name = "txtLname";
             this.txtLname.Size = new System.Drawing.Size(100, 20);
             this.txtLname.TabIndex = 12;
@@ -170,7 +170,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(363, 359);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtLname);
@@ -185,6 +185,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblFame);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddUser";
             this.Text = "AddUser";
             this.Load += new System.EventHandler(this.AddUser_Load);
