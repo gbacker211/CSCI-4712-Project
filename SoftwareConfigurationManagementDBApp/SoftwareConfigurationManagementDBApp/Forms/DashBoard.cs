@@ -35,5 +35,10 @@ namespace SoftwareConfigurationManagementDBApp.Forms
             Form aNewSoftware = new SoftwareForm(aSoftware, 2);
             aNewSoftware.Show();
         }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
