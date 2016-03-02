@@ -17,11 +17,21 @@ namespace SoftwareConfigurationManagementDBApp.Forms
         {
             InitializeComponent();
             mUser = aUser;
-        }
 
-        private void viewlb_Click(object sender, EventArgs e)
-        {
+            // ** Change Look of Dashboard Based on User ** //
 
+            // * Admin * // =============================== //
+            if (mUser.AccessGroup == 1)
+            {
+                btnAddAttr.Hide();
+                btnDeleteAttr.Hide();
+                btnEditAttr.Hide();
+                btnViewAttr.Hide();
+                btnPrintReport.Hide();
+
+                btnAddUser.Location = new System.Drawing.Point(191,256);
+                btnEditUser.Location = new System.Drawing.Point(191, 318);
+            }
         }
 
         private void btnAddSoftw_Click(object sender, EventArgs e)
@@ -37,6 +47,12 @@ namespace SoftwareConfigurationManagementDBApp.Forms
             Software aSoftware = new Software();
             Form aNewSoftware = new SoftwareForm(aSoftware, mUser, 2);
             aNewSoftware.Show();
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            LoginForm.ActiveForm.Show();
+            Close();
         }
     }
 }

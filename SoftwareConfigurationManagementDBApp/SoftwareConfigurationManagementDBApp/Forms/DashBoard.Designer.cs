@@ -55,6 +55,7 @@
             this.btnLogOut.TabIndex = 38;
             this.btnLogOut.Text = "Log Out";
             this.btnLogOut.UseVisualStyleBackColor = true;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // viewlb
             // 
@@ -78,7 +79,7 @@
             // 
             // btnViewAttr
             // 
-            this.btnViewAttr.Location = new System.Drawing.Point(247, 458);
+            this.btnViewAttr.Location = new System.Drawing.Point(191, 458);
             this.btnViewAttr.Margin = new System.Windows.Forms.Padding(4);
             this.btnViewAttr.Name = "btnViewAttr";
             this.btnViewAttr.Size = new System.Drawing.Size(115, 38);
@@ -88,7 +89,7 @@
             // 
             // btnDeleteAttr
             // 
-            this.btnDeleteAttr.Location = new System.Drawing.Point(247, 375);
+            this.btnDeleteAttr.Location = new System.Drawing.Point(191, 375);
             this.btnDeleteAttr.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeleteAttr.Name = "btnDeleteAttr";
             this.btnDeleteAttr.Size = new System.Drawing.Size(115, 57);
@@ -98,7 +99,7 @@
             // 
             // btnEditAttr
             // 
-            this.btnEditAttr.Location = new System.Drawing.Point(247, 318);
+            this.btnEditAttr.Location = new System.Drawing.Point(191, 318);
             this.btnEditAttr.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditAttr.Name = "btnEditAttr";
             this.btnEditAttr.Size = new System.Drawing.Size(115, 38);
@@ -108,7 +109,7 @@
             // 
             // btnAddAttr
             // 
-            this.btnAddAttr.Location = new System.Drawing.Point(247, 256);
+            this.btnAddAttr.Location = new System.Drawing.Point(191, 256);
             this.btnAddAttr.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddAttr.Name = "btnAddAttr";
             this.btnAddAttr.Size = new System.Drawing.Size(115, 38);
@@ -190,7 +191,7 @@
             // 
             // btnPrintReport
             // 
-            this.btnPrintReport.Location = new System.Drawing.Point(247, 524);
+            this.btnPrintReport.Location = new System.Drawing.Point(191, 524);
             this.btnPrintReport.Name = "btnPrintReport";
             this.btnPrintReport.Size = new System.Drawing.Size(115, 38);
             this.btnPrintReport.TabIndex = 41;

@@ -53,9 +53,9 @@ namespace SoftwareConfigurationManagementDBApp
 
                         Forms.DashBoard aNewDashboard = new Forms.DashBoard(aUser);
                         aNewDashboard.Show();
+                        LoginForm.ActiveForm.Hide();
 
                         // *** NOTE: ADD CODE TO CHANGE DASHBOARD BASED ON USER *** //
-                        // *** SHOULD BE DONE HERE AND IN DASHBOARD *** // ======== //
                     }
                 }
                 finally
