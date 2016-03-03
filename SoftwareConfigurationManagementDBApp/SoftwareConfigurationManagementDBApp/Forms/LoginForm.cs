@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -25,7 +26,8 @@ namespace SoftwareConfigurationManagementDBApp
             else
             {
                 SqlConnection conn = new SqlConnection();
-                conn.ConnectionString = "Data Source=CBRENTEVANSPC\\SQLEXPRESS;Initial Catalog=SCMDatabase;Integrated Security=True";
+                conn.ConnectionString =
+                    ConfigurationManager.ConnectionStrings["SCMDatabaseConnectionString"].ConnectionString;
 
                 try
                 {
@@ -45,9 +47,24 @@ namespace SoftwareConfigurationManagementDBApp
                             getData.Fill(dt);
                         }
 
-                        aUser.User_ID = Convert.ToInt32(dt.Rows[0][1].ToString());
-                        aUser.AccessGroup = Convert.ToInt32(dt.Rows[0][0].ToString());
+                        if (dt.Rows.Count > 0)
+                        {
+                            aUser.User_ID = Convert.ToInt32(dt.Rows[0][1].ToString());
+                            aUser.AccessGroup = Convert.ToInt32(dt.Rows[0][0].ToString());
+                            if (dt.Columns.Count > 2)
+                            {
+                                aUser.GroupName = dt.Rows[0][2].ToString();
+                                aUser.GroupID = Convert.ToInt32(dt.Rows[0][3].ToString());
+                            }
 
+                            this.Hide();
+                            DashBoard dashBoard = new DashBoard();
+                           dashBoard.ShowDashBoard(aUser);
+                        }
+                        else
+                        {
+                            MessageBox.Show("User does not exsist", "Error!", MessageBoxButtons.OK);
+                        }
                         // *** NOTE: ADD CODE TO CHANGE DASHBOARD BASED ON USER *** //
                         // *** SHOULD BE DONE HERE AND IN DASHBOARD *** // ======== //
                     }

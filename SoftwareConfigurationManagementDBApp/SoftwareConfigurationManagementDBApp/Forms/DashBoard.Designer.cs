@@ -1,4 +1,4 @@
-﻿namespace SoftwareConfigurationManagementDBApp.Forms
+﻿namespace SoftwareConfigurationManagementDBApp
 {
     partial class DashBoard
     {
@@ -70,12 +70,17 @@
             // 
             // cmbDataViews
             // 
+            this.cmbDataViews.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDataViews.FormattingEnabled = true;
+            this.cmbDataViews.Items.AddRange(new object[] {
+            "Software Overview",
+            "Software View"});
             this.cmbDataViews.Location = new System.Drawing.Point(86, 226);
             this.cmbDataViews.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmbDataViews.Name = "cmbDataViews";
             this.cmbDataViews.Size = new System.Drawing.Size(230, 28);
             this.cmbDataViews.TabIndex = 36;
+            this.cmbDataViews.SelectedIndexChanged += new System.EventHandler(this.selectView);
             // 
             // btnViewAttr
             // 
@@ -222,6 +227,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "DashBoard";
             this.Text = "DashBoard";
+            this.Load += new System.EventHandler(this.DashBoard_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
