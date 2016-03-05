@@ -53,7 +53,7 @@ namespace SoftwareConfigurationManagementDBApp
                                DataTable groups = new DataTable();
                             aUser.User_ID = Convert.ToInt32(ds.Tables[0].Rows[0][1].ToString());
                             aUser.AccessGroup = Convert.ToInt32(ds.Tables[0].Rows[0][0].ToString());
-                            if (ds.Tables[1].Rows.Count > 0)
+                            if (ds.Tables.Count > 1)
                             {
                                  groups = ds.Tables[1];
                             }

@@ -25,7 +25,7 @@ namespace SoftwareConfigurationManagementDBApp
 
         public void ShowDashBoard(User aUser, DataTable groups)
         {
-            if (groups != null)
+            if (groups.Rows.Count > 0)
             {
                 ddlGroups.DataSource = groups;
                 ddlGroups.DisplayMember = "GroupName";

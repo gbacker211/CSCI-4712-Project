@@ -105,7 +105,7 @@ namespace SoftwareConfigurationManagementDBApp
                                 {
                                     conn.Open();
                                     UpdateSoftware.CommandType = CommandType.StoredProcedure;
-                                    UpdateSoftware.Parameters.AddWithValue("@SoftwareID", obj.Software_ID);
+                                    UpdateSoftware.Parameters.AddWithValue("@SoftwareID", mSoftware.Software_ID);
                                     UpdateSoftware.Parameters.AddWithValue("@Classification", obj.Classification);
                                     UpdateSoftware.Parameters.AddWithValue("@DesignAuthority", obj.DesignAuthority);
                                     UpdateSoftware.Parameters.AddWithValue("@SystemName", obj.SystemName);
@@ -123,6 +123,9 @@ namespace SoftwareConfigurationManagementDBApp
                                 }
                             }
                         }
+
+                        MessageBox.Show("Software System has been updated");
+                        Close();
 
                         break;
                     }
