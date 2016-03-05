@@ -47,7 +47,6 @@
             this.btnAttrSubmit = new System.Windows.Forms.Button();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -70,6 +69,7 @@
             this.chkboxSoftDocAttr = new System.Windows.Forms.CheckBox();
             this.chkboxCIAttr = new System.Windows.Forms.CheckBox();
             this.chkboxCIDocAttr = new System.Windows.Forms.CheckBox();
+            this.label20 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtCIDocDesAttr
@@ -210,16 +210,6 @@
             this.label21.Size = new System.Drawing.Size(225, 33);
             this.label21.TabIndex = 59;
             this.label21.Text = "CI Documentation";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(890, 768);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(292, 23);
-            this.label20.TabIndex = 58;
-            this.label20.Text = "Continue without documentation:";
             // 
             // label19
             // 
@@ -438,6 +428,16 @@
             this.chkboxCIDocAttr.TabIndex = 79;
             this.chkboxCIDocAttr.UseVisualStyleBackColor = true;
             // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(890, 768);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(292, 23);
+            this.label20.TabIndex = 58;
+            this.label20.Text = "Continue without documentation:";
+            // 
             // Attribute_s_
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -512,7 +512,6 @@
         private System.Windows.Forms.Button btnAttrSubmit;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label15;
@@ -535,5 +534,6 @@
         private System.Windows.Forms.CheckBox chkboxSoftDocAttr;
         private System.Windows.Forms.CheckBox chkboxCIAttr;
         private System.Windows.Forms.CheckBox chkboxCIDocAttr;
+        private System.Windows.Forms.Label label20;
     }
 }
