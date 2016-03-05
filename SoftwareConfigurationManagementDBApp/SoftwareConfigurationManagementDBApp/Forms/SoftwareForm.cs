@@ -77,6 +77,8 @@ namespace SoftwareConfigurationManagementDBApp
                                 }
                             }
                         }
+                        MessageBox.Show("Software System has been added");
+                        Close();
 
                             break;
                     }
