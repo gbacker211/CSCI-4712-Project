@@ -39,8 +39,6 @@
             this.txtResponsibleEngineer = new System.Windows.Forms.TextBox();
             this.lblDesignAuthority = new System.Windows.Forms.Label();
             this.txtDesignAuthority = new System.Windows.Forms.TextBox();
-            this.lblManager = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.lblClass = new System.Windows.Forms.Label();
             this.cmbClass = new System.Windows.Forms.ComboBox();
             this.btnSubmit = new System.Windows.Forms.Button();
@@ -142,24 +140,6 @@
             this.txtDesignAuthority.Name = "txtDesignAuthority";
             this.txtDesignAuthority.Size = new System.Drawing.Size(199, 22);
             this.txtDesignAuthority.TabIndex = 9;
-            // 
-            // lblManager
-            // 
-            this.lblManager.AutoSize = true;
-            this.lblManager.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblManager.Location = new System.Drawing.Point(155, 359);
-            this.lblManager.Name = "lblManager";
-            this.lblManager.Size = new System.Drawing.Size(97, 25);
-            this.lblManager.TabIndex = 10;
-            this.lblManager.Text = "Manager";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(259, 361);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(199, 22);
-            this.textBox2.TabIndex = 11;
             // 
             // lblClass
             // 
@@ -263,8 +243,6 @@
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.cmbClass);
             this.Controls.Add(this.lblClass);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.lblManager);
             this.Controls.Add(this.txtDesignAuthority);
             this.Controls.Add(this.lblDesignAuthority);
             this.Controls.Add(this.txtResponsibleEngineer);
@@ -297,8 +275,6 @@
         private System.Windows.Forms.TextBox txtResponsibleEngineer;
         private System.Windows.Forms.Label lblDesignAuthority;
         private System.Windows.Forms.TextBox txtDesignAuthority;
-        private System.Windows.Forms.Label lblManager;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label lblClass;
         private System.Windows.Forms.ComboBox cmbClass;
         private System.Windows.Forms.Button btnSubmit;
