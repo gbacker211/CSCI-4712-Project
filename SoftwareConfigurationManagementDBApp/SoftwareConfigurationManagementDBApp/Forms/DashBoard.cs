@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using MSExcel =  Microsoft.Office.Interop.Excel;
 
 
 namespace SoftwareConfigurationManagementDBApp
@@ -152,6 +153,33 @@ namespace SoftwareConfigurationManagementDBApp
 
 
             return dt;
+        }
+
+        private void btnPrintReport_Click(object sender, EventArgs e)
+        {
+            copyGridData();
+            Microsoft.Office.Interop.Excel.Application xlexcel;
+            Microsoft.Office.Interop.Excel.Workbook xlWorkBook;
+            Microsoft.Office.Interop.Excel.Worksheet xlWorkSheet;
+            object misValue = System.Reflection.Missing.Value;
+            xlexcel = new MSExcel.Application();
+            xlexcel.Visible = true;
+            xlWorkBook = xlexcel.Workbooks.Add(misValue);
+            xlWorkSheet = (MSExcel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+            MSExcel.Range CR = (MSExcel.Range)xlWorkSheet.Cells[1, 1];
+            CR.Select();
+            xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
+        }
+
+        private void copyGridData()
+        {
+            dataGridView1.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
+            dataGridView1.MultiSelect = true;
+
+            dataGridView1.SelectAll();
+            DataObject dataObject = dataGridView1.GetClipboardContent();
+            if(dataObject != null)
+                Clipboard.SetDataObject(dataObject);
         }
     }
 }

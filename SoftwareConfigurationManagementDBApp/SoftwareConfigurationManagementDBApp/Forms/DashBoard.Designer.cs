@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashBoard));
             this.btnLogOut = new System.Windows.Forms.Button();
             this.viewlb = new System.Windows.Forms.Label();
             this.cmbDataViews = new System.Windows.Forms.ComboBox();
@@ -84,7 +85,7 @@
             // 
             // btnViewAttr
             // 
-            this.btnViewAttr.Location = new System.Drawing.Point(215, 572);
+            this.btnViewAttr.Location = new System.Drawing.Point(214, 572);
             this.btnViewAttr.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnViewAttr.Name = "btnViewAttr";
             this.btnViewAttr.Size = new System.Drawing.Size(129, 48);
@@ -94,7 +95,7 @@
             // 
             // btnDeleteAttr
             // 
-            this.btnDeleteAttr.Location = new System.Drawing.Point(215, 469);
+            this.btnDeleteAttr.Location = new System.Drawing.Point(214, 469);
             this.btnDeleteAttr.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnDeleteAttr.Name = "btnDeleteAttr";
             this.btnDeleteAttr.Size = new System.Drawing.Size(129, 71);
@@ -104,7 +105,7 @@
             // 
             // btnEditAttr
             // 
-            this.btnEditAttr.Location = new System.Drawing.Point(215, 398);
+            this.btnEditAttr.Location = new System.Drawing.Point(214, 398);
             this.btnEditAttr.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnEditAttr.Name = "btnEditAttr";
             this.btnEditAttr.Size = new System.Drawing.Size(129, 48);
@@ -114,7 +115,7 @@
             // 
             // btnAddAttr
             // 
-            this.btnAddAttr.Location = new System.Drawing.Point(215, 320);
+            this.btnAddAttr.Location = new System.Drawing.Point(214, 320);
             this.btnAddAttr.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAddAttr.Name = "btnAddAttr";
             this.btnAddAttr.Size = new System.Drawing.Size(129, 48);
@@ -176,8 +177,12 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(505, 129);
+            this.dataGridView1.Location = new System.Drawing.Point(447, 171);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(1149, 760);
@@ -196,13 +201,14 @@
             // 
             // btnPrintReport
             // 
-            this.btnPrintReport.Location = new System.Drawing.Point(215, 655);
-            this.btnPrintReport.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnPrintReport.Location = new System.Drawing.Point(214, 655);
+            this.btnPrintReport.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.btnPrintReport.Name = "btnPrintReport";
             this.btnPrintReport.Size = new System.Drawing.Size(129, 48);
             this.btnPrintReport.TabIndex = 41;
             this.btnPrintReport.Text = "Print Report";
             this.btnPrintReport.UseVisualStyleBackColor = true;
+            this.btnPrintReport.Click += new System.EventHandler(this.btnPrintReport_Click);
             // 
             // DashBoard
             // 
@@ -224,6 +230,7 @@
             this.Controls.Add(this.btnDeleteSoft);
             this.Controls.Add(this.btnEditSoftw);
             this.Controls.Add(this.btnAddSoftw);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "DashBoard";
             this.Text = "DashBoard";
