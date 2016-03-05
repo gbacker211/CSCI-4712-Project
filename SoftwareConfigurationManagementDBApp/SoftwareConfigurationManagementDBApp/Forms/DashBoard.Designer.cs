@@ -49,9 +49,10 @@
             // 
             // btnLogOut
             // 
-            this.btnLogOut.Location = new System.Drawing.Point(104, 563);
+            this.btnLogOut.Location = new System.Drawing.Point(156, 866);
+            this.btnLogOut.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.Size = new System.Drawing.Size(86, 31);
+            this.btnLogOut.Size = new System.Drawing.Size(129, 48);
             this.btnLogOut.TabIndex = 38;
             this.btnLogOut.Text = "Log Out";
             this.btnLogOut.UseVisualStyleBackColor = true;
@@ -61,9 +62,10 @@
             // 
             this.viewlb.AutoSize = true;
             this.viewlb.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.viewlb.Location = new System.Drawing.Point(99, 103);
+            this.viewlb.Location = new System.Drawing.Point(148, 158);
+            this.viewlb.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.viewlb.Name = "viewlb";
-            this.viewlb.Size = new System.Drawing.Size(63, 26);
+            this.viewlb.Size = new System.Drawing.Size(93, 41);
             this.viewlb.TabIndex = 37;
             this.viewlb.Text = "View";
             // 
@@ -74,80 +76,89 @@
             this.cmbDataViews.Items.AddRange(new object[] {
             "Software Overview",
             "Software View"});
-            this.cmbDataViews.Location = new System.Drawing.Point(57, 147);
+            this.cmbDataViews.Location = new System.Drawing.Point(86, 226);
+            this.cmbDataViews.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmbDataViews.Name = "cmbDataViews";
-            this.cmbDataViews.Size = new System.Drawing.Size(155, 21);
+            this.cmbDataViews.Size = new System.Drawing.Size(230, 28);
             this.cmbDataViews.TabIndex = 36;
             this.cmbDataViews.SelectedIndexChanged += new System.EventHandler(this.selectView);
             // 
             // btnViewAttr
             // 
-            this.btnViewAttr.Location = new System.Drawing.Point(143, 372);
+            this.btnViewAttr.Location = new System.Drawing.Point(214, 572);
+            this.btnViewAttr.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnViewAttr.Name = "btnViewAttr";
-            this.btnViewAttr.Size = new System.Drawing.Size(86, 31);
+            this.btnViewAttr.Size = new System.Drawing.Size(129, 48);
             this.btnViewAttr.TabIndex = 35;
             this.btnViewAttr.Text = "View Attributes";
             this.btnViewAttr.UseVisualStyleBackColor = true;
             // 
             // btnDeleteAttr
             // 
-            this.btnDeleteAttr.Location = new System.Drawing.Point(143, 305);
+            this.btnDeleteAttr.Location = new System.Drawing.Point(214, 469);
+            this.btnDeleteAttr.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnDeleteAttr.Name = "btnDeleteAttr";
-            this.btnDeleteAttr.Size = new System.Drawing.Size(86, 46);
+            this.btnDeleteAttr.Size = new System.Drawing.Size(129, 71);
             this.btnDeleteAttr.TabIndex = 34;
             this.btnDeleteAttr.Text = "Delete Attribute";
             this.btnDeleteAttr.UseVisualStyleBackColor = true;
             // 
             // btnEditAttr
             // 
-            this.btnEditAttr.Location = new System.Drawing.Point(143, 259);
+            this.btnEditAttr.Location = new System.Drawing.Point(214, 398);
+            this.btnEditAttr.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnEditAttr.Name = "btnEditAttr";
-            this.btnEditAttr.Size = new System.Drawing.Size(86, 31);
+            this.btnEditAttr.Size = new System.Drawing.Size(129, 48);
             this.btnEditAttr.TabIndex = 33;
             this.btnEditAttr.Text = "Edit Attribute";
             this.btnEditAttr.UseVisualStyleBackColor = true;
             // 
             // btnAddAttr
             // 
-            this.btnAddAttr.Location = new System.Drawing.Point(143, 208);
+            this.btnAddAttr.Location = new System.Drawing.Point(214, 320);
+            this.btnAddAttr.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAddAttr.Name = "btnAddAttr";
-            this.btnAddAttr.Size = new System.Drawing.Size(86, 31);
+            this.btnAddAttr.Size = new System.Drawing.Size(129, 48);
             this.btnAddAttr.TabIndex = 32;
             this.btnAddAttr.Text = "Add Attribute";
             this.btnAddAttr.UseVisualStyleBackColor = true;
             // 
             // btnEditUser
             // 
-            this.btnEditUser.Location = new System.Drawing.Point(30, 426);
+            this.btnEditUser.Location = new System.Drawing.Point(45, 655);
+            this.btnEditUser.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnEditUser.Name = "btnEditUser";
-            this.btnEditUser.Size = new System.Drawing.Size(86, 31);
+            this.btnEditUser.Size = new System.Drawing.Size(129, 48);
             this.btnEditUser.TabIndex = 31;
             this.btnEditUser.Text = "Edit User";
             this.btnEditUser.UseVisualStyleBackColor = true;
             // 
             // btnAddUser
             // 
-            this.btnAddUser.Location = new System.Drawing.Point(30, 372);
+            this.btnAddUser.Location = new System.Drawing.Point(45, 572);
+            this.btnAddUser.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAddUser.Name = "btnAddUser";
-            this.btnAddUser.Size = new System.Drawing.Size(86, 31);
+            this.btnAddUser.Size = new System.Drawing.Size(129, 48);
             this.btnAddUser.TabIndex = 30;
             this.btnAddUser.Text = "Add User";
             this.btnAddUser.UseVisualStyleBackColor = true;
             // 
             // btnDeleteSoft
             // 
-            this.btnDeleteSoft.Location = new System.Drawing.Point(30, 305);
+            this.btnDeleteSoft.Location = new System.Drawing.Point(45, 469);
+            this.btnDeleteSoft.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnDeleteSoft.Name = "btnDeleteSoft";
-            this.btnDeleteSoft.Size = new System.Drawing.Size(86, 46);
+            this.btnDeleteSoft.Size = new System.Drawing.Size(129, 71);
             this.btnDeleteSoft.TabIndex = 29;
             this.btnDeleteSoft.Text = "Delete Software";
             this.btnDeleteSoft.UseVisualStyleBackColor = true;
             // 
             // btnEditSoftw
             // 
-            this.btnEditSoftw.Location = new System.Drawing.Point(30, 259);
+            this.btnEditSoftw.Location = new System.Drawing.Point(45, 398);
+            this.btnEditSoftw.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnEditSoftw.Name = "btnEditSoftw";
-            this.btnEditSoftw.Size = new System.Drawing.Size(86, 31);
+            this.btnEditSoftw.Size = new System.Drawing.Size(129, 48);
             this.btnEditSoftw.TabIndex = 28;
             this.btnEditSoftw.Text = "Edit Software";
             this.btnEditSoftw.UseVisualStyleBackColor = true;
@@ -155,9 +166,10 @@
             // 
             // btnAddSoftw
             // 
-            this.btnAddSoftw.Location = new System.Drawing.Point(30, 208);
+            this.btnAddSoftw.Location = new System.Drawing.Point(45, 320);
+            this.btnAddSoftw.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAddSoftw.Name = "btnAddSoftw";
-            this.btnAddSoftw.Size = new System.Drawing.Size(86, 31);
+            this.btnAddSoftw.Size = new System.Drawing.Size(129, 48);
             this.btnAddSoftw.TabIndex = 27;
             this.btnAddSoftw.Text = "Add Software";
             this.btnAddSoftw.UseVisualStyleBackColor = true;
@@ -165,37 +177,44 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(337, 84);
+            this.dataGridView1.Location = new System.Drawing.Point(447, 171);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(766, 494);
+            this.dataGridView1.Size = new System.Drawing.Size(1149, 760);
             this.dataGridView1.TabIndex = 39;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(64, 9);
+            this.label1.Location = new System.Drawing.Point(96, 14);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(170, 36);
+            this.label1.Size = new System.Drawing.Size(257, 55);
             this.label1.TabIndex = 40;
             this.label1.Text = "DashBoard";
             // 
             // btnPrintReport
             // 
-            this.btnPrintReport.Location = new System.Drawing.Point(143, 426);
-            this.btnPrintReport.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnPrintReport.Location = new System.Drawing.Point(214, 655);
+            this.btnPrintReport.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.btnPrintReport.Name = "btnPrintReport";
-            this.btnPrintReport.Size = new System.Drawing.Size(86, 31);
+            this.btnPrintReport.Size = new System.Drawing.Size(129, 48);
             this.btnPrintReport.TabIndex = 41;
             this.btnPrintReport.Text = "Print Report";
             this.btnPrintReport.UseVisualStyleBackColor = true;
+            this.btnPrintReport.Click += new System.EventHandler(this.btnPrintReport_Click);
             // 
             // DashBoard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1126, 614);
+            this.ClientSize = new System.Drawing.Size(1689, 945);
             this.Controls.Add(this.btnPrintReport);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
@@ -212,6 +231,7 @@
             this.Controls.Add(this.btnEditSoftw);
             this.Controls.Add(this.btnAddSoftw);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "DashBoard";
             this.Text = "DashBoard";
             this.Load += new System.EventHandler(this.DashBoard_Load);
