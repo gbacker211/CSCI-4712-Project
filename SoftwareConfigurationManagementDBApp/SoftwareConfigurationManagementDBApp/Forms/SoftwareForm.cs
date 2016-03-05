@@ -24,21 +24,7 @@ namespace SoftwareConfigurationManagementDBApp
             InitializeComponent();
             mSoftware = aSoftware;
             mUser = aUser;
-            AddUpdate = aAddUpdate;
-        }
-
-        /// <summary>
-        ///     Property for AddUpdate
-        /// </summary>
-        public int AddUpdate
-        {
-            set
-            {
-                if (value > 0 && value < 3)
-                    value = mAddUpdate;
-            }
-            get { return mAddUpdate; }
-
+            mAddUpdate = aAddUpdate;
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -46,7 +32,7 @@ namespace SoftwareConfigurationManagementDBApp
             bool value = false;
             String connectionString = ConfigurationManager.ConnectionStrings["SCMDatabaseConnectionString"].ConnectionString;
 
-            switch (AddUpdate)
+            switch (mAddUpdate)
             {
                 case 1: // add
                     {
@@ -146,7 +132,16 @@ namespace SoftwareConfigurationManagementDBApp
 
         private void SoftwareForm_Load(object sender, EventArgs e)
         {
-            if ( AddUpdate == 2)
+            cmbClass.Items.Add("A");
+            cmbClass.Items.Add("B");
+            cmbClass.Items.Add("C");
+            cmbClass.Items.Add("D");
+            cmbClass.Items.Add("SC");
+            cmbClass.Items.Add("SS");
+            cmbClass.Items.Add("PC");
+            cmbClass.Items.Add("GS");
+
+            if ( mAddUpdate == 2)
             {
                 txtSoftwareName.Text = mSoftware.SoftwareName;
                 txtSystemName.Text = mSoftware.SystemName;
