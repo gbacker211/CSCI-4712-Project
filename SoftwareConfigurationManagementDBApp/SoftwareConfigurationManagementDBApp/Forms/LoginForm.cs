@@ -80,5 +80,10 @@ namespace SoftwareConfigurationManagementDBApp
         {
 
         }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+            txtPassword.PasswordChar = '*';
+        }
     }
 }
