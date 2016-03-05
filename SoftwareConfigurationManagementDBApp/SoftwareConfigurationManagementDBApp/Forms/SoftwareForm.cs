@@ -19,10 +19,11 @@ namespace SoftwareConfigurationManagementDBApp
         User mUser;
         private int mAddUpdate;
 
-        public SoftwareForm(Software aSoftware, int aAddUpdate)
+        public SoftwareForm(Software aSoftware, User aUser,int aAddUpdate)
         {
             InitializeComponent();
             mSoftware = aSoftware;
+            mUser = aUser;
             AddUpdate = aAddUpdate;
         }
 

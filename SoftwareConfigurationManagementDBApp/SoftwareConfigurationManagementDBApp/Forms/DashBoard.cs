@@ -55,14 +55,14 @@ namespace SoftwareConfigurationManagementDBApp
         private void btnAddSoftw_Click(object sender, EventArgs e)
         {
             Software aSoftware = new Software();
-            Form aNewSoftware = new SoftwareForm(aSoftware, 1);
+            Form aNewSoftware = new SoftwareForm(aSoftware, userInfo, 1);
             aNewSoftware.Show();
         }
 
         private void btnEditSoftw_Click(object sender, EventArgs e)
         {
             Software aSoftware = new Software();
-            Form aNewSoftware = new SoftwareForm(aSoftware, 2);
+            Form aNewSoftware = new SoftwareForm(aSoftware, userInfo, 2);
             aNewSoftware.Show();
         }
 
