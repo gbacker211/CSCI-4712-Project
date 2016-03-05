@@ -78,14 +78,40 @@ namespace SoftwareConfigurationManagementDBApp
 
         private void btnEditSoftw_Click(object sender, EventArgs e)
         {
-            Software aSoftware = new Software();
-            Form aNewSoftware = new SoftwareForm(aSoftware, userInfo, 2);
-            aNewSoftware.Show();
+            if (dataGridView1.SelectedRows.Count > 0 && cmbDataViews.SelectedIndex == 0)
+            {
+
+
+                var aSoftware = new Software()
+                {
+                    SoftwareName = dataGridView1.SelectedRows[0].Cells[0].Value.ToString(),
+                    Classification = dataGridView1.SelectedRows[0].Cells[1].Value.ToString(),
+                    DesignAuthority = dataGridView1.SelectedRows[0].Cells[3].Value.ToString(),
+                    Description = dataGridView1.SelectedRows[0].Cells[2].Value.ToString(),
+                    ResponsibleEngineer = dataGridView1.SelectedRows[0].Cells[4].Value.ToString(),
+                    SystemName = dataGridView1.SelectedRows[0].Cells[5].Value.ToString(),
+                    Owner = dataGridView1.SelectedRows[0].Cells[6].Value.ToString(),
+                    Group = dataGridView1.SelectedRows[0].Cells[7].Value.ToString(),
+                    Software_ID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[8].Value.ToString())
+                };
+
+                
+
+                Form aNewSoftware = new SoftwareForm(aSoftware, userInfo, 2);
+                aNewSoftware.Show();
+            }
+            else
+            {
+                MessageBox.Show("No Software Selected or Software Overview is not selected", "Error", MessageBoxButtons.OK);
+            }
+
+          
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
             this.Close();
+
 
         }
 
@@ -196,6 +222,40 @@ namespace SoftwareConfigurationManagementDBApp
             DataObject dataObject = dataGridView1.GetClipboardContent();
             if(dataObject != null)
                 Clipboard.SetDataObject(dataObject);
+        }
+
+        private void btnDeleteSoft_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count == 0 || dataGridView1.SelectedRows.Count < 2)
+            {
+                DeleteSoftware(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[8].Value.ToString()));
+            }
+            else
+            {
+                MessageBox.Show("Must select one row to delete software", "Error", MessageBoxButtons.OK);
+            }
+        }
+
+        private void DeleteSoftware(int SoftwareID)
+        {
+            bool value;
+
+            String connectionString =
+              ConfigurationManager.ConnectionStrings["SCMDatabaseConnectionString"].ConnectionString;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = new SqlCommand("usp_Delete_Software", connection))
+                {
+                    connection.Open();
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@SoftwareID", SoftwareID);
+
+
+                    int success = command.ExecuteNonQuery();
+                    value = Convert.ToBoolean(success);
+                }
+            }
+
         }
     }
 }

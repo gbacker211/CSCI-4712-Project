@@ -154,6 +154,7 @@
             this.btnDeleteSoft.TabIndex = 29;
             this.btnDeleteSoft.Text = "Delete Software";
             this.btnDeleteSoft.UseVisualStyleBackColor = true;
+            this.btnDeleteSoft.Click += new System.EventHandler(this.btnDeleteSoft_Click);
             // 
             // btnEditSoftw
             // 

@@ -112,7 +112,7 @@ namespace SoftwareConfigurationManagementDBApp
                                     UpdateSoftware.Parameters.AddWithValue("@Engineer", obj.ResponsibleEngineer);
                                     UpdateSoftware.Parameters.AddWithValue("@Description", obj.Description);
                                     UpdateSoftware.Parameters.AddWithValue("@Owner", obj.Owner);
-                                    UpdateSoftware.Parameters.AddWithValue("@MangingName", obj.Group);
+                                    UpdateSoftware.Parameters.AddWithValue("@MangingGroup", obj.Group);
 
                                     int success = UpdateSoftware.ExecuteNonQuery();
                                     value = Convert.ToBoolean(success);
@@ -134,14 +134,14 @@ namespace SoftwareConfigurationManagementDBApp
 
         private void SoftwareForm_Load(object sender, EventArgs e)
         {
-            cmbClass.Items.Add("A");
-            cmbClass.Items.Add("B");
-            cmbClass.Items.Add("C");
-            cmbClass.Items.Add("D");
-            cmbClass.Items.Add("SC");
-            cmbClass.Items.Add("SS");
-            cmbClass.Items.Add("PC");
-            cmbClass.Items.Add("GS");
+            cmbClass.Items.Add("A ");
+            cmbClass.Items.Add("B ");
+            cmbClass.Items.Add("C ");
+            cmbClass.Items.Add("D ");
+            cmbClass.Items.Add("SC ");
+            cmbClass.Items.Add("SS ");
+            cmbClass.Items.Add("PC ");
+            cmbClass.Items.Add("GS ");
 
             if ( mAddUpdate == 2)
             {
@@ -149,9 +149,11 @@ namespace SoftwareConfigurationManagementDBApp
                 txtSystemName.Text = mSoftware.SystemName;
                 txtDesignAuthority.Text = mSoftware.DesignAuthority;
                 txtGroup.Text = mSoftware.Group;
+                txtOwner.Text = mSoftware.Owner;
                 txtResponsibleEngineer.Text = mSoftware.ResponsibleEngineer;
                 txtSoftwareDescription.Text = mSoftware.Description;
-                cmbClass.SelectedItem = mSoftware.Classification;
+                string ClassificationSelection = mSoftware.Classification;
+                cmbClass.SelectedIndex = cmbClass.Items.IndexOf(ClassificationSelection);
             }
         }
     }
