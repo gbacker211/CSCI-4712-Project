@@ -40,26 +40,27 @@ namespace SoftwareConfigurationManagementDBApp
                         cmd.Parameters.AddWithValue("@UserName", txtUsername.Text);
                         cmd.Parameters.AddWithValue("@PassWoard", txtPassword.Text);
                         User aUser = new User();
-                        DataTable dt = new DataTable();
+                        DataSet ds = new DataSet();
+                     //   DataTable dt = new DataTable();
 
                         using (SqlDataAdapter getData = new SqlDataAdapter(cmd))
                         {
-                            getData.Fill(dt);
+                            getData.Fill(ds);
                         }
 
-                        if (dt.Rows.Count > 0)
+                        if (ds.Tables[0].Rows.Count > 0)
                         {
-                            aUser.User_ID = Convert.ToInt32(dt.Rows[0][1].ToString());
-                            aUser.AccessGroup = Convert.ToInt32(dt.Rows[0][0].ToString());
-                            if (dt.Columns.Count > 2)
+                               DataTable groups = new DataTable();
+                            aUser.User_ID = Convert.ToInt32(ds.Tables[0].Rows[0][1].ToString());
+                            aUser.AccessGroup = Convert.ToInt32(ds.Tables[0].Rows[0][0].ToString());
+                            if (ds.Tables[1].Rows.Count > 0)
                             {
-                                aUser.GroupName = dt.Rows[0][2].ToString();
-                                aUser.GroupID = Convert.ToInt32(dt.Rows[0][3].ToString());
+                                 groups = ds.Tables[1];
                             }
 
                             this.Hide();
                             DashBoard dashBoard = new DashBoard();
-                           dashBoard.ShowDashBoard(aUser);
+                           dashBoard.ShowDashBoard(aUser,groups);
                         }
                         else
                         {

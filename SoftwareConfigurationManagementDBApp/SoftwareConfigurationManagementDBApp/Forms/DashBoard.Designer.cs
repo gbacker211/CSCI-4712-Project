@@ -44,6 +44,8 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.btnPrintReport = new System.Windows.Forms.Button();
+            this.ddlGroups = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,7 +64,7 @@
             // 
             this.viewlb.AutoSize = true;
             this.viewlb.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.viewlb.Location = new System.Drawing.Point(148, 158);
+            this.viewlb.Location = new System.Drawing.Point(149, 144);
             this.viewlb.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.viewlb.Name = "viewlb";
             this.viewlb.Size = new System.Drawing.Size(93, 41);
@@ -210,11 +212,31 @@
             this.btnPrintReport.UseVisualStyleBackColor = true;
             this.btnPrintReport.Click += new System.EventHandler(this.btnPrintReport_Click);
             // 
+            // ddlGroups
+            // 
+            this.ddlGroups.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlGroups.FormattingEnabled = true;
+            this.ddlGroups.Location = new System.Drawing.Point(180, 188);
+            this.ddlGroups.Name = "ddlGroups";
+            this.ddlGroups.Size = new System.Drawing.Size(121, 28);
+            this.ddlGroups.TabIndex = 42;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(67, 191);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(107, 20);
+            this.label2.TabIndex = 43;
+            this.label2.Text = "Select Group:";
+            // 
             // DashBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1689, 945);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.ddlGroups);
             this.Controls.Add(this.btnPrintReport);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
@@ -258,5 +280,7 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnPrintReport;
+        private System.Windows.Forms.ComboBox ddlGroups;
+        private System.Windows.Forms.Label label2;
     }
 }

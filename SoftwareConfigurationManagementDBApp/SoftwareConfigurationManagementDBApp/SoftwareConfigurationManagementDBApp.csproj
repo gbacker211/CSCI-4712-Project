@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data Objects\Attributes.cs" />
+    <Compile Include="Data Objects\Groups.cs" />
     <Compile Include="Forms\AddUser.cs">
       <SubType>Form</SubType>
     </Compile>

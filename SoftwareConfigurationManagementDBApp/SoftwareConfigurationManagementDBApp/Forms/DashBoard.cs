@@ -23,8 +23,17 @@ namespace SoftwareConfigurationManagementDBApp
             InitializeComponent();
         }
 
-        public void ShowDashBoard(User aUser)
+        public void ShowDashBoard(User aUser, DataTable groups)
         {
+            if (groups != null)
+            {
+                ddlGroups.DataSource = groups;
+                ddlGroups.DisplayMember = "GroupName";
+                ddlGroups.ValueMember = "ID";
+                
+
+
+            }
             userInfo = aUser;
             this.ShowDialog();
         }
@@ -36,6 +45,8 @@ namespace SoftwareConfigurationManagementDBApp
 
         private void selectView(object sender, EventArgs e)
         {
+            if(ddlGroups.SelectedValue != null)
+            { 
             int viewSelection = Convert.ToInt32(cmbDataViews.SelectedIndex);
             switch (viewSelection)
             {
@@ -49,6 +60,11 @@ namespace SoftwareConfigurationManagementDBApp
                 default:
                     break;
 
+            }
+            }
+            else
+            {
+                MessageBox.Show("Must Select a Group First", "ERROR!", MessageBoxButtons.OK);
             }
            
         }
@@ -101,7 +117,7 @@ namespace SoftwareConfigurationManagementDBApp
                 {
                     connect.Open();
                     command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@GroupID", userInfo.GroupID);
+                    command.Parameters.AddWithValue("@GroupID", Convert.ToInt32(ddlGroups.SelectedValue.ToString()));
 
                     using (SqlDataAdapter getData = new SqlDataAdapter(command))
                     {
@@ -135,7 +151,7 @@ namespace SoftwareConfigurationManagementDBApp
                 {
                     connect.Open();
                     command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@GroupID", userInfo.GroupID);
+                    command.Parameters.AddWithValue("@GroupID", Convert.ToInt32(ddlGroups.SelectedValue.ToString()));
 
                     using (SqlDataAdapter getData = new SqlDataAdapter(command))
                     {
