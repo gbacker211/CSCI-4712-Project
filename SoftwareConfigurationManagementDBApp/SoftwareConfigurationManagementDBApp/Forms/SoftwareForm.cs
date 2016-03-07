@@ -18,13 +18,15 @@ namespace SoftwareConfigurationManagementDBApp
         Software mSoftware;
         User mUser;
         private int mAddUpdate;
+        private DashBoard myDashBoard;
 
-        public SoftwareForm(Software aSoftware, User aUser,int aAddUpdate)
+        public SoftwareForm(Software aSoftware, User aUser,int aAddUpdate, DashBoard aDashBoard)
         {
             InitializeComponent();
             mSoftware = aSoftware;
             mUser = aUser;
             mAddUpdate = aAddUpdate;
+            myDashBoard = aDashBoard;
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -78,6 +80,7 @@ namespace SoftwareConfigurationManagementDBApp
                             }
                         }
                         MessageBox.Show("Software System has been added");
+                        myDashBoard.UpdateGrid(sender, e);
                         Close();
 
                             break;
@@ -86,14 +89,14 @@ namespace SoftwareConfigurationManagementDBApp
                     {
                         var obj = new Software()
                         {
-                            SoftwareName = txtSoftwareName.Text,
-                            SystemName = txtSystemName.Text,
-                            Group = txtGroup.Text,
-                            Owner = txtOwner.Text,
-                            Classification = cmbClass.SelectedItem.ToString(),
-                            ResponsibleEngineer = txtResponsibleEngineer.Text,
-                            Description = txtSoftwareDescription.Text,
-                            DesignAuthority = txtDesignAuthority.Text
+                            SoftwareName = txtSoftwareName.Text.Trim(),
+                            SystemName = txtSystemName.Text.Trim(),
+                            Group = txtGroup.Text.Trim(),
+                            Owner = txtOwner.Text.Trim(),
+                            Classification = cmbClass.SelectedItem.ToString().Trim(),
+                            ResponsibleEngineer = txtResponsibleEngineer.Text.Trim(),
+                            Description = txtSoftwareDescription.Text.Trim(),
+                            DesignAuthority = txtDesignAuthority.Text.Trim()
                         };
                         // ADD DB CODE //
 
@@ -107,6 +110,7 @@ namespace SoftwareConfigurationManagementDBApp
                                     UpdateSoftware.CommandType = CommandType.StoredProcedure;
                                     UpdateSoftware.Parameters.AddWithValue("@SoftwareID", mSoftware.Software_ID);
                                     UpdateSoftware.Parameters.AddWithValue("@Classification", obj.Classification);
+                                    UpdateSoftware.Parameters.AddWithValue("@Name", obj.SoftwareName);
                                     UpdateSoftware.Parameters.AddWithValue("@DesignAuthority", obj.DesignAuthority);
                                     UpdateSoftware.Parameters.AddWithValue("@SystemName", obj.SystemName);
                                     UpdateSoftware.Parameters.AddWithValue("@Engineer", obj.ResponsibleEngineer);
@@ -125,6 +129,7 @@ namespace SoftwareConfigurationManagementDBApp
                         }
 
                         MessageBox.Show("Software System has been updated");
+                        myDashBoard.UpdateGrid(sender, e);
                         Close();
 
                         break;

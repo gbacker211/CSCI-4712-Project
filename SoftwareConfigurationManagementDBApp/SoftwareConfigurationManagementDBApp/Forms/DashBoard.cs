@@ -72,7 +72,7 @@ namespace SoftwareConfigurationManagementDBApp
         private void btnAddSoftw_Click(object sender, EventArgs e)
         {
             Software aSoftware = new Software();
-            Form aNewSoftware = new SoftwareForm(aSoftware, userInfo, 1);
+            Form aNewSoftware = new SoftwareForm(aSoftware, userInfo, 1, this);
             aNewSoftware.Show();
         }
 
@@ -97,7 +97,7 @@ namespace SoftwareConfigurationManagementDBApp
 
                 
 
-                Form aNewSoftware = new SoftwareForm(aSoftware, userInfo, 2);
+                Form aNewSoftware = new SoftwareForm(aSoftware, userInfo, 2, this);
                 aNewSoftware.Show();
             }
             else
@@ -111,7 +111,8 @@ namespace SoftwareConfigurationManagementDBApp
         private void btnLogOut_Click(object sender, EventArgs e)
         {
             this.Close();
-
+            //temp
+           
 
         }
 
@@ -229,6 +230,7 @@ namespace SoftwareConfigurationManagementDBApp
             if (dataGridView1.SelectedRows.Count == 0 || dataGridView1.SelectedRows.Count < 2)
             {
                 DeleteSoftware(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[8].Value.ToString()));
+                UpdateGrid(sender,e);
             }
             else
             {
@@ -256,6 +258,11 @@ namespace SoftwareConfigurationManagementDBApp
                 }
             }
 
+        }
+
+        public void UpdateGrid(object sender, EventArgs e)
+        {
+            selectView(sender, e);
         }
     }
 }
