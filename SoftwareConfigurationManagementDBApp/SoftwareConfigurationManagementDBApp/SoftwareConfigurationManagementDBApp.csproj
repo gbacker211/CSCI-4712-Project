@@ -64,6 +64,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Crontrollers\AttrubuteControl.cs" />
+    <Compile Include="Crontrollers\DisplayControl.cs" />
+    <Compile Include="Crontrollers\LoginControl.cs" />
+    <Compile Include="Crontrollers\LogoutControl.cs" />
+    <Compile Include="Crontrollers\PrintControl.cs" />
+    <Compile Include="Crontrollers\SoftwareControl.cs" />
+    <Compile Include="Crontrollers\UserControl.cs" />
     <Compile Include="Data Objects\Attributes.cs" />
     <Compile Include="Data Objects\Groups.cs" />
     <Compile Include="Forms\AddUser.cs">
