@@ -51,11 +51,11 @@ namespace SoftwareConfigurationManagementDBApp
             switch (viewSelection)
             {
                 case 0:
-                    dataGridView1.DataSource = GetSoftwareOverview();
+                    dataGridView1.DataSource = ViewSoftwareOverview();
                     dataGridView1.Columns[8].Visible = false;
                     break;
                 case 1:
-                    dataGridView1.DataSource = GetSoftwareView();
+                    dataGridView1.DataSource = ViewSoftwareView();
                     break;
                 default:
                     break;
@@ -128,72 +128,38 @@ namespace SoftwareConfigurationManagementDBApp
 
         }
 
-        //TODO: Place the following into the ViewController Class
+       
 
-        private DataTable GetSoftwareOverview()
+        private DataTable ViewSoftwareOverview()
         {
             DataTable dt = new DataTable();
 
+            DisplayControl displayData = new DisplayControl();
+            dt = displayData.GetSoftwareOverview(Convert.ToInt32(ddlGroups.SelectedValue.ToString()));
 
-            String connectionString =
-                ConfigurationManager.ConnectionStrings["SCMDatabaseConnectionString"].ConnectionString;
-
-            using (SqlConnection connect = new SqlConnection(connectionString))
+            if (dt.Rows.Count == 0)
             {
-                using (SqlCommand command = new SqlCommand("usp_Select_SoftwareOverview", connect))
-                {
-                    connect.Open();
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@GroupID", Convert.ToInt32(ddlGroups.SelectedValue.ToString()));
-
-                    using (SqlDataAdapter getData = new SqlDataAdapter(command))
-                    {
-                        getData.Fill(dt);
-                    }
-
-                    if (dt.Rows.Count == 0)
-                    {
-                        MessageBox.Show("There is no software for your group, please contact Administrator", "Error!",
-                            MessageBoxButtons.OK);
-                    }
-
-                }
+                MessageBox.Show("There is no software for your group, please contact Administrator", "Error!",
+                    MessageBoxButtons.OK);
             }
 
 
             return dt;
+
         }
 
-        private DataTable GetSoftwareView()
+        private DataTable ViewSoftwareView()
         {
             DataTable dt = new DataTable();
+            DisplayControl displayData = new DisplayControl();
 
+            dt = displayData.GetSoftwareView(Convert.ToInt32(ddlGroups.SelectedValue.ToString()));
 
-            String connectionString =
-                ConfigurationManager.ConnectionStrings["SCMDatabaseConnectionString"].ConnectionString;
-
-            using (SqlConnection connect = new SqlConnection(connectionString))
+            if (dt.Rows.Count == 0)
             {
-                using (SqlCommand command = new SqlCommand("usp_Select_SoftwareView", connect))
-                {
-                    connect.Open();
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@GroupID", Convert.ToInt32(ddlGroups.SelectedValue.ToString()));
-
-                    using (SqlDataAdapter getData = new SqlDataAdapter(command))
-                    {
-                        getData.Fill(dt);
-                    }
-
-                    if (dt.Rows.Count == 0)
-                    {
-                        MessageBox.Show("There is no software for your group, please contact Administrator", "Error!",
-                            MessageBoxButtons.OK);
-                    }
-
-                }
+                MessageBox.Show("There is no software for your group, please contact Administrator", "Error!",
+                   MessageBoxButtons.OK);
             }
-
 
             return dt;
         }
@@ -227,9 +193,18 @@ namespace SoftwareConfigurationManagementDBApp
 
         private void btnDeleteSoft_Click(object sender, EventArgs e)
         {
+            SoftwareControl software = new SoftwareControl();
+
             if (dataGridView1.SelectedRows.Count == 0 || dataGridView1.SelectedRows.Count < 2)
             {
-                DeleteSoftware(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[8].Value.ToString()));
+                if (software.DeleteSoftware(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[8].Value.ToString())))
+                {
+                    MessageBox.Show("Software has been successfully deleted", "Error!", MessageBoxButtons.OK);
+                }
+                else
+                {
+                    MessageBox.Show("Failure has occured", "Error!", MessageBoxButtons.OK);
+                }
                 UpdateGrid(sender,e);
             }
             else
@@ -238,27 +213,7 @@ namespace SoftwareConfigurationManagementDBApp
             }
         }
 
-        private void DeleteSoftware(int SoftwareID)
-        {
-            bool value;
-
-            String connectionString =
-              ConfigurationManager.ConnectionStrings["SCMDatabaseConnectionString"].ConnectionString;
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                using (SqlCommand command = new SqlCommand("usp_Delete_Software", connection))
-                {
-                    connection.Open();
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@SoftwareID", SoftwareID);
-
-
-                    int success = command.ExecuteNonQuery();
-                    value = Convert.ToBoolean(success);
-                }
-            }
-
-        }
+      
 
         public void UpdateGrid(object sender, EventArgs e)
         {
