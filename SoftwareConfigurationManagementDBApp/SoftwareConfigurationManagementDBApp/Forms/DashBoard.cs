@@ -23,18 +23,13 @@ namespace SoftwareConfigurationManagementDBApp
             InitializeComponent();
         }
 
-        public void ShowDashBoard(User aUser, DataTable groups)
+        public void ShowDashBoard(User aUser)
         {
-            if (groups.Rows.Count > 0)
-            {
-                ddlGroups.DataSource = groups;
-                ddlGroups.DisplayMember = "GroupName";
-                ddlGroups.ValueMember = "ID";
-                
-
-
-            }
+            
             userInfo = aUser;
+
+
+
             this.ShowDialog();
         }
 
@@ -126,6 +121,8 @@ namespace SoftwareConfigurationManagementDBApp
                 cmbDataViews.Items.Add("Software View");
             }
 
+            UpdateGroups(sender, e);
+
         }
 
        
@@ -213,11 +210,33 @@ namespace SoftwareConfigurationManagementDBApp
             }
         }
 
-      
+       
 
         public void UpdateGrid(object sender, EventArgs e)
         {
             selectView(sender, e);
+            UpdateGroups(sender, e);
+        }
+
+        private void UpdateGroups(object sender, EventArgs e)
+        {
+            //TODO: Move to DisplayController
+            DataTable dt = new DataTable();
+
+            DisplayControl displayOperation = new DisplayControl();
+
+            dt = displayOperation.GetGroups(userInfo);
+
+
+            if (dt.Rows.Count > 0)
+            {
+                ddlGroups.DataSource = dt;
+                ddlGroups.DisplayMember = "GroupName";
+                ddlGroups.ValueMember = "ID";
+            }
+
+
+            
         }
     }
 }

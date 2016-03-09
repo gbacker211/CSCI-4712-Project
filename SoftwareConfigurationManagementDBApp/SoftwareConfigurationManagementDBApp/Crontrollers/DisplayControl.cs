@@ -33,7 +33,7 @@ namespace SoftwareConfigurationManagementDBApp
                         getData.Fill(dt);
                     }
 
-                  
+
 
                 }
             }
@@ -63,11 +63,38 @@ namespace SoftwareConfigurationManagementDBApp
                         getData.Fill(dt);
                     }
 
-                 }
+                }
             }
 
 
             return dt;
         }
-    }
+
+        public DataTable GetGroups(User userInfo)
+        {
+            DataTable dt = new DataTable();
+
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SCMDatabaseConnectionString"].ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand("usp_Select_GroupsByUserID", conn))
+                {
+                    conn.Open();
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@UserID", userInfo.User_ID);
+                    using (SqlDataAdapter dataOperation = new SqlDataAdapter(command))
+                    {
+                        dataOperation.Fill(dt);
+                    }
+
+
+
+
+
+                }
+            }
+
+            return dt;
+        }
+
+}
 }
