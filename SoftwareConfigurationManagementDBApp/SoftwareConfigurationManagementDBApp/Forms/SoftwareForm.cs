@@ -31,16 +31,12 @@ namespace SoftwareConfigurationManagementDBApp
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            bool value = false;
-            String connectionString = ConfigurationManager.ConnectionStrings["SCMDatabaseConnectionString"].ConnectionString;
-
             switch (mAddUpdate)
             {
                 case 1: // add
                     {
                         var obj = new Software()
                         {
-                            Software_ID = 1,
                             SoftwareName = txtSoftwareName.Text,
                             SystemName = txtSystemName.Text,
                             Group = txtGroup.Text,
@@ -52,36 +48,21 @@ namespace SoftwareConfigurationManagementDBApp
                         };
                         // Add DB Code // 
 
-                        using (SqlConnection conn = new SqlConnection(connectionString))
-                        {
-                            using (SqlCommand AddSoftware = new SqlCommand("usp_Insert_NewSoftware", conn))
-                            {
-                                try
-                                {
-                                    conn.Open();
-                                    AddSoftware.CommandType = CommandType.StoredProcedure;
-                                    AddSoftware.Parameters.AddWithValue("@SoftwareName", obj.SoftwareName);
-                                    AddSoftware.Parameters.AddWithValue("@Description", obj.Description);
-                                    AddSoftware.Parameters.AddWithValue("@Classification", obj.Classification);
-                                    AddSoftware.Parameters.AddWithValue("@SystemName", obj.SystemName);
-                                    AddSoftware.Parameters.AddWithValue("@Engineer", obj.ResponsibleEngineer);
-                                    AddSoftware.Parameters.AddWithValue("@Owner", obj.Owner);
-                                    AddSoftware.Parameters.AddWithValue("@DesignAuthority", obj.DesignAuthority);
-                                    AddSoftware.Parameters.AddWithValue("@GroupName", obj.Group);
-                                    AddSoftware.Parameters.AddWithValue("@UserId", mUser.User_ID);
+                        SoftwareControl softwareOperation = new SoftwareControl();
 
-                                    int success = AddSoftware.ExecuteNonQuery();
-                                    value = Convert.ToBoolean(success);
-                                }
-                                finally
-                                {
-                                    conn.Close();
-                                }
-                            }
+                        if (softwareOperation.AddNewSoftware(mUser, obj))
+                        {
+                            MessageBox.Show("Software System has been added");
+                            myDashBoard.UpdateGrid(sender, e);
+                            Close();
                         }
-                        MessageBox.Show("Software System has been added");
-                        myDashBoard.UpdateGrid(sender, e);
-                        Close();
+                        else
+                        {
+                            MessageBox.Show("Please contact Administrator", "ERROR!", MessageBoxButtons.OK);
+                        }
+
+                       
+                      
 
                             break;
                     }
@@ -89,6 +70,7 @@ namespace SoftwareConfigurationManagementDBApp
                     {
                         var obj = new Software()
                         {
+                            Software_ID = mSoftware.Software_ID,
                             SoftwareName = txtSoftwareName.Text.Trim(),
                             SystemName = txtSystemName.Text.Trim(),
                             Group = txtGroup.Text.Trim(),
@@ -100,37 +82,19 @@ namespace SoftwareConfigurationManagementDBApp
                         };
                         // ADD DB CODE //
 
-                        using (SqlConnection conn = new SqlConnection(connectionString))
+                       SoftwareControl softwareOperation = new SoftwareControl();
+
+                        if (softwareOperation.UpdateSoftware(obj))
                         {
-                            using (SqlCommand UpdateSoftware = new SqlCommand("usp_Update_Software", conn))
-                            {
-                                try
-                                {
-                                    conn.Open();
-                                    UpdateSoftware.CommandType = CommandType.StoredProcedure;
-                                    UpdateSoftware.Parameters.AddWithValue("@SoftwareID", mSoftware.Software_ID);
-                                    UpdateSoftware.Parameters.AddWithValue("@Classification", obj.Classification);
-                                    UpdateSoftware.Parameters.AddWithValue("@Name", obj.SoftwareName);
-                                    UpdateSoftware.Parameters.AddWithValue("@DesignAuthority", obj.DesignAuthority);
-                                    UpdateSoftware.Parameters.AddWithValue("@SystemName", obj.SystemName);
-                                    UpdateSoftware.Parameters.AddWithValue("@Engineer", obj.ResponsibleEngineer);
-                                    UpdateSoftware.Parameters.AddWithValue("@Description", obj.Description);
-                                    UpdateSoftware.Parameters.AddWithValue("@Owner", obj.Owner);
-                                    UpdateSoftware.Parameters.AddWithValue("@MangingGroup", obj.Group);
-
-                                    int success = UpdateSoftware.ExecuteNonQuery();
-                                    value = Convert.ToBoolean(success);
-                                }
-                                finally
-                                {
-                                    conn.Close();
-                                }
-                            }
+                            MessageBox.Show("Software System has been updated");
+                            myDashBoard.UpdateGrid(sender, e);
+                            Close();
                         }
-
-                        MessageBox.Show("Software System has been updated");
-                        myDashBoard.UpdateGrid(sender, e);
-                        Close();
+                        else
+                        {
+                            MessageBox.Show("Contact Administrator", "ERROR", MessageBoxButtons.OK);
+                        }
+                       
 
                         break;
                     }
