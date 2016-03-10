@@ -128,5 +128,10 @@ namespace SoftwareConfigurationManagementDBApp
                 cmbClass.SelectedIndex = cmbClass.Items.IndexOf(ClassificationSelection);
             }
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

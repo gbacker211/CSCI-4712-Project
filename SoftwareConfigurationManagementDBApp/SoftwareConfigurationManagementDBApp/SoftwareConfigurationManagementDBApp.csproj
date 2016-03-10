@@ -64,7 +64,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Crontrollers\AttrubuteControl.cs" />
+    <Compile Include="Crontrollers\AttributeControl.cs" />
     <Compile Include="Crontrollers\DisplayControl.cs" />
     <Compile Include="Crontrollers\LoginControl.cs" />
     <Compile Include="Crontrollers\LogoutControl.cs" />
