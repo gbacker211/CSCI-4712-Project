@@ -21,7 +21,13 @@ namespace SoftwareConfigurationManagementDBApp
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            LoginControl newLogin = new LoginControl();
+            if (txtUsername.Text == "" && txtPassword.Text == "")
+                MessageBox.Show("Please enter your username and password.");
+            else
+            {
+                LoginControl newLogin = new LoginControl();
+                newLogin.submit(txtUsername.Text,txtPassword.Text);
+            }
         }
 
         private void LoginForm_Load(object sender, EventArgs e)
