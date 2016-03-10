@@ -38,17 +38,12 @@ namespace SoftwareConfigurationManagementDBApp
 
                     if (ds.Tables[0].Rows.Count > 0)
                     {
-                        DataTable groups = new DataTable();
                         aUser.User_ID = Convert.ToInt32(ds.Tables[0].Rows[0][1].ToString());
                         aUser.AccessGroup = Convert.ToInt32(ds.Tables[0].Rows[0][0].ToString());
-                        if (ds.Tables.Count > 1)
-                        {
-                            groups = ds.Tables[1];
-                        }
 
                         DashBoard dashBoard = new DashBoard();
-                        LoginForm.
-                        dashBoard.ShowDashBoard(aUser, groups);
+                        LoginForm.ActiveForm.Hide();
+                        dashBoard.ShowDashBoard(aUser);
                     }
                     else
                     {
