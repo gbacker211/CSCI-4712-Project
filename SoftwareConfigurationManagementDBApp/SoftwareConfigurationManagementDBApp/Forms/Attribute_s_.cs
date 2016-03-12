@@ -12,8 +12,13 @@ namespace SoftwareConfigurationManagementDBApp
 {
     public partial class Attribute_s_ : Form
     {
-        public Attribute_s_()
+        private int _softwareID;
+
+        //TODO: Need to decide if there is a mistake, should we allow them to make corrections or start over.
+
+        public Attribute_s_(int softwareID)
         {
+            _softwareID = softwareID;
             InitializeComponent();
         }
 
@@ -24,6 +29,8 @@ namespace SoftwareConfigurationManagementDBApp
 
         private void btnAttrSubmit_Click(object sender, EventArgs e)
         {
+            StringBuilder result = new StringBuilder();
+
             AttributeControl newAttributes = new AttributeControl();
 
             if (chkboxSoftDocAttr.Checked == false)
@@ -37,7 +44,13 @@ namespace SoftwareConfigurationManagementDBApp
                     Description = txtSoftDocDescAttr.Text,
                 };
 
-                newAttributes.submitSoftDoc(objSoftware);
+                if (newAttributes.submitSoftDoc(objSoftware, _softwareID))
+                {
+                    result.Append("Software Document has been added" + Environment.NewLine);
+                }
+                
+
+                
 
             }
 
@@ -52,7 +65,10 @@ namespace SoftwareConfigurationManagementDBApp
                     Description = txtCIDesAttr.Text
                 };
 
-                newAttributes.submitCI(objCI);
+                if (newAttributes.submitCI(objCI, _softwareID))
+                {
+                    result.Append("ConfigItem added" + Environment.NewLine);
+                }
 
 
             }
@@ -68,10 +84,18 @@ namespace SoftwareConfigurationManagementDBApp
                     Description = txtCIDocDesAttr.Text
                 };
 
-                newAttributes.submitCIDoc(objCIDoc);
+                if (newAttributes.submitCIDoc(objCIDoc))
+                {
+                    result.Append("ConfigItem Doc Added" + Environment.NewLine);
+                }
 
    
             }
+
+
+            MessageBox.Show(result.ToString(), "Adding Attribute(s) Result", MessageBoxButtons.OK);
+
+            this.Close();
         }
     }
 }

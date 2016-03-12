@@ -238,5 +238,16 @@ namespace SoftwareConfigurationManagementDBApp
 
             
         }
+
+        private void btnAddAttr_Click(object sender, EventArgs e)
+        {
+
+            if (dataGridView1.SelectedRows.Count != 0 && dataGridView1.SelectedRows.Count < 2)
+            {
+                AttributeControl attControl = new AttributeControl();
+
+                attControl.openAttributeForm(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[8].Value.ToString()));
+            }
+        }
     }
 }

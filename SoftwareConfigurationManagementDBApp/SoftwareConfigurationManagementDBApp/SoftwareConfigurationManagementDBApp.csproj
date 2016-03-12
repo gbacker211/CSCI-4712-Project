@@ -79,11 +79,11 @@
     <Compile Include="Forms\AddUser.Designer.cs">
       <DependentUpon>AddUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Attribute%28s%29.cs">
+    <Compile Include="Forms\Attribute_s_.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Attribute%28s%29.Designer.cs">
-      <DependentUpon>Attribute%28s%29.cs</DependentUpon>
+    <Compile Include="Forms\Attribute_s_.Designer.cs">
+      <DependentUpon>Attribute_s_.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\CIDoc.cs">
       <SubType>Form</SubType>
@@ -128,8 +128,8 @@
     <EmbeddedResource Include="Forms\AddUser.resx">
       <DependentUpon>AddUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Attribute%28s%29.resx">
-      <DependentUpon>Attribute%28s%29.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Attribute_s_.resx">
+      <DependentUpon>Attribute_s_.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CIDoc.resx">
       <DependentUpon>CIDoc.cs</DependentUpon>

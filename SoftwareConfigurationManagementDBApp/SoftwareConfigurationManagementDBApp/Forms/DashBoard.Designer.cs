@@ -124,6 +124,7 @@
             this.btnAddAttr.TabIndex = 32;
             this.btnAddAttr.Text = "Add Attribute";
             this.btnAddAttr.UseVisualStyleBackColor = true;
+            this.btnAddAttr.Click += new System.EventHandler(this.btnAddAttr_Click);
             // 
             // btnEditUser
             // 
