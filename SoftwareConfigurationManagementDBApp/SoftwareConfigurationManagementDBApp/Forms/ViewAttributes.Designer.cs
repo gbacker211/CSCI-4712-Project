@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewAttributes));
             this.dgvViewAttr = new System.Windows.Forms.DataGridView();
             this.comboViewAttr = new System.Windows.Forms.ComboBox();
             this.lblviews = new System.Windows.Forms.Label();
@@ -102,6 +103,7 @@
             this.Controls.Add(this.lblviews);
             this.Controls.Add(this.comboViewAttr);
             this.Controls.Add(this.dgvViewAttr);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ViewAttributes";
             this.Text = "ViewAttributes";
             ((System.ComponentModel.ISupportInitialize)(this.dgvViewAttr)).EndInit();
