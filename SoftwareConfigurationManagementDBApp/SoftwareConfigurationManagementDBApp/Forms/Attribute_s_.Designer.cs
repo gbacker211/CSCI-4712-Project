@@ -70,6 +70,8 @@
             this.chkboxCIAttr = new System.Windows.Forms.CheckBox();
             this.chkboxCIDocAttr = new System.Windows.Forms.CheckBox();
             this.label20 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.lblSoftwareName = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtCIDocDesAttr
@@ -420,7 +422,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(818, 177);
+            this.label2.Location = new System.Drawing.Point(775, 180);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(452, 51);
@@ -479,12 +481,33 @@
             this.label20.TabIndex = 58;
             this.label20.Text = "Continue without documentation:";
             // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(860, 122);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(120, 29);
+            this.label23.TabIndex = 80;
+            this.label23.Text = "Software: ";
+            // 
+            // lblSoftwareName
+            // 
+            this.lblSoftwareName.AutoSize = true;
+            this.lblSoftwareName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSoftwareName.Location = new System.Drawing.Point(980, 122);
+            this.lblSoftwareName.Name = "lblSoftwareName";
+            this.lblSoftwareName.Size = new System.Drawing.Size(0, 29);
+            this.lblSoftwareName.TabIndex = 81;
+            // 
             // Attribute_s_
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1912, 1038);
+            this.Controls.Add(this.lblSoftwareName);
+            this.Controls.Add(this.label23);
             this.Controls.Add(this.chkboxCIDocAttr);
             this.Controls.Add(this.chkboxCIAttr);
             this.Controls.Add(this.chkboxSoftDocAttr);
@@ -578,5 +601,7 @@
         private System.Windows.Forms.CheckBox chkboxCIAttr;
         private System.Windows.Forms.CheckBox chkboxCIDocAttr;
         private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label lblSoftwareName;
     }
 }

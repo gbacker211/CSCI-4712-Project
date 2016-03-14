@@ -61,9 +61,11 @@ namespace SoftwareConfigurationManagementDBApp
                 case 0:
                     dataGridView1.DataSource = ViewSoftwareOverview();
                     dataGridView1.Columns[8].Visible = false;
+                    setColumnHeadersForSoftwareOverview();
                     break;
                 case 1:
                     dataGridView1.DataSource = ViewSoftwareView();
+                    setColumnHeadersForSoftwareView();
                     break;
                 default:
                     break;
@@ -124,7 +126,20 @@ namespace SoftwareConfigurationManagementDBApp
 
         }
 
+        private void setColumnHeadersForSoftwareOverview()
+        {
+            dataGridView1.Columns[0].HeaderText = "Name";
+            dataGridView1.Columns[3].HeaderText = "Design Authority";
+            dataGridView1.Columns[5].HeaderText = "System Name";
+            dataGridView1.Columns[7].HeaderText = "Group Name";
+        }
 
+        private void setColumnHeadersForSoftwareView()
+        {
+            dataGridView1.Columns[1].HeaderText = "Software Doc Count";
+            dataGridView1.Columns[2].HeaderText = "CI Count";
+            dataGridView1.Columns[3].HeaderText = "CID Count";
+        }
 
         private void DashBoard_Load(object sender, EventArgs e)
         {
@@ -259,7 +274,7 @@ namespace SoftwareConfigurationManagementDBApp
             {
                 AttributeControl attControl = new AttributeControl();
 
-                attControl.openAttributeForm(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[8].Value.ToString()));
+                attControl.openAttributeForm(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[8].Value.ToString()),dataGridView1.SelectedRows[0].Cells[0].Value.ToString().Trim());
             }
         }
 

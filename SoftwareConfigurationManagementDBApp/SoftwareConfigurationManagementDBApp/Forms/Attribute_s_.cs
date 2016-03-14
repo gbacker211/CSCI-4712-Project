@@ -16,10 +16,12 @@ namespace SoftwareConfigurationManagementDBApp
 
         //TODO: Need to decide if there is a mistake, should we allow them to make corrections or start over.
 
-        public Attribute_s_(int softwareID)
+        public Attribute_s_(int softwareID, string softwareName)
         {
             _softwareID = softwareID;
+         
             InitializeComponent();
+            lblSoftwareName.Text = softwareName;
         }
 
         private void textBox11_TextChanged(object sender, EventArgs e)

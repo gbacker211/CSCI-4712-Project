@@ -19,10 +19,10 @@ namespace SoftwareConfigurationManagementDBApp
             _connectionString = ConfigurationManager.ConnectionStrings["SCMDatabaseConnectionString"].ConnectionString;
         }
 
-        public void openAttributeForm(int softwareId)
+        public void openAttributeForm(int softwareId, string softwareName)
         {
             mSoftware_ID = softwareId;
-            Attribute_s_ AddAttributes = new Attribute_s_(mSoftware_ID);
+            Attribute_s_ AddAttributes = new Attribute_s_(mSoftware_ID, softwareName);
             AddAttributes.Show();
         }
         public bool submitSoftDoc(SoftwareDoc aDoc, int softwareID)
