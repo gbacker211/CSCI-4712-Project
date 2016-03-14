@@ -8,13 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SoftwareConfigurationManagementDBApp.Forms
+namespace SoftwareConfigurationManagementDBApp
 {
     public partial class AddUser : Form
     {
-        public AddUser()
+        private UserControl mUserControl;
+        private int mAddUpdate;
+        private User mUser;
+        public AddUser(UserControl aControl, User aUser, int aAddUpdate)
         {
             InitializeComponent();
+            mUserControl = aControl;
+            mUser = aUser;
+            mAddUpdate = aAddUpdate;
         }
 
         private void AddUser_Load(object sender, EventArgs e)
@@ -24,6 +30,15 @@ namespace SoftwareConfigurationManagementDBApp.Forms
             cmbAccessGroup.Items.Add("Admin");
             cmbAccessGroup.Items.Add("Editor");
             cmbAccessGroup.Items.Add("Read-Only");
+
+            if (mAddUpdate == 2)
+            {
+                txtFname.Text = mUser.Fname;
+                txtLname.Text = mUser.Lname;
+                txtUsername.Text = mUser.Username;
+                txtPassword.Text = mUser.Password;
+                cmbAccessGroup.SelectedIndex = mUser.AccessGroup;
+            }
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -59,7 +74,16 @@ namespace SoftwareConfigurationManagementDBApp.Forms
                     AccessGroup = AccessLvl
                 };
 
-                // ** NOTE: ADD CODE FOR 
+                if (mAddUpdate == 1)
+                {
+                    mUserControl.AddUser(obj);
+                }
+                if (mAddUpdate == 2)
+                {
+                    mUserControl.UpdateUser(obj);
+                }
+
+                this.Close();
             }
         }
     }
