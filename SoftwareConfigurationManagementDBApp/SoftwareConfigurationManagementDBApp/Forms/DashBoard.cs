@@ -21,6 +21,19 @@ namespace SoftwareConfigurationManagementDBApp
         public DashBoard()
         {
             InitializeComponent();
+
+            if (userInfo.AccessGroup == 2)
+            {
+                grpAdmin.Hide();
+                grpAttributes.Location = new Point(92, 258);
+                grpDataViewing.Location = new Point(92, 378);
+            }
+            if (userInfo.AccessGroup == 3)
+            {
+                grpAdmin.Hide();
+                grpAttributes.Hide();
+                grpDataViewing.Location = new Point(92, 258);
+            }
         }
 
         public void ShowDashBoard(User aUser)
@@ -263,6 +276,12 @@ namespace SoftwareConfigurationManagementDBApp
 
                 attControl.openAttributeForm(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[8].Value.ToString()),dataGridView1.SelectedRows[0].Cells[0].Value.ToString().Trim());
             }
+        }
+
+        private void btnAddUser_Click(object sender, EventArgs e)
+        {
+            UserControl newUser = new UserControl();
+            newUser.OpenUserForm(userInfo, 1);
         }
     }
 }

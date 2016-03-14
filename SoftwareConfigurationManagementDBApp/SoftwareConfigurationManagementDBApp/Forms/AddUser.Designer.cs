@@ -1,4 +1,4 @@
-﻿namespace SoftwareConfigurationManagementDBApp.Forms
+﻿namespace SoftwareConfigurationManagementDBApp
 {
     partial class AddUser
     {

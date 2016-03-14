@@ -9,7 +9,7 @@ using System.Configuration;
 
 namespace SoftwareConfigurationManagementDBApp
 {
-    class UserControl
+    public class UserControl
     {
         private String _connectionstring;
 
@@ -17,37 +17,79 @@ namespace SoftwareConfigurationManagementDBApp
         {
           _connectionstring =  ConfigurationManager.ConnectionStrings["SCMDatabaseConnectionString"].ConnectionString;
         }
-
-        public User UserLogin(string userName, string password)
+        public void OpenUserForm(User aUser, int AddUpdate)
         {
+            if (AddUpdate == 1)
+            {
+                aUser = null;
+                AddUser aUserForm = new AddUser(this, aUser, 1);
+                aUserForm.Show();
+            }
+            else
+            {
+                AddUser aUserForm = new AddUser(this, aUser, 2);
+                aUserForm.Show();
+            }
+        }
 
+        public void AddUser(User aUser)
+        {
+            bool result;
 
             using (SqlConnection conn = new SqlConnection(_connectionstring))
             {
-                conn.Open();
-
-                SqlCommand cmd = new SqlCommand("usp_Select_User", conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@UserName", userName);
-                cmd.Parameters.AddWithValue("@PassWoard", password);
-                User aUser = new User();
-                DataSet ds = new DataSet();
-                //   DataTable dt = new DataTable();
-
-                using (SqlDataAdapter getData = new SqlDataAdapter(cmd))
+                using (SqlCommand AddUser = new SqlCommand("usp_Insert_User", conn))
                 {
-                    getData.Fill(ds);
-                }
+                    try
+                    {
+                        conn.Open();
+                        AddUser.CommandType = CommandType.StoredProcedure;
+                        AddUser.Parameters.AddWithValue("@Username", aUser.Username);
+                        AddUser.Parameters.AddWithValue("@Password", aUser.Password);
+                        AddUser.Parameters.AddWithValue("@Firstname", aUser.Fname);
+                        AddUser.Parameters.AddWithValue("@Lastname", aUser.Lname);
+                        AddUser.Parameters.AddWithValue("@AccessGroup", aUser.AccessGroup);
 
-                if (ds.Tables[0].Rows.Count > 0)
+                        int success = AddUser.ExecuteNonQuery();
+
+                        result = Convert.ToBoolean(success);
+                    }
+                    finally
+                    {
+                        conn.Close();
+                    }
+                }
+            }
+        }
+
+        public void UpdateUser(User aUser)
+        {
+            bool result;
+
+            using (SqlConnection conn = new SqlConnection(_connectionstring))
+            {
+                using (SqlCommand AddUser = new SqlCommand("usp_Update_User", conn))
                 {
-                    aUser.User_ID = Convert.ToInt32(ds.Tables[0].Rows[0][1].ToString());
-                    aUser.AccessGroup = Convert.ToInt32(ds.Tables[0].Rows[0][0].ToString());
+                    try
+                    {
+                        conn.Open();
+                        AddUser.CommandType = CommandType.StoredProcedure;
+                        AddUser.Parameters.AddWithValue("@UserID", aUser.User_ID);
+                        AddUser.Parameters.AddWithValue("@Username", aUser.Username);
+                        AddUser.Parameters.AddWithValue("@Password", aUser.Password);
+                        AddUser.Parameters.AddWithValue("@AccessGroup", aUser.AccessGroup);
+                        AddUser.Parameters.AddWithValue("@Firstname", aUser.Fname);
+                        AddUser.Parameters.AddWithValue("@Lastname", aUser.Lname);
+
+                        int success = AddUser.ExecuteNonQuery();
+
+                        result = Convert.ToBoolean(success);
+                    }
+                    finally
+                    {
+                        conn.Close();
+                    }
                 }
-
-
-                return aUser;
-
             }
         }
 
