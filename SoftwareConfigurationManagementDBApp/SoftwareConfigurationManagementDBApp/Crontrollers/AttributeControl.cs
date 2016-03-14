@@ -88,7 +88,7 @@ namespace SoftwareConfigurationManagementDBApp
             //Changed to bool to indicate whether insert was a success.
             using (SqlConnection connect = new SqlConnection(_connectionString))
             {
-                using (SqlCommand command = new SqlCommand("usp_Insert_NewConfigItem", connect))
+                using (SqlCommand command = new SqlCommand("usp_Insert_NewConfigItemDOC", connect))
                 {
                     connect.Open();
                     command.CommandType = CommandType.StoredProcedure;
