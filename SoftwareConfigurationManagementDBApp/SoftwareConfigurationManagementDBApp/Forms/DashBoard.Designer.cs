@@ -47,6 +47,7 @@
             this.grpAdmin = new System.Windows.Forms.GroupBox();
             this.grpAttributes = new System.Windows.Forms.GroupBox();
             this.grpDataViewing = new System.Windows.Forms.GroupBox();
+            this.btnViewUsers = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.grpAdmin.SuspendLayout();
             this.grpAttributes.SuspendLayout();
@@ -112,7 +113,7 @@
             // 
             // btnEditUser
             // 
-            this.btnEditUser.Location = new System.Drawing.Point(28, 278);
+            this.btnEditUser.Location = new System.Drawing.Point(28, 338);
             this.btnEditUser.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditUser.Name = "btnEditUser";
             this.btnEditUser.Size = new System.Drawing.Size(115, 38);
@@ -222,6 +223,7 @@
             // 
             // grpAdmin
             // 
+            this.grpAdmin.Controls.Add(this.btnViewUsers);
             this.grpAdmin.Controls.Add(this.btnAddSoftw);
             this.grpAdmin.Controls.Add(this.btnEditSoftw);
             this.grpAdmin.Controls.Add(this.btnDeleteSoft);
@@ -229,7 +231,7 @@
             this.grpAdmin.Controls.Add(this.btnEditUser);
             this.grpAdmin.Location = new System.Drawing.Point(12, 256);
             this.grpAdmin.Name = "grpAdmin";
-            this.grpAdmin.Size = new System.Drawing.Size(160, 338);
+            this.grpAdmin.Size = new System.Drawing.Size(160, 392);
             this.grpAdmin.TabIndex = 44;
             this.grpAdmin.TabStop = false;
             this.grpAdmin.Text = "Admin Functions";
@@ -248,12 +250,22 @@
             // 
             this.grpDataViewing.Controls.Add(this.btnViewAttr);
             this.grpDataViewing.Controls.Add(this.btnPrintReport);
-            this.grpDataViewing.Location = new System.Drawing.Point(190, 373);
+            this.grpDataViewing.Location = new System.Drawing.Point(190, 431);
             this.grpDataViewing.Name = "grpDataViewing";
             this.grpDataViewing.Size = new System.Drawing.Size(176, 139);
             this.grpDataViewing.TabIndex = 46;
             this.grpDataViewing.TabStop = false;
             this.grpDataViewing.Text = "View Attributes and Print";
+            // 
+            // btnViewUsers
+            // 
+            this.btnViewUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewUsers.Location = new System.Drawing.Point(28, 275);
+            this.btnViewUsers.Name = "btnViewUsers";
+            this.btnViewUsers.Size = new System.Drawing.Size(115, 39);
+            this.btnViewUsers.TabIndex = 32;
+            this.btnViewUsers.Text = "View Users";
+            this.btnViewUsers.UseVisualStyleBackColor = true;
             // 
             // DashBoard
             // 
@@ -304,5 +316,6 @@
         private System.Windows.Forms.GroupBox grpAdmin;
         private System.Windows.Forms.GroupBox grpAttributes;
         private System.Windows.Forms.GroupBox grpDataViewing;
+        private System.Windows.Forms.Button btnViewUsers;
     }
 }
