@@ -13,10 +13,12 @@ namespace SoftwareConfigurationManagementDBApp
     {
         private int mSoftware_ID;
         private String _connectionString;
+        private User aUser;
 
-        public AttributeControl()
+        public AttributeControl(User user = null)
         {
             _connectionString = ConfigurationManager.ConnectionStrings["SCMDatabaseConnectionString"].ConnectionString;
+            aUser = user;
         }
 
         public void openAttributeForm(int softwareId, string softwareName)
@@ -107,6 +109,104 @@ namespace SoftwareConfigurationManagementDBApp
 
 
             return value;
+        }
+
+        public void viewAttributes(int softwareID, string softwareName)
+        {
+            mSoftware_ID = softwareID;
+
+            ViewAttributes viewSoftwareAttributes = new ViewAttributes(mSoftware_ID, softwareName, aUser);
+            viewSoftwareAttributes.Show();
+
+        }
+
+
+        public DataTable SoftwareItemOverview(int softwareID)
+        {
+            DataTable dt = new DataTable();
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand command = new SqlCommand("usp_Select_SoftwareItemOverview", connection))
+                {
+                    connection.Open();
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@SoftwareId", softwareID);
+
+                    using (SqlDataAdapter data = new SqlDataAdapter(command))
+                    {
+                        data.Fill(dt);
+                    }
+                }
+            }
+
+            return dt;
+        }
+
+        public DataTable SoftwareViewOne(int softwareID)
+        {
+            DataTable dt = new DataTable();
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand command = new SqlCommand("usp_Select_SoftwareItemView1", connection))
+                {
+                    connection.Open();
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@SoftwareID", softwareID);
+
+                    using (SqlDataAdapter data = new SqlDataAdapter(command))
+                    {
+                        data.Fill(dt);
+                    }
+                }
+            }
+
+            return dt;
+
+        }
+
+        public DataTable SoftwareViewTwo(int softwareID)
+        {
+            DataTable dt = new DataTable();
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand command = new SqlCommand("usp_Select_SoftwareItemView2", connection))
+                {
+                    connection.Open();
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@SoftwareId", softwareID);
+
+                    using (SqlDataAdapter data = new SqlDataAdapter(command))
+                    {
+                        data.Fill(dt);
+                    }
+                }
+            }
+
+            return dt;
+        }
+        public DataTable SoftwareViewThree(int softwareID)
+        {
+            DataTable dt = new DataTable();
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand command = new SqlCommand("usp_Select_SoftwareItemView3", connection))
+                {
+                    connection.Open();
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@SoftwareId", softwareID);
+
+                    using (SqlDataAdapter data = new SqlDataAdapter(command))
+                    {
+                        data.Fill(dt);
+                    }
+                }
+            }
+
+            return dt;
         }
     }
 }

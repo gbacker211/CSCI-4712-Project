@@ -16,19 +16,19 @@ namespace SoftwareConfigurationManagementDBApp
 {
     public partial class DashBoard : Form
     {
-        private User userInfo { get; set; }
+        private User _userInfo;
 
-        public DashBoard()
+        public DashBoard(User aUser)
         {
             InitializeComponent();
-
-            if (userInfo.AccessGroup == 2)
+            _userInfo = aUser;
+            if (_userInfo.AccessGroup == 2)
             {
                 grpAdmin.Hide();
                 grpAttributes.Location = new Point(92, 258);
                 grpDataViewing.Location = new Point(92, 378);
             }
-            if (userInfo.AccessGroup == 3)
+            if (_userInfo.AccessGroup == 3)
             {
                 grpAdmin.Hide();
                 grpAttributes.Hide();
@@ -36,15 +36,7 @@ namespace SoftwareConfigurationManagementDBApp
             }
         }
 
-        public void ShowDashBoard(User aUser)
-        {
-            
-            userInfo = aUser;
-
-
-
-            this.ShowDialog();
-        }
+       
 
         private void viewlb_Click(object sender, EventArgs e)
         {
@@ -82,7 +74,7 @@ namespace SoftwareConfigurationManagementDBApp
         private void btnAddSoftw_Click(object sender, EventArgs e)
         {
             Software aSoftware = new Software();
-            Form aNewSoftware = new SoftwareForm(aSoftware, userInfo, 1, this);
+            Form aNewSoftware = new SoftwareForm(aSoftware, _userInfo, 1, this);
             aNewSoftware.Show();
         }
 
@@ -107,7 +99,7 @@ namespace SoftwareConfigurationManagementDBApp
 
                 
 
-                Form aNewSoftware = new SoftwareForm(aSoftware, userInfo, 2, this);
+                Form aNewSoftware = new SoftwareForm(aSoftware, _userInfo, 2, this);
                 aNewSoftware.Show();
             }
             else
@@ -121,6 +113,7 @@ namespace SoftwareConfigurationManagementDBApp
         private void btnLogOut_Click(object sender, EventArgs e)
         {
             this.Close();
+           // LoginForm.ActiveForm.Show();
             //temp
            
 
@@ -253,7 +246,7 @@ namespace SoftwareConfigurationManagementDBApp
 
             DisplayControl displayOperation = new DisplayControl();
 
-            dt = displayOperation.GetGroups(userInfo);
+            dt = displayOperation.GetGroups(_userInfo);
 
 
             if (dt.Rows.Count > 0)
@@ -274,14 +267,27 @@ namespace SoftwareConfigurationManagementDBApp
             {
                 AttributeControl attControl = new AttributeControl();
 
-                attControl.openAttributeForm(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[8].Value.ToString()),dataGridView1.SelectedRows[0].Cells[0].Value.ToString().Trim());
+                attControl.openAttributeForm(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[8].Value.ToString()),
+                    dataGridView1.SelectedRows[0].Cells[0].Value.ToString().Trim());
             }
         }
 
         private void btnAddUser_Click(object sender, EventArgs e)
         {
             UserControl newUser = new UserControl();
-            newUser.OpenUserForm(userInfo, 1);
+            newUser.OpenUserForm(_userInfo, 1);
+        }
+
+        private void btnViewAttr_Click(object sender, EventArgs e)
+        {
+            //Pass the software id into the form
+            if (dataGridView1.SelectedRows.Count != 0 && dataGridView1.SelectedRows.Count < 2)
+            {
+                AttributeControl attControl = new AttributeControl(_userInfo);
+
+                attControl.viewAttributes(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[8].Value.ToString()),
+                    dataGridView1.SelectedRows[0].Cells[0].Value.ToString().Trim());
+            }
         }
     }
 }

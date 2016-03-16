@@ -41,9 +41,9 @@ namespace SoftwareConfigurationManagementDBApp
                         aUser.User_ID = Convert.ToInt32(ds.Tables[0].Rows[0][1].ToString());
                         aUser.AccessGroup = Convert.ToInt32(ds.Tables[0].Rows[0][0].ToString());
 
-                        DashBoard dashBoard = new DashBoard();
+                        DashBoard dashBoard = new DashBoard(aUser);
                         LoginForm.ActiveForm.Hide();
-                        dashBoard.ShowDashBoard(aUser);
+                        dashBoard.Show();
                     }
                     else
                     {
