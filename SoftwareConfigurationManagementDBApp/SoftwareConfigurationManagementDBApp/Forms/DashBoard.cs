@@ -134,6 +134,15 @@ namespace SoftwareConfigurationManagementDBApp
             dataGridView1.Columns[3].HeaderText = "CID Count";
         }
 
+        private void setColumnHeadersForUser()
+        {
+            dataGridView1.Columns[0].HeaderText = "First Name";
+            dataGridView1.Columns[1].HeaderText = "Last Name";
+            dataGridView1.Columns[2].HeaderText = "Username";
+            dataGridView1.Columns[3].HeaderText = "Password";
+            dataGridView1.Columns[4].HeaderText = "Access Group";
+        }
+
         private void DashBoard_Load(object sender, EventArgs e)
         {
             if (cmbDataViews.Items.Count < 0)
@@ -145,8 +154,6 @@ namespace SoftwareConfigurationManagementDBApp
             UpdateGroups(sender, e);
 
         }
-
-       
 
         private DataTable ViewSoftwareOverview()
         {
@@ -287,6 +294,36 @@ namespace SoftwareConfigurationManagementDBApp
 
                 attControl.viewAttributes(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[8].Value.ToString()),
                     dataGridView1.SelectedRows[0].Cells[0].Value.ToString().Trim());
+            }
+        }
+
+        //
+        private void btnViewUsers_Click(object sender, EventArgs e)
+        {
+            UserControl allUsers = new UserControl();
+            DataTable dt = allUsers.getUsers();
+           // setColumnHeadersForUser();
+        }
+
+        private void btnEditUser_Click(object sender, EventArgs e)
+        {
+            if(dataGridView1.SelectedRows.Count > 0)
+            {
+                var obj = new User()
+                {
+                    Fname = dataGridView1.SelectedRows[0].Cells[0].Value.ToString(),
+                    Lname = dataGridView1.SelectedRows[0].Cells[1].Value.ToString(),
+                    Username = dataGridView1.SelectedRows[0].Cells[2].Value.ToString(),
+                    Password = dataGridView1.SelectedRows[0].Cells[3].Value.ToString(),
+                    AccessGroup = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[4].Value) // unsure about
+                };
+
+                UserControl editUser = new UserControl();
+                editUser.OpenUserForm(obj, 2);
+            }
+            else
+            {
+                MessageBox.Show("Please select a User!", "Error!", MessageBoxButtons.OK);
             }
         }
     }

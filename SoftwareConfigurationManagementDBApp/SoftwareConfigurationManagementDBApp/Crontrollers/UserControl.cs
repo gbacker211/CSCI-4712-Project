@@ -38,7 +38,7 @@ namespace SoftwareConfigurationManagementDBApp
 
             using (SqlConnection conn = new SqlConnection(_connectionstring))
             {
-                using (SqlCommand AddUser = new SqlCommand("usp_Insert_User", conn))
+                using (SqlCommand AddUser = new SqlCommand("usp_Insert_NewUser", conn))
                 {
                     try
                     {
@@ -91,6 +91,34 @@ namespace SoftwareConfigurationManagementDBApp
                     }
                 }
             }
+        }
+
+        public DataTable getUsers()
+        {
+            DataTable dt = new DataTable();
+
+            using (SqlConnection conn = new SqlConnection(_connectionstring))
+            {
+                using (SqlCommand cmd = new SqlCommand("usp_Select_AllUser", conn))
+                {
+                    try
+                    {
+                        conn.Open();
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        using (SqlDataAdapter getData = new SqlDataAdapter(cmd))
+                        {
+                            getData.Fill(dt);
+                        }
+                    }
+                    finally
+                    {
+                        conn.Close();
+                    }
+
+                }
+            }
+
+            return dt;
         }
 
     }
