@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewAttributes));
             this.dgvViewAttr = new System.Windows.Forms.DataGridView();
             this.comboViewAttr = new System.Windows.Forms.ComboBox();
@@ -47,6 +48,14 @@
             this.dgvViewAttr.AllowUserToResizeColumns = false;
             this.dgvViewAttr.AllowUserToResizeRows = false;
             this.dgvViewAttr.BackgroundColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvViewAttr.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvViewAttr.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvViewAttr.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvViewAttr.GridColor = System.Drawing.SystemColors.Control;
@@ -104,6 +113,7 @@
             this.btnEditViewAttr.TabIndex = 4;
             this.btnEditViewAttr.Text = "Edit Attribute";
             this.btnEditViewAttr.UseVisualStyleBackColor = true;
+            this.btnEditViewAttr.Click += new System.EventHandler(this.btnEditViewAttr_Click);
             // 
             // btnDeleteAttr
             // 

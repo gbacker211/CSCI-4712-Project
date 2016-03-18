@@ -120,6 +120,104 @@ namespace SoftwareConfigurationManagementDBApp
 
         }
 
+        /// <summary>
+        /// Used for updating attributes
+        /// </summary>
+        /// <param name="info">Class containing info for an attribute</param>
+        public void openAttributForEdit(Attributes info, int update)
+        {
+            Attribute_s_ attForm = new Attribute_s_(info, update);
+            attForm.Show();
+        }
+
+
+        public bool updateSoftDoc(Attributes softwareDOC)
+        {
+            bool result;
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand command = new SqlCommand("usp_Update_SoftwareDoc", connection))
+                {
+                    
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@SoftwareDOCID", softwareDOC.ID);
+                    command.Parameters.AddWithValue("@Name", softwareDOC.Name);
+                    command.Parameters.AddWithValue("@Date", softwareDOC.Date);
+                    command.Parameters.AddWithValue("@Description", softwareDOC.Description);
+                    command.Parameters.AddWithValue("@Location", softwareDOC.Location);
+                    connection.Open();
+
+                    int success = Convert.ToInt32(command.ExecuteNonQuery());
+
+                    result = Convert.ToBoolean(success);
+
+                }
+            }
+
+
+            return result;
+
+        }
+
+        public bool updateConfigItem(Attributes configItem)
+        {
+            bool result;
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand command = new SqlCommand("usp_Update_ConfigItem", connection))
+                {
+
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@SoftwareDOCID", configItem.ID);
+                    command.Parameters.AddWithValue("@Name", configItem.Name);
+                    command.Parameters.AddWithValue("@Date", configItem.Date);
+                    command.Parameters.AddWithValue("@Description", configItem.Description);
+                    command.Parameters.AddWithValue("@Location", configItem.Location);
+                    connection.Open();
+
+                    int success = Convert.ToInt32(command.ExecuteNonQuery());
+
+                    result = Convert.ToBoolean(success);
+
+                }
+            }
+
+
+            return result;
+
+        }
+        public bool updateConfigItemDoc(Attributes configItemDOC)
+        {
+            bool result;
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand command = new SqlCommand("usp_Update_ConfigItemDOC", connection))
+                {
+
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@ConfigItemDOC_ID", configItemDOC.ID);
+                    command.Parameters.AddWithValue("@Name", configItemDOC.Name);
+                    command.Parameters.AddWithValue("@Date", configItemDOC.Date);
+                    command.Parameters.AddWithValue("@Description", configItemDOC.Description);
+                    command.Parameters.AddWithValue("@Location", configItemDOC.Location);
+                    connection.Open();
+
+                    int success = Convert.ToInt32(command.ExecuteNonQuery());
+
+                    result = Convert.ToBoolean(success);
+
+                }
+            }
+
+
+            return result;
+
+        }
+
+
 
         public DataTable SoftwareItemOverview(int softwareID)
         {

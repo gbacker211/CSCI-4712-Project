@@ -45,8 +45,8 @@
             this.dateSoftDocAttr = new System.Windows.Forms.DateTimePicker();
             this.txtSoftDocNameAttr = new System.Windows.Forms.TextBox();
             this.btnAttrSubmit = new System.Windows.Forms.Button();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
+            this.lblConfigItem = new System.Windows.Forms.Label();
+            this.lblConfigItemDOC = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -64,13 +64,13 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblSoftwareDoc = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.chkboxSoftDocAttr = new System.Windows.Forms.CheckBox();
             this.chkboxCIAttr = new System.Windows.Forms.CheckBox();
             this.chkboxCIDocAttr = new System.Windows.Forms.CheckBox();
             this.label20 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.lblSoftwareName = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -209,27 +209,27 @@
             this.btnAttrSubmit.UseVisualStyleBackColor = true;
             this.btnAttrSubmit.Click += new System.EventHandler(this.btnAttrSubmit_Click);
             // 
-            // label22
+            // lblConfigItem
             // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(345, 725);
-            this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(434, 51);
-            this.label22.TabIndex = 60;
-            this.label22.Text = "Configuration Item (CI)";
+            this.lblConfigItem.AutoSize = true;
+            this.lblConfigItem.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblConfigItem.Location = new System.Drawing.Point(345, 725);
+            this.lblConfigItem.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblConfigItem.Name = "lblConfigItem";
+            this.lblConfigItem.Size = new System.Drawing.Size(434, 51);
+            this.lblConfigItem.TabIndex = 60;
+            this.lblConfigItem.Text = "Configuration Item (CI)";
             // 
-            // label21
+            // lblConfigItemDOC
             // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(1428, 689);
-            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(339, 51);
-            this.label21.TabIndex = 59;
-            this.label21.Text = "CI Documentation";
+            this.lblConfigItemDOC.AutoSize = true;
+            this.lblConfigItemDOC.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblConfigItemDOC.Location = new System.Drawing.Point(1428, 689);
+            this.lblConfigItemDOC.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblConfigItemDOC.Name = "lblConfigItemDOC";
+            this.lblConfigItemDOC.Size = new System.Drawing.Size(339, 51);
+            this.lblConfigItemDOC.TabIndex = 59;
+            this.lblConfigItemDOC.Text = "CI Documentation";
             // 
             // label19
             // 
@@ -418,16 +418,16 @@
             this.label3.TabIndex = 41;
             this.label3.Text = "Document Name:";
             // 
-            // label2
+            // lblSoftwareDoc
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(775, 180);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(452, 51);
-            this.label2.TabIndex = 40;
-            this.label2.Text = "Software Documentation";
+            this.lblSoftwareDoc.AutoSize = true;
+            this.lblSoftwareDoc.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSoftwareDoc.Location = new System.Drawing.Point(775, 180);
+            this.lblSoftwareDoc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSoftwareDoc.Name = "lblSoftwareDoc";
+            this.lblSoftwareDoc.Size = new System.Drawing.Size(452, 51);
+            this.lblSoftwareDoc.TabIndex = 40;
+            this.lblSoftwareDoc.Text = "Software Documentation";
             // 
             // label1
             // 
@@ -481,15 +481,15 @@
             this.label20.TabIndex = 58;
             this.label20.Text = "Continue without documentation:";
             // 
-            // label23
+            // lblTitle
             // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(860, 122);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(120, 29);
-            this.label23.TabIndex = 80;
-            this.label23.Text = "Software: ";
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(860, 122);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(120, 29);
+            this.lblTitle.TabIndex = 80;
+            this.lblTitle.Text = "Software: ";
             // 
             // lblSoftwareName
             // 
@@ -507,7 +507,7 @@
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1912, 1038);
             this.Controls.Add(this.lblSoftwareName);
-            this.Controls.Add(this.label23);
+            this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.chkboxCIDocAttr);
             this.Controls.Add(this.chkboxCIAttr);
             this.Controls.Add(this.chkboxSoftDocAttr);
@@ -527,8 +527,8 @@
             this.Controls.Add(this.dateSoftDocAttr);
             this.Controls.Add(this.txtSoftDocNameAttr);
             this.Controls.Add(this.btnAttrSubmit);
-            this.Controls.Add(this.label22);
-            this.Controls.Add(this.label21);
+            this.Controls.Add(this.lblConfigItem);
+            this.Controls.Add(this.lblConfigItemDOC);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.label13);
@@ -547,7 +547,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblSoftwareDoc);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -576,8 +576,8 @@
         private System.Windows.Forms.DateTimePicker dateSoftDocAttr;
         private System.Windows.Forms.TextBox txtSoftDocNameAttr;
         private System.Windows.Forms.Button btnAttrSubmit;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label lblConfigItem;
+        private System.Windows.Forms.Label lblConfigItemDOC;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label15;
@@ -595,13 +595,13 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblSoftwareDoc;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox chkboxSoftDocAttr;
         private System.Windows.Forms.CheckBox chkboxCIAttr;
         private System.Windows.Forms.CheckBox chkboxCIDocAttr;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label lblSoftwareName;
     }
 }
