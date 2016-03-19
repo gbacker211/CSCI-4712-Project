@@ -1,7 +1,7 @@
 USE [SCMDatabase]
 GO
 
-/****** Object:  Table [dbo].[ConfigItem]    Script Date: 3/11/2016 10:11:13 PM ******/
+/****** Object:  Table [dbo].[ConfigItem]    Script Date: 3/18/2016 10:37:55 PM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -13,7 +13,7 @@ CREATE TABLE [dbo].[ConfigItem](
 	[SoftwareID] [int] NOT NULL,
 	[Name] [nchar](25) NOT NULL,
 	[Revision] [nchar](25) NOT NULL,
-	[Date] [nchar](10) NOT NULL,
+	[Date] [nchar](25) NOT NULL,
 	[Description] [text] NULL,
 	[Location] [nchar](25) NOT NULL,
  CONSTRAINT [PK_ConfigItem] PRIMARY KEY CLUSTERED 

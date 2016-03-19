@@ -130,6 +130,19 @@ namespace SoftwareConfigurationManagementDBApp
             attForm.Show();
         }
 
+        /// <summary>
+        /// Method for editing all attributes for a specific software
+        /// item count should be only three
+        /// </summary>
+        /// <param name="attributeses">List of the attributes</param>
+        /// <param name="update">numeric value for displaying data </param>
+        public void openAttributForEditAll(List<Attributes> attributeses, int update)
+        {
+            Attribute_s_ attForm = new Attribute_s_(attributeses, update);
+            attForm.Show();
+            
+        }
+
 
         public bool updateSoftDoc(Attributes softwareDOC)
         {
@@ -146,6 +159,7 @@ namespace SoftwareConfigurationManagementDBApp
                     command.Parameters.AddWithValue("@Date", softwareDOC.Date);
                     command.Parameters.AddWithValue("@Description", softwareDOC.Description);
                     command.Parameters.AddWithValue("@Location", softwareDOC.Location);
+                    command.Parameters.AddWithValue("@Revision", softwareDOC.Revision);
                     connection.Open();
 
                     int success = Convert.ToInt32(command.ExecuteNonQuery());
@@ -170,11 +184,12 @@ namespace SoftwareConfigurationManagementDBApp
                 {
 
                     command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@SoftwareDOCID", configItem.ID);
+                    command.Parameters.AddWithValue("@ConfigItem_Id", configItem.ID);
                     command.Parameters.AddWithValue("@Name", configItem.Name);
                     command.Parameters.AddWithValue("@Date", configItem.Date);
                     command.Parameters.AddWithValue("@Description", configItem.Description);
                     command.Parameters.AddWithValue("@Location", configItem.Location);
+                    command.Parameters.AddWithValue("@Revision", configItem.Revision);
                     connection.Open();
 
                     int success = Convert.ToInt32(command.ExecuteNonQuery());
@@ -203,6 +218,7 @@ namespace SoftwareConfigurationManagementDBApp
                     command.Parameters.AddWithValue("@Date", configItemDOC.Date);
                     command.Parameters.AddWithValue("@Description", configItemDOC.Description);
                     command.Parameters.AddWithValue("@Location", configItemDOC.Location);
+                    command.Parameters.AddWithValue("@Revision", configItemDOC.Revision);
                     connection.Open();
 
                     int success = Convert.ToInt32(command.ExecuteNonQuery());

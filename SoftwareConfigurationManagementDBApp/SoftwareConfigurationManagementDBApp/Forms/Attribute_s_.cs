@@ -14,7 +14,9 @@ namespace SoftwareConfigurationManagementDBApp
     {
         private int _softwareID;
         private Attributes _attributesInfo;
+        private List<Attributes> _attributesesInfoAll = new List<Attributes>();
         private bool _update = false;
+        private int _attributeType;
 
         //TODO: Need to decide if there is a mistake, should we allow them to make corrections or start over.
 
@@ -33,6 +35,16 @@ namespace SoftwareConfigurationManagementDBApp
 
             InitializeComponent();
             SetText(attributeType);
+            _attributeType = attributeType;
+            _update = true;
+        }
+
+        public Attribute_s_(List<Attributes> info, int attributeType)
+        {
+            _attributesesInfoAll.AddRange(info);
+            InitializeComponent();
+            SetText(attributeType);
+            _attributeType = attributeType;
             _update = true;
         }
 
@@ -50,13 +62,54 @@ namespace SoftwareConfigurationManagementDBApp
             {
                 case 0://Fill all fields
                     {
+
+                        for (int i = 0; i < _attributesesInfoAll.Count; i++)
+                        {
+                            switch (i)
+                            {
+                                case 0: //Software DOC
+                                    {
+                                        txtSoftDocNameAttr.Text = _attributesesInfoAll[i].Name;
+                                        txtSoftDocDescAttr.Text = _attributesesInfoAll[i].Description;
+                                        txtSoftDocLocAttr.Text = _attributesesInfoAll[i].Location;
+                                        txtSoftDocRevisionAttr.Text = _attributesesInfoAll[i].Revision;
+                                        dateSoftDocAttr.Value = Convert.ToDateTime(_attributesesInfoAll[i].Date);
+                                        break;
+                                    }
+
+                                case 1: //Config Item
+                                    {
+                                        txtCINameAttr.Text = _attributesesInfoAll[i].Name;
+                                        txtCILocAttr.Text = _attributesesInfoAll[i].Location;
+                                        txtCIDesAttr.Text = _attributesesInfoAll[i].Description;
+                                        txtCIRevisionAttr.Text = _attributesesInfoAll[i].Revision;
+                                        dateCIAttr.Value = Convert.ToDateTime(_attributesesInfoAll[i].Date);
+                                        break;
+                                    }
+                                default: //Config Item DOC
+                                    {//Third item
+                                        txtCIDocNameAttr.Text = _attributesesInfoAll[i].Name;
+                                        txtCIDocDesAttr.Text = _attributesesInfoAll[i].Description;
+                                        txtCIDocLocAttr.Text = _attributesesInfoAll[i].Location;
+                                        txtCIDocRevisAttr.Text = _attributesesInfoAll[i].Revision;
+                                        dateCIDocAttr.Value = Convert.ToDateTime(_attributesesInfoAll[i].Date);
+                                        break;
+                                    }
+                            }
+                        }
+
+                        //SoftwareDOC is first
+
+
+                        //ConfigItem is Second
+                        //ConfigItemDOC is Last
                         break;
                     }
 
                 case 1: //Fill fields for Software Document
                     {
                         lblSoftwareDoc.Select();
-                        
+
                         chkboxCIAttr.Checked = true;
                         chkboxCIDocAttr.Checked = true;
                         txtSoftDocNameAttr.Text = _attributesInfo.Name;
@@ -70,7 +123,7 @@ namespace SoftwareConfigurationManagementDBApp
 
                 case 2:
                     {
-                       txtCINameAttr.Focus();
+                        txtCINameAttr.Focus();
                         chkboxCIDocAttr.Checked = true;
                         chkboxSoftDocAttr.Checked = true;
                         txtCINameAttr.Text = _attributesInfo.Name;
@@ -81,9 +134,9 @@ namespace SoftwareConfigurationManagementDBApp
                         break;
                     }
                 case 3:
-                {
-                    chkboxCIAttr.Checked = true;
-                    chkboxSoftDocAttr.Checked = true;
+                    {
+                        chkboxCIAttr.Checked = true;
+                        chkboxSoftDocAttr.Checked = true;
                         txtCIDocNameAttr.Focus();
                         txtCIDocNameAttr.Text = _attributesInfo.Name;
                         txtCIDocDesAttr.Text = _attributesInfo.Description;
@@ -130,11 +183,11 @@ namespace SoftwareConfigurationManagementDBApp
                 {
                     var objCI = new CI()
                     {
-                        Name = txtCINameAttr.Text,
+                        Name = txtCINameAttr.Text.Trim(),
                         Date = Convert.ToString(dateCIAttr.Value.Date),
-                        Revision = txtCIRevisionAttr.Text,
-                        Location = txtCILocAttr.Text,
-                        Description = txtCIDesAttr.Text
+                        Revision = txtCIRevisionAttr.Text.Trim(),
+                        Location = txtCILocAttr.Text.Trim(),
+                        Description = txtCIDesAttr.Text.Trim()
                     };
 
                     if (newAttributes.submitCI(objCI, _softwareID))
@@ -149,11 +202,11 @@ namespace SoftwareConfigurationManagementDBApp
                 {
                     var objCIDoc = new CIDocs()
                     {
-                        Name = txtCIDocNameAttr.Text,
+                        Name = txtCIDocNameAttr.Text.Trim(),
                         Date = Convert.ToString(dateCIDocAttr.Value.Date),
-                        Revision = txtCIRevisionAttr.Text,
-                        Location = txtCIDocLocAttr.Text,
-                        Description = txtCIDocDesAttr.Text
+                        Revision = txtCIDocRevisAttr.Text.Trim(),
+                        Location = txtCIDocLocAttr.Text.Trim(),
+                        Description = txtCIDocDesAttr.Text.Trim()
                     };
 
                     if (newAttributes.submitCIDoc(objCIDoc))
@@ -171,11 +224,81 @@ namespace SoftwareConfigurationManagementDBApp
             }
             else
             {
-                MessageBox.Show("Update", "Message", MessageBoxButtons.OK);
-                //Based on attribute type we call different sprocs
+                AttributeControl updateAttributeControl = new AttributeControl();
+
+
+                //MessageBox.Show("Update", "Message", MessageBoxButtons.OK);
+              
+                if (chkboxSoftDocAttr.Checked == false)
+                {
+                    var objSoftware = new SoftwareDoc()
+                    {
+                        ID = (_attributesInfo != null ? _attributesInfo.ID : _attributesesInfoAll[0].ID),
+                        Name = txtSoftDocNameAttr.Text.Trim(),
+                        Date = Convert.ToString(dateSoftDocAttr.Value.Date),
+                        Revision = txtSoftDocRevisionAttr.Text.Trim(),
+                        Location = txtSoftDocLocAttr.Text.Trim(),
+                        Description = txtSoftDocDescAttr.Text.Trim(),
+                    };
+
+                    if (updateAttributeControl.updateSoftDoc(objSoftware))
+                    {
+                        result.Append("Software Document has been updated" + Environment.NewLine);
+                    }
+
+
+
+
+                }
+
+                if (chkboxCIAttr.Checked == false)
+                {
+                    var objCI = new CI()
+                    {
+                        ID = (_attributesInfo != null ? _attributesInfo.ID : _attributesesInfoAll[1].ID),
+                        Name = txtCINameAttr.Text.Trim(),
+                        Date = Convert.ToString(dateCIAttr.Value.Date),
+                        Revision = txtCIRevisionAttr.Text.Trim(),
+                        Location = txtCILocAttr.Text.Trim(),
+                        Description = txtCIDesAttr.Text.Trim()
+                    };
+
+                    if (updateAttributeControl.updateConfigItem(objCI))
+                    {
+                        result.Append("ConfigItem updated" + Environment.NewLine);
+                    }
+
+
+                }
+
+                if (chkboxCIDocAttr.Checked == false)
+                {
+                    var objCIDoc = new CIDocs()
+                    {
+                        ID = (_attributesInfo != null ? _attributesInfo.ID : _attributesesInfoAll[2].ID),
+                        Name = txtCIDocNameAttr.Text.Trim(),
+                        Date = Convert.ToString(dateCIDocAttr.Value.Date),
+                        Revision = txtCIDocRevisAttr.Text.Trim(),
+                        Location = txtCIDocLocAttr.Text.Trim(),
+                        Description = txtCIDocDesAttr.Text.Trim()
+                    };
+
+                    if (updateAttributeControl.updateConfigItemDoc(objCIDoc))
+                    {
+                        result.Append("ConfigItem Doc updated" + Environment.NewLine);
+                    }
+
+
+                }
+
+
+                MessageBox.Show(result.ToString(), "Update Attribute(s) Result", MessageBoxButtons.OK);
+
+                this.Close();
+
             }
 
-         
+
         }
     }
 }

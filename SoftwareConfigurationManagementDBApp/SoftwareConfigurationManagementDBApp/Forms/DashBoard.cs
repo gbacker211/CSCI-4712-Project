@@ -57,6 +57,7 @@ namespace SoftwareConfigurationManagementDBApp
                     break;
                 case 1:
                     dataGridView1.DataSource = ViewSoftwareView();
+                    dataGridView1.Columns["SoftwareID"].Visible = false;
                     setColumnHeadersForSoftwareView();
                     break;
                 default:
@@ -191,31 +192,11 @@ namespace SoftwareConfigurationManagementDBApp
 
         private void btnPrintReport_Click(object sender, EventArgs e)
         {
-            copyGridData();
-            Microsoft.Office.Interop.Excel.Application xlexcel;
-            Microsoft.Office.Interop.Excel.Workbook xlWorkBook;
-            Microsoft.Office.Interop.Excel.Worksheet xlWorkSheet;
-            object misValue = System.Reflection.Missing.Value;
-            xlexcel = new MSExcel.Application();
-            xlexcel.Visible = true;
-            xlWorkBook = xlexcel.Workbooks.Add(misValue);
-            xlWorkSheet = (MSExcel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
-            MSExcel.Range CR = (MSExcel.Range)xlWorkSheet.Cells[1, 1];
-            CR.Select();
-            xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
+           PrintControl daPrintControl = new PrintControl(dataGridView1);
+            daPrintControl.ExportGridData();
         }
 
-        private void copyGridData()
-        {
-            dataGridView1.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
-            dataGridView1.MultiSelect = true;
-
-            dataGridView1.SelectAll();
-            DataObject dataObject = dataGridView1.GetClipboardContent();
-            if(dataObject != null)
-                Clipboard.SetDataObject(dataObject);
-        }
-
+       
         private void btnDeleteSoft_Click(object sender, EventArgs e)
         {
             SoftwareControl software = new SoftwareControl();
@@ -270,12 +251,23 @@ namespace SoftwareConfigurationManagementDBApp
         private void btnAddAttr_Click(object sender, EventArgs e)
         {
 
-            if (dataGridView1.SelectedRows.Count != 0 && dataGridView1.SelectedRows.Count < 2)
+            if (dataGridView1.SelectedRows.Count != 0)
             {
-                AttributeControl attControl = new AttributeControl();
+                if(cmbDataViews.SelectedIndex == 0)
+                { 
+                    AttributeControl attControl = new AttributeControl();
 
-                attControl.openAttributeForm(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[8].Value.ToString()),
-                    dataGridView1.SelectedRows[0].Cells[0].Value.ToString().Trim());
+                    attControl.openAttributeForm(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[8].Value.ToString()),
+                        dataGridView1.SelectedRows[0].Cells[0].Value.ToString().Trim());
+                }
+                else
+                {
+                    AttributeControl attControl = new AttributeControl();
+
+                    attControl.openAttributeForm(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[4].Value.ToString()),
+                        dataGridView1.SelectedRows[0].Cells[0].Value.ToString().Trim());
+                    
+                }
             }
         }
 
@@ -288,12 +280,23 @@ namespace SoftwareConfigurationManagementDBApp
         private void btnViewAttr_Click(object sender, EventArgs e)
         {
             //Pass the software id into the form
-            if (dataGridView1.SelectedRows.Count != 0 && dataGridView1.SelectedRows.Count < 2)
+            if (dataGridView1.SelectedRows.Count != 0)
             {
-                AttributeControl attControl = new AttributeControl(_userInfo);
+                if (cmbDataViews.SelectedIndex == 0)
+                {
+                    AttributeControl attControl = new AttributeControl(_userInfo);
 
-                attControl.viewAttributes(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[8].Value.ToString()),
-                    dataGridView1.SelectedRows[0].Cells[0].Value.ToString().Trim());
+                    attControl.viewAttributes(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[8].Value.ToString()),
+                        dataGridView1.SelectedRows[0].Cells[0].Value.ToString().Trim());
+                }
+                else
+                {
+                    AttributeControl attControl = new AttributeControl(_userInfo);
+
+                    attControl.viewAttributes(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[4].Value.ToString()),
+                        dataGridView1.SelectedRows[0].Cells[0].Value.ToString().Trim());
+
+                }
             }
         }
 

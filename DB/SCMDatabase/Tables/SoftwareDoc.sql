@@ -1,7 +1,7 @@
 USE [SCMDatabase]
 GO
 
-/****** Object:  Table [dbo].[SoftwareDoc]    Script Date: 3/11/2016 10:11:29 PM ******/
+/****** Object:  Table [dbo].[SoftwareDoc]    Script Date: 3/18/2016 10:37:17 PM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -12,8 +12,8 @@ CREATE TABLE [dbo].[SoftwareDoc](
 	[SoftwareDocID] [int] IDENTITY(1,1) NOT NULL,
 	[Software_Id] [int] NOT NULL,
 	[Name] [nchar](25) NOT NULL,
-	[Revision] [nchar](10) NULL,
-	[Date] [nchar](10) NOT NULL,
+	[Revision] [nchar](25) NULL,
+	[Date] [nchar](25) NOT NULL,
 	[Description] [text] NULL,
 	[Location] [text] NULL,
  CONSTRAINT [PK_SoftwareDoc] PRIMARY KEY CLUSTERED 
