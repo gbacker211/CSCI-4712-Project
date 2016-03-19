@@ -20,12 +20,48 @@ namespace SoftwareConfigurationManagementDBApp
             _connectionString = ConfigurationManager.ConnectionStrings["SCMDatabaseConnectionString"].ConnectionString;
             aUser = user;
         }
-
-        public void openAttributeForm(int softwareId, string softwareName)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="softwareId"></param>
+        /// <param name="softwareName"></param>
+        /// <param name="att"></param>
+        /// <param name="InsertType"></param>
+        /// <param name="configItemID">If adding a config item document this value should be set</param>
+        public void openAttributeForm(int softwareId, string softwareName, DashBoard att, int InsertType = 0, int configItemID = 0)
         {
             mSoftware_ID = softwareId;
-            Attribute_s_ AddAttributes = new Attribute_s_(mSoftware_ID, softwareName);
-            AddAttributes.Show();
+            switch (InsertType)
+            {
+                case 1:
+                    Attribute_s_ AddAttributeSoftwareDOC = new Attribute_s_(softwareId, softwareName, att, InsertType);
+                    AddAttributeSoftwareDOC.Show();
+                    break;
+                case 2:
+                    {
+                        if (configItemID == 0)
+                        {
+                            Attribute_s_ AddAttributeConfig = new Attribute_s_(softwareId, softwareName, att, InsertType);
+                            AddAttributeConfig.Show();
+                        }
+                        else
+                        {
+                            Attribute_s_ AddAttributeConfig = new Attribute_s_(softwareId, softwareName, att, InsertType,
+                                configItemID);
+                            AddAttributeConfig.Show();
+                        }
+                    }
+                    break;
+                case 3:
+
+                    break;
+                default:
+                    Attribute_s_ AddAttributes = new Attribute_s_(mSoftware_ID, softwareName, att);
+                    AddAttributes.Show();
+                    break;
+
+            }
+
         }
         public bool submitSoftDoc(SoftwareDoc aDoc, int softwareID)
         {
@@ -124,9 +160,9 @@ namespace SoftwareConfigurationManagementDBApp
         /// Used for updating attributes
         /// </summary>
         /// <param name="info">Class containing info for an attribute</param>
-        public void openAttributForEdit(Attributes info, int update)
+        public void openAttributForEdit(Attributes info, int update, ViewAttributes att)
         {
-            Attribute_s_ attForm = new Attribute_s_(info, update);
+            Attribute_s_ attForm = new Attribute_s_(info, update, att);
             attForm.Show();
         }
 
@@ -136,11 +172,11 @@ namespace SoftwareConfigurationManagementDBApp
         /// </summary>
         /// <param name="attributeses">List of the attributes</param>
         /// <param name="update">numeric value for displaying data </param>
-        public void openAttributForEditAll(List<Attributes> attributeses, int update)
+        public void openAttributForEditAll(List<Attributes> attributeses, int update, ViewAttributes att)
         {
-            Attribute_s_ attForm = new Attribute_s_(attributeses, update);
+            Attribute_s_ attForm = new Attribute_s_(attributeses, update, att);
             attForm.Show();
-            
+
         }
 
 
@@ -152,8 +188,14 @@ namespace SoftwareConfigurationManagementDBApp
             {
                 using (SqlCommand command = new SqlCommand("usp_Update_SoftwareDoc", connection))
                 {
-                    
+
                     command.CommandType = CommandType.StoredProcedure;
+
+                    if (softwareDOC.ID == 0)
+                    {
+                        command.Parameters.AddWithValue("@SoftwareID", mSoftware_ID);
+                    }
+
                     command.Parameters.AddWithValue("@SoftwareDOCID", softwareDOC.ID);
                     command.Parameters.AddWithValue("@Name", softwareDOC.Name);
                     command.Parameters.AddWithValue("@Date", softwareDOC.Date);
@@ -233,7 +275,65 @@ namespace SoftwareConfigurationManagementDBApp
 
         }
 
+        public bool deleteSoftDoc(int ID)
+        {
+            bool result;
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand command = new SqlCommand("usp_Delete_SoftwareDOC", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@SoftwareDOC_Id", ID);
+                    connection.Open();
 
+                    int success = Convert.ToInt32(command.ExecuteNonQuery());
+
+                    result = Convert.ToBoolean(success);
+                }
+            }
+
+            return result;
+        }
+
+        public bool deleteConfigItem(int ID)
+        {
+            bool result;
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand command = new SqlCommand("usp_Delete_ConfigItem", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@ConfigItem_Id", ID);
+                    connection.Open();
+
+                    int success = Convert.ToInt32(command.ExecuteNonQuery());
+
+                    result = Convert.ToBoolean(success);
+                }
+            }
+
+            return result;
+        }
+
+        public bool deleteConfigItemDOC(int ID)
+        {
+            bool result;
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand command = new SqlCommand("usp_Delete_ConfigItemDoc", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@ConfigItemDoc_Id", ID);
+                    connection.Open();
+
+                    int success = Convert.ToInt32(command.ExecuteNonQuery());
+
+                    result = Convert.ToBoolean(success);
+                }
+            }
+
+            return result;
+        }
 
         public DataTable SoftwareItemOverview(int softwareID)
         {

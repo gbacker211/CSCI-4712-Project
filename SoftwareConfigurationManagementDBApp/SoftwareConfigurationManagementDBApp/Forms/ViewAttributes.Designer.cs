@@ -39,6 +39,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblSoftwareName = new System.Windows.Forms.Label();
             this.btnPrintReport = new System.Windows.Forms.Button();
+            this.btnAddAttribute = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvViewAttr)).BeginInit();
             this.SuspendLayout();
             // 
@@ -109,7 +110,7 @@
             // 
             // btnEditViewAttr
             // 
-            this.btnEditViewAttr.Location = new System.Drawing.Point(364, 978);
+            this.btnEditViewAttr.Location = new System.Drawing.Point(256, 978);
             this.btnEditViewAttr.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnEditViewAttr.Name = "btnEditViewAttr";
             this.btnEditViewAttr.Size = new System.Drawing.Size(128, 58);
@@ -127,6 +128,7 @@
             this.btnDeleteAttr.TabIndex = 5;
             this.btnDeleteAttr.Text = "Delete Attribute";
             this.btnDeleteAttr.UseVisualStyleBackColor = true;
+            this.btnDeleteAttr.Click += new System.EventHandler(this.btnDeleteAttr_Click);
             // 
             // label1
             // 
@@ -149,7 +151,7 @@
             // 
             // btnPrintReport
             // 
-            this.btnPrintReport.Location = new System.Drawing.Point(122, 978);
+            this.btnPrintReport.Location = new System.Drawing.Point(57, 978);
             this.btnPrintReport.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnPrintReport.Name = "btnPrintReport";
             this.btnPrintReport.Size = new System.Drawing.Size(128, 58);
@@ -158,6 +160,17 @@
             this.btnPrintReport.UseVisualStyleBackColor = true;
             this.btnPrintReport.Click += new System.EventHandler(this.btnPrintReport_Click);
             // 
+            // btnAddAttribute
+            // 
+            this.btnAddAttribute.Location = new System.Drawing.Point(461, 978);
+            this.btnAddAttribute.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnAddAttribute.Name = "btnAddAttribute";
+            this.btnAddAttribute.Size = new System.Drawing.Size(128, 58);
+            this.btnAddAttribute.TabIndex = 9;
+            this.btnAddAttribute.Text = "Add Attribute";
+            this.btnAddAttribute.UseVisualStyleBackColor = true;
+            this.btnAddAttribute.Click += new System.EventHandler(this.btnAddAttribute_Click);
+            // 
             // ViewAttributes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -165,6 +178,7 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(963, 1086);
+            this.Controls.Add(this.btnAddAttribute);
             this.Controls.Add(this.btnPrintReport);
             this.Controls.Add(this.lblSoftwareName);
             this.Controls.Add(this.label1);
@@ -196,5 +210,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblSoftwareName;
         private System.Windows.Forms.Button btnPrintReport;
+        private System.Windows.Forms.Button btnAddAttribute;
     }
 }

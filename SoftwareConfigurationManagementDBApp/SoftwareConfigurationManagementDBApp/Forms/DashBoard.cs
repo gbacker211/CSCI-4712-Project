@@ -17,11 +17,14 @@ namespace SoftwareConfigurationManagementDBApp
     public partial class DashBoard : Form
     {
         private User _userInfo;
+        private LoginForm _loginForm;
 
-        public DashBoard(User aUser)
+
+        public DashBoard(User aUser, LoginForm login)
         {
             InitializeComponent();
             _userInfo = aUser;
+            _loginForm = login;
             if (_userInfo.AccessGroup == 2)
             {
                 grpAdmin.Hide();
@@ -116,7 +119,8 @@ namespace SoftwareConfigurationManagementDBApp
             this.Close();
            // LoginForm.ActiveForm.Show();
             //temp
-           
+           LoginControl login = new LoginControl(_loginForm);
+            login.ReturnToLoginn();
 
         }
 
@@ -258,14 +262,14 @@ namespace SoftwareConfigurationManagementDBApp
                     AttributeControl attControl = new AttributeControl();
 
                     attControl.openAttributeForm(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[8].Value.ToString()),
-                        dataGridView1.SelectedRows[0].Cells[0].Value.ToString().Trim());
+                        dataGridView1.SelectedRows[0].Cells[0].Value.ToString().Trim(), this);
                 }
                 else
                 {
                     AttributeControl attControl = new AttributeControl();
 
                     attControl.openAttributeForm(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[4].Value.ToString()),
-                        dataGridView1.SelectedRows[0].Cells[0].Value.ToString().Trim());
+                        dataGridView1.SelectedRows[0].Cells[0].Value.ToString().Trim(), this);
                     
                 }
             }

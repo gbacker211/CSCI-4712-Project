@@ -16,6 +16,9 @@ namespace SoftwareConfigurationManagementDBApp
     {
         private int _softwareID;
         private User aUser;
+        private DashBoard _dashBoard;
+        private string _software;
+       
 
         public ViewAttributes(int softwareID, string softwareName, User user)
         {
@@ -23,6 +26,7 @@ namespace SoftwareConfigurationManagementDBApp
             _softwareID = softwareID;
             aUser = user;
             lblSoftwareName.Text = softwareName;
+            _software = softwareName;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -131,7 +135,7 @@ namespace SoftwareConfigurationManagementDBApp
                         //don't know yet:
                         var softwareDOC = new Attributes()
                         {
-                            ID = Convert.ToInt32(dgvViewAttr.SelectedRows[0].Cells[0].Value.ToString()),
+                            ID = dgvViewAttr.SelectedRows[0].Cells[0].Value != null ? Convert.ToInt32(dgvViewAttr.SelectedRows[0].Cells[0].Value.ToString()) : 0,
                             Name = dgvViewAttr.SelectedRows[0].Cells[1].Value.ToString(),
                             Revision = dgvViewAttr.SelectedRows[0].Cells[2].Value.ToString(),
                             Location = dgvViewAttr.SelectedRows[0].Cells[3].Value.ToString(),
@@ -143,7 +147,7 @@ namespace SoftwareConfigurationManagementDBApp
 
                         var configItem = new Attributes()
                         {
-                            ID = Convert.ToInt32(dgvViewAttr.SelectedRows[0].Cells[6].Value.ToString()),
+                            ID =  dgvViewAttr.SelectedRows[0].Cells[6].Value != null ? Convert.ToInt32(dgvViewAttr.SelectedRows[0].Cells[6].Value.ToString()): 0,
                             Name = dgvViewAttr.SelectedRows[0].Cells[7].Value.ToString(),
                             Revision = dgvViewAttr.SelectedRows[0].Cells[8].Value.ToString(),
                             Location = dgvViewAttr.SelectedRows[0].Cells[9].Value.ToString(),
@@ -156,7 +160,7 @@ namespace SoftwareConfigurationManagementDBApp
 
                         var configItemDOC = new Attributes()
                         {
-                            ID = Convert.ToInt32(dgvViewAttr.SelectedRows[0].Cells[12].Value.ToString()),
+                            ID =  dgvViewAttr.SelectedRows[0].Cells[12].Value != null ? Convert.ToInt32(dgvViewAttr.SelectedRows[0].Cells[12].Value.ToString()): 0,
                             Name = dgvViewAttr.SelectedRows[0].Cells[13].Value.ToString(),
                             Revision = dgvViewAttr.SelectedRows[0].Cells[14].Value.ToString(),
                             Location = dgvViewAttr.SelectedRows[0].Cells[15].Value.ToString(),
@@ -169,7 +173,7 @@ namespace SoftwareConfigurationManagementDBApp
 
 
                         AttributeControl massEdit = new AttributeControl();
-                        massEdit.openAttributForEditAll(attributes, 0);
+                        massEdit.openAttributForEditAll(attributes, 0, this);
 
                         break;
                     }
@@ -186,7 +190,7 @@ namespace SoftwareConfigurationManagementDBApp
                                 Location = dgvViewAttr.SelectedRows[0].Cells[6].Value.ToString()
                             };
                             AttributeControl attributeControl = new AttributeControl();
-                            attributeControl.openAttributForEdit(attribute, 1);
+                            attributeControl.openAttributForEdit(attribute, 1, this);
 
                         }
                         break;
@@ -205,7 +209,7 @@ namespace SoftwareConfigurationManagementDBApp
                                 Location = dgvViewAttr.SelectedRows[0].Cells[6].Value.ToString()
                             };
                             AttributeControl attributeControl = new AttributeControl();
-                            attributeControl.openAttributForEdit(attribute, 2);
+                            attributeControl.openAttributForEdit(attribute, 2, this);
                         }
                         break;
 
@@ -222,7 +226,7 @@ namespace SoftwareConfigurationManagementDBApp
                                 Date = dgvViewAttr.SelectedRows[0].Cells[5].Value.ToString()
                             };
                             AttributeControl attributeControl = new AttributeControl();
-                            attributeControl.openAttributForEdit(attribute, 3);
+                            attributeControl.openAttributForEdit(attribute, 3, this);
                         }
                         break;
 
@@ -242,6 +246,7 @@ namespace SoftwareConfigurationManagementDBApp
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+           // _dashBoard.UpdateGrid(sender, e);
             this.Close();
         }
 
@@ -249,6 +254,105 @@ namespace SoftwareConfigurationManagementDBApp
         {
             PrintControl dataControl = new PrintControl(dgvViewAttr);
             dataControl.ExportGridData();
+        }
+
+        private void btnDeleteAttr_Click(object sender, EventArgs e)
+        {
+            StringBuilder attributeDeleteResult = new StringBuilder();
+            AttributeControl deleteAttributeControl = new AttributeControl();
+            if (dgvViewAttr.SelectedRows.Count != 0)
+            {
+                //Will need a switch for which view is being used
+                switch (comboViewAttr.SelectedIndex)
+                {
+                    case 1:
+                    {
+                        if (deleteAttributeControl.deleteSoftDoc(
+                            Convert.ToInt32(dgvViewAttr.SelectedRows[0].Cells[0].Value.ToString())))
+                        {
+                            MessageBox.Show("Software Document has been removed", "Success", MessageBoxButtons.OK);
+                        }
+
+                        break;
+                    }
+                    case 2:
+                    {
+                        if (deleteAttributeControl.deleteConfigItem(
+                           Convert.ToInt32(dgvViewAttr.SelectedRows[0].Cells[0].Value.ToString())))
+                        {
+                            MessageBox.Show("Config Item has been removed", "Success", MessageBoxButtons.OK);
+                        }
+                        break;
+                    }
+                case 3:
+                    {
+                        if (deleteAttributeControl.deleteConfigItemDOC(
+                           Convert.ToInt32(dgvViewAttr.SelectedRows[0].Cells[0].Value.ToString())))
+                        {
+                            MessageBox.Show("Config Item has been removed", "Success", MessageBoxButtons.OK);
+                        }
+                        break;
+                    }
+
+                    default:// mass delete 0
+                    {
+                        if (deleteAttributeControl.deleteSoftDoc(
+                          Convert.ToInt32(dgvViewAttr.SelectedRows[0].Cells[0].Value.ToString())))
+                        {
+                            attributeDeleteResult.Append("Software Document has been deleted" + Environment.NewLine);
+                        }
+                        if (deleteAttributeControl.deleteConfigItem(
+                           Convert.ToInt32(dgvViewAttr.SelectedRows[0].Cells[6].Value.ToString())))
+                        {
+                            attributeDeleteResult.Append("ConfigItem has been deleted" + Environment.NewLine);
+                        }
+                        if (deleteAttributeControl.deleteConfigItemDOC(
+                          Convert.ToInt32(dgvViewAttr.SelectedRows[0].Cells[12].Value.ToString())))
+                        {
+                            attributeDeleteResult.Append("ConfigItem Document has been deleted" + Environment.NewLine);
+                        }
+
+                        MessageBox.Show(attributeDeleteResult.ToString(), "Result", MessageBoxButtons.OK);
+
+                        break;
+                    }
+                      
+                }
+            }
+        }
+
+        public void RefreshGrid(object sender, EventArgs e)
+        {
+            selectView(sender, e);
+        }
+
+        private void btnAddAttribute_Click(object sender, EventArgs e)
+        {
+            AttributeControl operAttributeControl = new AttributeControl();
+
+            switch (comboViewAttr.SelectedIndex)
+            {
+                case 1:
+                    operAttributeControl.openAttributeForm(_softwareID, _software, _dashBoard, comboViewAttr.SelectedIndex);
+                    break;
+                case 2:
+                    if (dgvViewAttr.SelectedRows.Count < 0) //Assume we are adding a configItem
+                    {
+                        operAttributeControl.openAttributeForm(_softwareID, _software, _dashBoard,
+                            comboViewAttr.SelectedIndex);
+                    }
+                    else
+                    {
+                        operAttributeControl.openAttributeForm(_softwareID, _software, _dashBoard,
+                          comboViewAttr.SelectedIndex, Convert.ToInt32(dgvViewAttr.SelectedRows[0].Cells[0].Value.ToString()));
+                    }
+                    break;
+              default:
+                    operAttributeControl.openAttributeForm(_softwareID, _software, _dashBoard);
+                    break;
+            }
+
+           
         }
       
     }

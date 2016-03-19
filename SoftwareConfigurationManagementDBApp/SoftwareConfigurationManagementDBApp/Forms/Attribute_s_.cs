@@ -17,34 +17,76 @@ namespace SoftwareConfigurationManagementDBApp
         private List<Attributes> _attributesesInfoAll = new List<Attributes>();
         private bool _update = false;
         private int _attributeType;
+        private ViewAttributes _attributes;
+        private DashBoard _myDashBoard;
+        private int _configItemID;
+       
 
         //TODO: Need to decide if there is a mistake, should we allow them to make corrections or start over.
 
-        public Attribute_s_(int softwareID, string softwareName)
+        /// <summary>
+        /// Should be comming from the dashboard
+        /// </summary>
+        /// <param name="softwareID"></param>
+        /// <param name="softwareName"></param>
+        /// <param name="dashBoard"></param>
+        public Attribute_s_(int softwareID, string softwareName, DashBoard dashBoard)
         {
             _softwareID = softwareID;
 
             InitializeComponent();
             lblSoftwareName.Text = softwareName;
+            _myDashBoard = dashBoard;
             _update = false;
         }
+        /// <summary>
+        /// Use for Inserting Individual Attributes except for ConfigItemDocs
+        /// </summary>
+        /// <param name="softwareID"></param>
+        /// <param name="softwareName"></param>
+        /// <param name="dashBoard"></param>
+        /// <param name="InsertAttribute"></param>
+        public Attribute_s_(int softwareID, string softwareName, DashBoard dashBoard, int InsertAttribute)
+        {
+            _softwareID = softwareID;
 
-        public Attribute_s_(Attributes info, int attributeType)
+            InitializeComponent();
+            lblSoftwareName.Text = softwareName;
+            _myDashBoard = dashBoard;
+            _update = false;
+            SetTextInsert(InsertAttribute);
+        }
+
+         public Attribute_s_(int softwareID, string softwareName, DashBoard dashBoard, int InsertAttribute, int configItemID)
+        {
+            _softwareID = softwareID;
+
+            InitializeComponent();
+            lblSoftwareName.Text = softwareName;
+            _myDashBoard = dashBoard;
+            _update = false;
+             _configItemID = configItemID;
+            SetTextInsert(InsertAttribute);
+        }
+
+        public Attribute_s_(Attributes info, int attributeType, ViewAttributes attributes)
         {
             _attributesInfo = info;
 
             InitializeComponent();
-            SetText(attributeType);
+            SetTextUpdate(attributeType);
             _attributeType = attributeType;
+            _attributes = attributes;
             _update = true;
         }
 
-        public Attribute_s_(List<Attributes> info, int attributeType)
+        public Attribute_s_(List<Attributes> info, int attributeType, ViewAttributes attributes)
         {
             _attributesesInfoAll.AddRange(info);
             InitializeComponent();
-            SetText(attributeType);
+            SetTextUpdate(attributeType);
             _attributeType = attributeType;
+            _attributes = attributes;
             _update = true;
         }
 
@@ -54,7 +96,7 @@ namespace SoftwareConfigurationManagementDBApp
         }
 
 
-        private void SetText(int attributeType)
+        private void SetTextUpdate(int attributeType)
         {
             lblSoftwareName.Visible = false;
             lblTitle.Visible = false;
@@ -150,6 +192,25 @@ namespace SoftwareConfigurationManagementDBApp
             }
         }
 
+        private void SetTextInsert(int attributeType)
+        {
+            switch (attributeType)
+            {
+                case 1: // Software Document
+                    lblSoftwareDoc.Select();
+                    break;
+                case 2: // ConfigItem
+                    if(_configItemID == 0)
+                       lblConfigItem.Select();
+                    else
+                        lblConfigItemDOC.Select();
+                    break;
+              
+                default:
+                    break;
+            }
+        }
+
         private void btnAttrSubmit_Click(object sender, EventArgs e)
         {
             StringBuilder result = new StringBuilder();
@@ -202,6 +263,7 @@ namespace SoftwareConfigurationManagementDBApp
                 {
                     var objCIDoc = new CIDocs()
                     {
+                       
                         Name = txtCIDocNameAttr.Text.Trim(),
                         Date = Convert.ToString(dateCIDocAttr.Value.Date),
                         Revision = txtCIDocRevisAttr.Text.Trim(),
@@ -209,7 +271,7 @@ namespace SoftwareConfigurationManagementDBApp
                         Description = txtCIDocDesAttr.Text.Trim()
                     };
 
-                    if (newAttributes.submitCIDoc(objCIDoc))
+                    if (newAttributes.submitCIDoc(objCIDoc, _configItemID))
                     {
                         result.Append("ConfigItem Doc Added" + Environment.NewLine);
                     }
@@ -219,7 +281,7 @@ namespace SoftwareConfigurationManagementDBApp
 
 
                 MessageBox.Show(result.ToString(), "Adding Attribute(s) Result", MessageBoxButtons.OK);
-
+              _myDashBoard.UpdateGrid(sender,e);
                 this.Close();
             }
             else
@@ -293,8 +355,10 @@ namespace SoftwareConfigurationManagementDBApp
 
 
                 MessageBox.Show(result.ToString(), "Update Attribute(s) Result", MessageBoxButtons.OK);
-
+                _attributes.RefreshGrid(sender, e);
                 this.Close();
+
+               
 
             }
 

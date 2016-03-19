@@ -17,6 +17,8 @@ namespace SoftwareConfigurationManagementDBApp
         public LoginForm()
         {
             InitializeComponent();
+            txtUsername.Text = string.Empty;
+            txtPassword.Text = String.Empty;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -25,7 +27,7 @@ namespace SoftwareConfigurationManagementDBApp
                 MessageBox.Show("Please enter your username and password.");
             else
             {
-                LoginControl newLogin = new LoginControl();
+                LoginControl newLogin = new LoginControl(this);
                 newLogin.submit(txtUsername.Text,txtPassword.Text);
             }
         }

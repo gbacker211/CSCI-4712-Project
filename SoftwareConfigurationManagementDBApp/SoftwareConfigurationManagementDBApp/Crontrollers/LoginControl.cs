@@ -12,6 +12,13 @@ namespace SoftwareConfigurationManagementDBApp
 {
     class LoginControl
     {
+        private LoginForm _loginForm;
+        public LoginControl(LoginForm login)
+        {
+            _loginForm = login;
+        }
+
+
         public void submit(string aUsername, string aPassword)
         {
                 SqlConnection conn = new SqlConnection();
@@ -41,7 +48,7 @@ namespace SoftwareConfigurationManagementDBApp
                         aUser.User_ID = Convert.ToInt32(ds.Tables[0].Rows[0][1].ToString());
                         aUser.AccessGroup = Convert.ToInt32(ds.Tables[0].Rows[0][0].ToString());
 
-                        DashBoard dashBoard = new DashBoard(aUser);
+                        DashBoard dashBoard = new DashBoard(aUser, _loginForm);
                         LoginForm.ActiveForm.Hide();
                         dashBoard.Show();
                     }
@@ -56,6 +63,12 @@ namespace SoftwareConfigurationManagementDBApp
                 }
                     }
 
+        }
+
+        public void ReturnToLoginn()
+        {
+           _loginForm.Show();
+           
         }
     }
 }
