@@ -45,7 +45,6 @@
             this.ddlGroups = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.grpAdmin = new System.Windows.Forms.GroupBox();
-            this.btnViewUsers = new System.Windows.Forms.Button();
             this.grpAttributes = new System.Windows.Forms.GroupBox();
             this.grpDataViewing = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -114,7 +113,7 @@
             // 
             // btnEditUser
             // 
-            this.btnEditUser.Location = new System.Drawing.Point(28, 338);
+            this.btnEditUser.Location = new System.Drawing.Point(28, 276);
             this.btnEditUser.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditUser.Name = "btnEditUser";
             this.btnEditUser.Size = new System.Drawing.Size(115, 38);
@@ -225,7 +224,6 @@
             // 
             // grpAdmin
             // 
-            this.grpAdmin.Controls.Add(this.btnViewUsers);
             this.grpAdmin.Controls.Add(this.btnAddSoftw);
             this.grpAdmin.Controls.Add(this.btnEditSoftw);
             this.grpAdmin.Controls.Add(this.btnDeleteSoft);
@@ -233,21 +231,10 @@
             this.grpAdmin.Controls.Add(this.btnEditUser);
             this.grpAdmin.Location = new System.Drawing.Point(12, 256);
             this.grpAdmin.Name = "grpAdmin";
-            this.grpAdmin.Size = new System.Drawing.Size(160, 392);
+            this.grpAdmin.Size = new System.Drawing.Size(160, 343);
             this.grpAdmin.TabIndex = 44;
             this.grpAdmin.TabStop = false;
             this.grpAdmin.Text = "Admin Functions";
-            // 
-            // btnViewUsers
-            // 
-            this.btnViewUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnViewUsers.Location = new System.Drawing.Point(28, 275);
-            this.btnViewUsers.Name = "btnViewUsers";
-            this.btnViewUsers.Size = new System.Drawing.Size(115, 39);
-            this.btnViewUsers.TabIndex = 32;
-            this.btnViewUsers.Text = "View Users";
-            this.btnViewUsers.UseVisualStyleBackColor = true;
-            this.btnViewUsers.Click += new System.EventHandler(this.btnViewUsers_Click);
             // 
             // grpAttributes
             // 
@@ -319,6 +306,5 @@
         private System.Windows.Forms.GroupBox grpAdmin;
         private System.Windows.Forms.GroupBox grpAttributes;
         private System.Windows.Forms.GroupBox grpDataViewing;
-        private System.Windows.Forms.Button btnViewUsers;
     }
 }

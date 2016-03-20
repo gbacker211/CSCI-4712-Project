@@ -77,10 +77,14 @@ namespace SoftwareConfigurationManagementDBApp
                 if (mAddUpdate == 1)
                 {
                     mUserControl.AddUser(obj);
+                    MessageBox.Show("User has been added!", "Success!",MessageBoxButtons.OK);
+                    
                 }
                 if (mAddUpdate == 2)
                 {
                     mUserControl.UpdateUser(obj);
+                    MessageBox.Show("User has been updated!", "Success!", MessageBoxButtons.OK);
+                    ViewUsers.ActiveForm.Close();
                 }
 
                 this.Close();

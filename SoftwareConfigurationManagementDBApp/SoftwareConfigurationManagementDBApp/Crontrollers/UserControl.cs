@@ -32,6 +32,12 @@ namespace SoftwareConfigurationManagementDBApp
             }
         }
 
+        public void OpenUserView()
+        {
+            ViewUsers ViewAllUsers = new ViewUsers(this);
+            ViewAllUsers.Show();
+        }
+
         public void AddUser(User aUser)
         {
             bool result;
