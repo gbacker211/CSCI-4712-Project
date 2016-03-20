@@ -135,24 +135,24 @@ namespace SoftwareConfigurationManagementDBApp
                         //don't know yet:
                         var softwareDOC = new Attributes()
                         {
-                            ID = dgvViewAttr.SelectedRows[0].Cells[0].Value != null ? Convert.ToInt32(dgvViewAttr.SelectedRows[0].Cells[0].Value.ToString()) : 0,
-                            Name = dgvViewAttr.SelectedRows[0].Cells[1].Value.ToString(),
-                            Revision = dgvViewAttr.SelectedRows[0].Cells[2].Value.ToString(),
-                            Location = dgvViewAttr.SelectedRows[0].Cells[3].Value.ToString(),
-                            Date = dgvViewAttr.SelectedRows[0].Cells[4].Value.ToString(),
-                            Description = dgvViewAttr.SelectedRows[0].Cells[5].Value.ToString()
+                            ID = dgvViewAttr.SelectedRows[0].Cells[0].Value.ToString() != string.Empty  ? Convert.ToInt32(dgvViewAttr.SelectedRows[0].Cells[0].Value.ToString().Trim()) : 0,
+                            Name = dgvViewAttr.SelectedRows[0].Cells[1].Value.ToString().Trim(),
+                            Revision = dgvViewAttr.SelectedRows[0].Cells[2].Value.ToString().Trim(),
+                            Location = dgvViewAttr.SelectedRows[0].Cells[3].Value.ToString().Trim(),
+                            Date = dgvViewAttr.SelectedRows[0].Cells[4].Value.ToString().Trim(),
+                            Description = dgvViewAttr.SelectedRows[0].Cells[5].Value.ToString().Trim()
                             
                         };
                         attributes.Add(softwareDOC);
 
                         var configItem = new Attributes()
                         {
-                            ID =  dgvViewAttr.SelectedRows[0].Cells[6].Value != null ? Convert.ToInt32(dgvViewAttr.SelectedRows[0].Cells[6].Value.ToString()): 0,
-                            Name = dgvViewAttr.SelectedRows[0].Cells[7].Value.ToString(),
-                            Revision = dgvViewAttr.SelectedRows[0].Cells[8].Value.ToString(),
-                            Location = dgvViewAttr.SelectedRows[0].Cells[9].Value.ToString(),
-                            Date = dgvViewAttr.SelectedRows[0].Cells[10].Value.ToString(),
-                            Description = dgvViewAttr.SelectedRows[0].Cells[11].Value.ToString()
+                            ID =  dgvViewAttr.SelectedRows[0].Cells[6].Value.ToString() != string.Empty ? Convert.ToInt32(dgvViewAttr.SelectedRows[0].Cells[6].Value.ToString().Trim()): 0,
+                            Name = dgvViewAttr.SelectedRows[0].Cells[7].Value.ToString().Trim(),
+                            Revision = dgvViewAttr.SelectedRows[0].Cells[8].Value.ToString().Trim(),
+                            Location = dgvViewAttr.SelectedRows[0].Cells[9].Value.ToString().Trim(),
+                            Date = dgvViewAttr.SelectedRows[0].Cells[10].Value.ToString().Trim(),
+                            Description = dgvViewAttr.SelectedRows[0].Cells[11].Value.ToString().Trim()
                             
                         };
 
@@ -160,12 +160,12 @@ namespace SoftwareConfigurationManagementDBApp
 
                         var configItemDOC = new Attributes()
                         {
-                            ID =  dgvViewAttr.SelectedRows[0].Cells[12].Value != null ? Convert.ToInt32(dgvViewAttr.SelectedRows[0].Cells[12].Value.ToString()): 0,
-                            Name = dgvViewAttr.SelectedRows[0].Cells[13].Value.ToString(),
-                            Revision = dgvViewAttr.SelectedRows[0].Cells[14].Value.ToString(),
-                            Location = dgvViewAttr.SelectedRows[0].Cells[15].Value.ToString(),
-                            Date = dgvViewAttr.SelectedRows[0].Cells[16].Value.ToString(),
-                            Description = dgvViewAttr.SelectedRows[0].Cells[17].Value.ToString()
+                            ID = dgvViewAttr.SelectedRows[0].Cells[12].Value.ToString() != string.Empty ? Convert.ToInt32(dgvViewAttr.SelectedRows[0].Cells[12].Value.ToString().Trim()) : 0,
+                            Name = dgvViewAttr.SelectedRows[0].Cells[13].Value.ToString().Trim(),
+                            Revision = dgvViewAttr.SelectedRows[0].Cells[14].Value.ToString().Trim(),
+                            Location = dgvViewAttr.SelectedRows[0].Cells[15].Value.ToString().Trim(),
+                            Date = dgvViewAttr.SelectedRows[0].Cells[16].Value.ToString().Trim(),
+                            Description = dgvViewAttr.SelectedRows[0].Cells[17].Value.ToString().Trim()
                           
                         };
 
@@ -173,7 +173,7 @@ namespace SoftwareConfigurationManagementDBApp
 
 
                         AttributeControl massEdit = new AttributeControl();
-                        massEdit.openAttributForEditAll(attributes, 0, this);
+                        massEdit.openAttributForEditAll(attributes, 0, this, _softwareID);
 
                         break;
                     }

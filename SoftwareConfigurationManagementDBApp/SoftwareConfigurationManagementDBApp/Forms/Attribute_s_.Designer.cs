@@ -72,6 +72,7 @@
             this.label20 = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblSoftwareName = new System.Windows.Forms.Label();
+            this.lblSoftwareID = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtCIDocDesAttr
@@ -500,12 +501,23 @@
             this.lblSoftwareName.Size = new System.Drawing.Size(0, 29);
             this.lblSoftwareName.TabIndex = 81;
             // 
+            // lblSoftwareID
+            // 
+            this.lblSoftwareID.AutoSize = true;
+            this.lblSoftwareID.Enabled = false;
+            this.lblSoftwareID.Location = new System.Drawing.Point(13, 13);
+            this.lblSoftwareID.Name = "lblSoftwareID";
+            this.lblSoftwareID.Size = new System.Drawing.Size(0, 20);
+            this.lblSoftwareID.TabIndex = 82;
+            this.lblSoftwareID.Visible = false;
+            // 
             // Attribute_s_
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1912, 1038);
+            this.ClientSize = new System.Drawing.Size(1938, 1064);
+            this.Controls.Add(this.lblSoftwareID);
             this.Controls.Add(this.lblSoftwareName);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.chkboxCIDocAttr);
@@ -603,5 +615,6 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label lblSoftwareName;
+        private System.Windows.Forms.Label lblSoftwareID;
     }
 }

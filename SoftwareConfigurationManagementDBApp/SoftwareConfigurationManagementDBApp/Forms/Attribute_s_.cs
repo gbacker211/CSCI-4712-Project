@@ -69,10 +69,10 @@ namespace SoftwareConfigurationManagementDBApp
             SetTextInsert(InsertAttribute);
         }
 
-        public Attribute_s_(Attributes info, int attributeType, ViewAttributes attributes)
+        public Attribute_s_(Attributes info, int attributeType, ViewAttributes attributes, int softwareID)
         {
             _attributesInfo = info;
-
+            _softwareID = softwareID;
             InitializeComponent();
             SetTextUpdate(attributeType);
             _attributeType = attributeType;
@@ -80,13 +80,15 @@ namespace SoftwareConfigurationManagementDBApp
             _update = true;
         }
 
-        public Attribute_s_(List<Attributes> info, int attributeType, ViewAttributes attributes)
+        public Attribute_s_(List<Attributes> info, int attributeType, ViewAttributes attributes, int softareID)
         {
             _attributesesInfoAll.AddRange(info);
             InitializeComponent();
             SetTextUpdate(attributeType);
             _attributeType = attributeType;
             _attributes = attributes;
+            _softwareID = softareID;
+            lblSoftwareID.Text = softareID.ToString();
             _update = true;
         }
 
@@ -115,7 +117,7 @@ namespace SoftwareConfigurationManagementDBApp
                                         txtSoftDocDescAttr.Text = _attributesesInfoAll[i].Description;
                                         txtSoftDocLocAttr.Text = _attributesesInfoAll[i].Location;
                                         txtSoftDocRevisionAttr.Text = _attributesesInfoAll[i].Revision;
-                                        dateSoftDocAttr.Value = Convert.ToDateTime(_attributesesInfoAll[i].Date);
+                                        dateSoftDocAttr.Value = _attributesesInfoAll[i].Date != "N/A" ?  Convert.ToDateTime(_attributesesInfoAll[i].Date): DateTime.Now ;
                                         break;
                                     }
 
@@ -125,7 +127,7 @@ namespace SoftwareConfigurationManagementDBApp
                                         txtCILocAttr.Text = _attributesesInfoAll[i].Location;
                                         txtCIDesAttr.Text = _attributesesInfoAll[i].Description;
                                         txtCIRevisionAttr.Text = _attributesesInfoAll[i].Revision;
-                                        dateCIAttr.Value = Convert.ToDateTime(_attributesesInfoAll[i].Date);
+                                        dateCIAttr.Value = _attributesesInfoAll[i].Date != "N/A" ? Convert.ToDateTime(_attributesesInfoAll[i].Date) : DateTime.Now;
                                         break;
                                     }
                                 default: //Config Item DOC
@@ -134,7 +136,7 @@ namespace SoftwareConfigurationManagementDBApp
                                         txtCIDocDesAttr.Text = _attributesesInfoAll[i].Description;
                                         txtCIDocLocAttr.Text = _attributesesInfoAll[i].Location;
                                         txtCIDocRevisAttr.Text = _attributesesInfoAll[i].Revision;
-                                        dateCIDocAttr.Value = Convert.ToDateTime(_attributesesInfoAll[i].Date);
+                                        dateCIDocAttr.Value = _attributesesInfoAll[i].Date != "N/A" ? Convert.ToDateTime(_attributesesInfoAll[i].Date) : DateTime.Now;
                                         break;
                                     }
                             }
@@ -303,7 +305,7 @@ namespace SoftwareConfigurationManagementDBApp
                         Description = txtSoftDocDescAttr.Text.Trim(),
                     };
 
-                    if (updateAttributeControl.updateSoftDoc(objSoftware))
+                    if (updateAttributeControl.updateSoftDoc(objSoftware, lblSoftwareID.Text))
                     {
                         result.Append("Software Document has been updated" + Environment.NewLine);
                     }
@@ -325,7 +327,7 @@ namespace SoftwareConfigurationManagementDBApp
                         Description = txtCIDesAttr.Text.Trim()
                     };
 
-                    if (updateAttributeControl.updateConfigItem(objCI))
+                    if (updateAttributeControl.updateConfigItem(objCI, lblSoftwareID.Text))
                     {
                         result.Append("ConfigItem updated" + Environment.NewLine);
                     }
@@ -345,7 +347,7 @@ namespace SoftwareConfigurationManagementDBApp
                         Description = txtCIDocDesAttr.Text.Trim()
                     };
 
-                    if (updateAttributeControl.updateConfigItemDoc(objCIDoc))
+                    if (updateAttributeControl.updateConfigItemDoc(objCIDoc, lblSoftwareID.Text))
                     {
                         result.Append("ConfigItem Doc updated" + Environment.NewLine);
                     }

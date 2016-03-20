@@ -160,9 +160,9 @@ namespace SoftwareConfigurationManagementDBApp
         /// Used for updating attributes
         /// </summary>
         /// <param name="info">Class containing info for an attribute</param>
-        public void openAttributForEdit(Attributes info, int update, ViewAttributes att)
+        public void openAttributForEdit(Attributes info, int update, ViewAttributes att, int software = 0)
         {
-            Attribute_s_ attForm = new Attribute_s_(info, update, att);
+            Attribute_s_ attForm = new Attribute_s_(info, update, att, mSoftware_ID);
             attForm.Show();
         }
 
@@ -172,15 +172,20 @@ namespace SoftwareConfigurationManagementDBApp
         /// </summary>
         /// <param name="attributeses">List of the attributes</param>
         /// <param name="update">numeric value for displaying data </param>
-        public void openAttributForEditAll(List<Attributes> attributeses, int update, ViewAttributes att)
+        public void openAttributForEditAll(List<Attributes> attributeses, int update, ViewAttributes att, int software)
         {
-            Attribute_s_ attForm = new Attribute_s_(attributeses, update, att);
+            Attribute_s_ attForm = new Attribute_s_(attributeses, update, att, software);
             attForm.Show();
 
         }
 
-
-        public bool updateSoftDoc(Attributes softwareDOC)
+        /// <summary>
+        /// IF doing mass update with empty items configitem etc include lblSoftwareID
+        /// </summary>
+        /// <param name="softwareDOC"></param>
+        /// <param name="softwareID"></param>
+        /// <returns></returns>
+        public bool updateSoftDoc(Attributes softwareDOC, string SoftwareID = "")
         {
             bool result;
 
@@ -191,9 +196,10 @@ namespace SoftwareConfigurationManagementDBApp
 
                     command.CommandType = CommandType.StoredProcedure;
 
-                    if (softwareDOC.ID == 0)
+                    if (softwareDOC.ID == 0 && SoftwareID != String.Empty)
                     {
-                        command.Parameters.AddWithValue("@SoftwareID", mSoftware_ID);
+                        int softwareID = Convert.ToInt32(SoftwareID);
+                        command.Parameters.AddWithValue("@SoftwareID", softwareID);
                     }
 
                     command.Parameters.AddWithValue("@SoftwareDOCID", softwareDOC.ID);
@@ -215,8 +221,13 @@ namespace SoftwareConfigurationManagementDBApp
             return result;
 
         }
-
-        public bool updateConfigItem(Attributes configItem)
+        /// <summary>
+        /// IF doing mass update with empty items configitem etc include lblSoftwareID
+        /// </summary>
+        /// <param name="softwareDOC"></param>
+        /// <param name="softwareID"></param>
+        /// <returns></returns>
+        public bool updateConfigItem(Attributes configItem, string SoftwareID = "")
         {
             bool result;
 
@@ -224,6 +235,11 @@ namespace SoftwareConfigurationManagementDBApp
             {
                 using (SqlCommand command = new SqlCommand("usp_Update_ConfigItem", connection))
                 {
+                    if (configItem.ID == 0 && SoftwareID != String.Empty)
+                    {
+                        int softwareID = Convert.ToInt32(SoftwareID);
+                        command.Parameters.AddWithValue("@SoftwareID", softwareID);
+                    }
 
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("@ConfigItem_Id", configItem.ID);
@@ -245,7 +261,13 @@ namespace SoftwareConfigurationManagementDBApp
             return result;
 
         }
-        public bool updateConfigItemDoc(Attributes configItemDOC)
+        /// <summary>
+        /// IF doing mass update with empty items configitem etc include lblSoftwareID
+        /// </summary>
+        /// <param name="softwareDOC"></param>
+        /// <param name="softwareID"></param>
+        /// <returns></returns>
+        public bool updateConfigItemDoc(Attributes configItemDOC, string SoftwareID = "")
         {
             bool result;
 
@@ -253,6 +275,11 @@ namespace SoftwareConfigurationManagementDBApp
             {
                 using (SqlCommand command = new SqlCommand("usp_Update_ConfigItemDOC", connection))
                 {
+                    if (configItemDOC.ID == 0 && SoftwareID != String.Empty)
+                    {
+                        int softwareID = Convert.ToInt32(SoftwareID);
+                        command.Parameters.AddWithValue("@SoftwareID", softwareID);
+                    }
 
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("@ConfigItemDOC_ID", configItemDOC.ID);
