@@ -25,6 +25,24 @@ namespace SoftwareConfigurationManagementDBApp
 
         private void AddUser_Load(object sender, EventArgs e)
         {
+
+            UserControl userGroups = new UserControl();
+
+
+            DataTable dt = new DataTable();
+
+            dt = userGroups.getGroups();
+
+            cmdGroups.Items.Insert(0, " ");
+
+            foreach (DataRow row in dt.Rows)
+            {
+                cmdGroups.Items.Add(row[1].ToString());
+            }
+
+          
+            
+           
             
             cmbAccessGroup.Items.Add("Select Group");
             cmbAccessGroup.Items.Add("Admin");
@@ -62,32 +80,75 @@ namespace SoftwareConfigurationManagementDBApp
                     default:
                         break;
                 }
+
+
+                if (cmdGroups.SelectedItem != String.Empty && txtGroupName.Text == String.Empty)
+                {
+                    //use dropdown
+                    var obj = new User()
+                    {
+                        User_ID = 1,
+                        Fname = txtFname.Text,
+                        Lname = txtLname.Text,
+                        Username = txtUsername.Text,
+                        Password = txtPassword.Text,
+                        AccessGroup = AccessLvl,
+                        GroupName = cmdGroups.SelectedItem.ToString().Trim()
+                    };
+
+                    if (mAddUpdate == 1)
+                    {
+                        mUserControl.AddUser(obj);
+                        MessageBox.Show("User has been added!", "Success!", MessageBoxButtons.OK);
+
+                    }
+                    if (mAddUpdate == 2)
+                    {
+                        mUserControl.UpdateUser(obj);
+                        MessageBox.Show("User has been updated!", "Success!", MessageBoxButtons.OK);
+                        ViewUsers.ActiveForm.Close();
+                    }
+                }
+                else if(cmdGroups.SelectedText == String.Empty && txtGroupName.Text != String.Empty)
+                {
+                    //use text
+                    var obj = new User()
+                    {
+                        User_ID = 1,
+                        Fname = txtFname.Text,
+                        Lname = txtLname.Text,
+                        Username = txtUsername.Text,
+                        Password = txtPassword.Text,
+                        AccessGroup = AccessLvl,
+                        GroupName = txtGroupName.Text.Trim()
+                    };
+
+                    if (mAddUpdate == 1)
+                    {
+                        mUserControl.AddUser(obj);
+                        MessageBox.Show("User has been added!", "Success!", MessageBoxButtons.OK);
+                        this.Close();
+                    }
+                    if (mAddUpdate == 2)
+                    {
+                        mUserControl.UpdateUser(obj);
+                        MessageBox.Show("User has been updated!", "Success!", MessageBoxButtons.OK);
+                        ViewUsers.ActiveForm.Close();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Must enter group name, or select one from the drop down", "Error",
+                        MessageBoxButtons.OK);
+                }
+
                   
 
-                var obj = new User()
-                {
-                    User_ID = 1,
-                    Fname = txtFname.Text,
-                    Lname = txtLname.Text,
-                    Username = txtUsername.Text,
-                    Password = txtPassword.Text,
-                    AccessGroup = AccessLvl
-                };
+             
 
-                if (mAddUpdate == 1)
-                {
-                    mUserControl.AddUser(obj);
-                    MessageBox.Show("User has been added!", "Success!",MessageBoxButtons.OK);
-                    
-                }
-                if (mAddUpdate == 2)
-                {
-                    mUserControl.UpdateUser(obj);
-                    MessageBox.Show("User has been updated!", "Success!", MessageBoxButtons.OK);
-                    ViewUsers.ActiveForm.Close();
-                }
+              
 
-                this.Close();
+              
             }
         }
     }

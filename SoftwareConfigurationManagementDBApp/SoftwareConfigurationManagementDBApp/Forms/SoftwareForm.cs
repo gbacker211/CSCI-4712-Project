@@ -39,7 +39,7 @@ namespace SoftwareConfigurationManagementDBApp
                         {
                             SoftwareName = txtSoftwareName.Text,
                             SystemName = txtSystemName.Text,
-                            Group = txtGroup.Text,
+                            Group = ddlGroups.SelectedValue.ToString().Trim(),
                             Owner = txtOwner.Text,
                             Classification = cmbClass.SelectedItem.ToString(),
                             ResponsibleEngineer = txtResponsibleEngineer.Text,
@@ -73,7 +73,7 @@ namespace SoftwareConfigurationManagementDBApp
                             Software_ID = mSoftware.Software_ID,
                             SoftwareName = txtSoftwareName.Text.Trim(),
                             SystemName = txtSystemName.Text.Trim(),
-                            Group = txtGroup.Text.Trim(),
+                            Group = ddlGroups.SelectedValue.ToString().Trim(),
                             Owner = txtOwner.Text.Trim(),
                             Classification = cmbClass.SelectedItem.ToString().Trim(),
                             ResponsibleEngineer = txtResponsibleEngineer.Text.Trim(),
@@ -106,6 +106,16 @@ namespace SoftwareConfigurationManagementDBApp
 
         private void SoftwareForm_Load(object sender, EventArgs e)
         {
+
+            UserControl getgroups = new UserControl();
+
+
+            ddlGroups.DataSource = getgroups.getGroups();
+            ddlGroups.DisplayMember = "GroupName";
+            ddlGroups.ValueMember = "ID";
+            
+
+
             cmbClass.Items.Add("A ");
             cmbClass.Items.Add("B ");
             cmbClass.Items.Add("C ");
@@ -120,7 +130,7 @@ namespace SoftwareConfigurationManagementDBApp
                 txtSoftwareName.Text = mSoftware.SoftwareName;
                 txtSystemName.Text = mSoftware.SystemName;
                 txtDesignAuthority.Text = mSoftware.DesignAuthority;
-                txtGroup.Text = mSoftware.Group;
+                ddlGroups.SelectedItem = mSoftware.Group;
                 txtOwner.Text = mSoftware.Owner;
                 txtResponsibleEngineer.Text = mSoftware.ResponsibleEngineer;
                 txtSoftwareDescription.Text = mSoftware.Description;

@@ -55,6 +55,7 @@ namespace SoftwareConfigurationManagementDBApp
                         AddUser.Parameters.AddWithValue("@Firstname", aUser.Fname);
                         AddUser.Parameters.AddWithValue("@Lastname", aUser.Lname);
                         AddUser.Parameters.AddWithValue("@AccessGroup", aUser.AccessGroup);
+                        AddUser.Parameters.AddWithValue("@GroupName", aUser.GroupName);
 
                         int success = AddUser.ExecuteNonQuery();
 
@@ -106,6 +107,34 @@ namespace SoftwareConfigurationManagementDBApp
             using (SqlConnection conn = new SqlConnection(_connectionstring))
             {
                 using (SqlCommand cmd = new SqlCommand("usp_Select_AllUser", conn))
+                {
+                    try
+                    {
+                        conn.Open();
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        using (SqlDataAdapter getData = new SqlDataAdapter(cmd))
+                        {
+                            getData.Fill(dt);
+                        }
+                    }
+                    finally
+                    {
+                        conn.Close();
+                    }
+
+                }
+            }
+
+            return dt;
+        }
+
+        public DataTable getGroups()
+        {
+            DataTable dt = new DataTable();
+
+            using (SqlConnection conn = new SqlConnection(_connectionstring))
+            {
+                using (SqlCommand cmd = new SqlCommand("usp_Select_ALLGroups", conn))
                 {
                     try
                     {

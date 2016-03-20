@@ -59,8 +59,7 @@ namespace SoftwareConfigurationManagementDBApp
                         AddSoftware.Parameters.AddWithValue("@Engineer", software.ResponsibleEngineer);
                         AddSoftware.Parameters.AddWithValue("@Owner", software.Owner);
                         AddSoftware.Parameters.AddWithValue("@DesignAuthority", software.DesignAuthority);
-                        AddSoftware.Parameters.AddWithValue("@GroupName", software.Group);
-                        AddSoftware.Parameters.AddWithValue("@UserId", user.User_ID);
+                        AddSoftware.Parameters.AddWithValue("@GroupID", software.Group);
 
                         int success = AddSoftware.ExecuteNonQuery();
                         result = Convert.ToBoolean(success);

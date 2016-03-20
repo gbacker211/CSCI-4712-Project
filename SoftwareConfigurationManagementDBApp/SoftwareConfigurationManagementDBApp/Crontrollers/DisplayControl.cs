@@ -12,7 +12,7 @@ namespace SoftwareConfigurationManagementDBApp
     class DisplayControl
     {
 
-        public DataTable GetSoftwareOverview(int groupID)
+        public DataTable GetSoftwareOverview(int groupID, int AccessID = 0)
         {
             DataTable dt = new DataTable();
 
@@ -27,6 +27,7 @@ namespace SoftwareConfigurationManagementDBApp
                     connect.Open();
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("@GroupID", groupID);
+                    command.Parameters.AddWithValue("@AccessGroup", AccessID);
 
                     using (SqlDataAdapter getData = new SqlDataAdapter(command))
                     {
