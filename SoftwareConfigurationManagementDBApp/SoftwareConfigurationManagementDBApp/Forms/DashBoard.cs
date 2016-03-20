@@ -156,14 +156,9 @@ namespace SoftwareConfigurationManagementDBApp
             DataTable dt = new DataTable();
 
             DisplayControl displayData = new DisplayControl();
-            if (_userInfo.AccessGroup == 1)
-            {
-                dt = displayData.GetSoftwareOverview(Convert.ToInt32(ddlGroups.SelectedValue.ToString()), _userInfo.AccessGroup);     
-            }
-            else
-            {
-                dt = displayData.GetSoftwareOverview(Convert.ToInt32(ddlGroups.SelectedValue.ToString()));
-            }
+          
+                dt = displayData.GetSoftwareOverview(Convert.ToInt32(ddlGroups.SelectedValue.ToString()), _userInfo.User_ID);
+           
            
 
             if (dt.Rows.Count == 0)
@@ -182,7 +177,7 @@ namespace SoftwareConfigurationManagementDBApp
             DataTable dt = new DataTable();
             DisplayControl displayData = new DisplayControl();
 
-            dt = displayData.GetSoftwareView(Convert.ToInt32(ddlGroups.SelectedValue.ToString()));
+            dt = displayData.GetSoftwareView(Convert.ToInt32(ddlGroups.SelectedValue.ToString()), _userInfo.User_ID);
 
             if (dt.Rows.Count == 0)
             {
