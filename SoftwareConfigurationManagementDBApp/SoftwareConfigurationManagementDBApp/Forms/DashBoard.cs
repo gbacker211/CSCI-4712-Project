@@ -63,6 +63,12 @@ namespace SoftwareConfigurationManagementDBApp
                     dataGridView1.Columns["SoftwareID"].Visible = false;
                     setColumnHeadersForSoftwareView();
                     break;
+
+                case 2:
+                    dataGridView1.DataSource = ShowAllSoftware();
+                    dataGridView1.Columns[7].Visible = false;
+                    setColumnHeadersForSoftwareOverview();
+                    break;
                 default:
                     break;
 
@@ -145,6 +151,7 @@ namespace SoftwareConfigurationManagementDBApp
             {
                 cmbDataViews.Items.Add("Software Overview");
                 cmbDataViews.Items.Add("Software View");
+                cmbDataViews.Items.Add("All Software");
             }
 
             UpdateGroups(sender, e);
@@ -199,11 +206,31 @@ namespace SoftwareConfigurationManagementDBApp
         {
             SoftwareControl software = new SoftwareControl();
 
+
+            
+            int column = 0;
+            if (cmbDataViews.SelectedIndex == 0)
+            {
+                column = 8;
+            }
+            else if(cmbDataViews.SelectedIndex == 2)
+            {
+                column = 7;
+            }
+            else
+            {
+                column = 4;
+            }
+
+
+
             if (dataGridView1.SelectedRows.Count == 0 || dataGridView1.SelectedRows.Count < 2)
             {
-                if (software.DeleteSoftware(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[8].Value.ToString())))
+
+
+                if (software.DeleteSoftware(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[column].Value.ToString())))
                 {
-                    MessageBox.Show("Software has been successfully deleted", "Error!", MessageBoxButtons.OK);
+                    MessageBox.Show("Software has been successfully deleted", "Success", MessageBoxButtons.OK);
                 }
                 else
                 {
@@ -306,6 +333,12 @@ namespace SoftwareConfigurationManagementDBApp
 
                 }
             }
+        }
+
+        private DataTable ShowAllSoftware()
+        {
+            DisplayControl display = new DisplayControl();
+            return display.GetAllSoftware();
         }
 
         private void btnViewUser_Click(object sender, EventArgs e)

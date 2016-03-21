@@ -11,23 +11,26 @@ namespace SoftwareConfigurationManagementDBApp
 {
     class DisplayControl
     {
+        private String _connectionString;
 
+        public DisplayControl()
+        {
+            _connectionString = ConfigurationManager.ConnectionStrings["SCMDatabaseConnectionString"].ConnectionString;
+        }
         public DataTable GetSoftwareOverview(int groupID, int UserID)
         {
             DataTable dt = new DataTable();
 
 
-            String connectionString =
-                ConfigurationManager.ConnectionStrings["SCMDatabaseConnectionString"].ConnectionString;
 
-            using (SqlConnection connect = new SqlConnection(connectionString))
+            using (SqlConnection connect = new SqlConnection(_connectionString))
             {
                 using (SqlCommand command = new SqlCommand("usp_Select_SoftwareOverview", connect))
                 {
                     connect.Open();
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("@GroupID", groupID);
-                   //command.Parameters.AddWithValue("@UserID", UserID);
+                    //command.Parameters.AddWithValue("@UserID", UserID);
 
                     using (SqlDataAdapter getData = new SqlDataAdapter(command))
                     {
@@ -48,10 +51,8 @@ namespace SoftwareConfigurationManagementDBApp
             DataTable dt = new DataTable();
 
 
-            String connectionString =
-                ConfigurationManager.ConnectionStrings["SCMDatabaseConnectionString"].ConnectionString;
 
-            using (SqlConnection connect = new SqlConnection(connectionString))
+            using (SqlConnection connect = new SqlConnection(_connectionString))
             {
                 using (SqlCommand command = new SqlCommand("usp_Select_SoftwareView", connect))
                 {
@@ -76,7 +77,7 @@ namespace SoftwareConfigurationManagementDBApp
         {
             DataTable dt = new DataTable();
 
-            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SCMDatabaseConnectionString"].ConnectionString))
+            using (SqlConnection conn = new SqlConnection(_connectionString))
             {
                 using (SqlCommand command = new SqlCommand("usp_Select_GroupsByUserID", conn))
                 {
@@ -98,5 +99,29 @@ namespace SoftwareConfigurationManagementDBApp
             return dt;
         }
 
-}
+        public DataTable GetAllSoftware()
+        {
+            DataTable dt = new DataTable();
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand command = new SqlCommand("usp_Select_AllSoftware", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    connection.Open();
+                    using (SqlDataAdapter getAdapter = new SqlDataAdapter(command))
+                    {
+                        getAdapter.Fill(dt);
+                    }
+                }
+
+            }
+
+
+
+
+            return dt;
+        }
+
+    }
 }
