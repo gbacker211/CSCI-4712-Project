@@ -100,6 +100,7 @@ namespace SoftwareConfigurationManagementDBApp
                     {
                         mUserControl.AddUser(obj);
                         MessageBox.Show("User has been added!", "Success!", MessageBoxButtons.OK);
+                        this.Close();
 
                     }
                     if (mAddUpdate == 2)
