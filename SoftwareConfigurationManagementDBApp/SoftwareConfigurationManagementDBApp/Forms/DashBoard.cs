@@ -295,6 +295,13 @@ namespace SoftwareConfigurationManagementDBApp
                     attControl.openAttributeForm(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[8].Value.ToString()),
                         dataGridView1.SelectedRows[0].Cells[0].Value.ToString().Trim(), this);
                 }
+                if (cmbDataViews.SelectedIndex == 2)
+                {
+                    AttributeControl attControl = new AttributeControl(_userInfo);
+
+                    attControl.viewAttributes(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[7].Value.ToString()),
+                        dataGridView1.SelectedRows[0].Cells[0].Value.ToString().Trim());
+                }
                 else
                 {
                     AttributeControl attControl = new AttributeControl();
@@ -322,6 +329,13 @@ namespace SoftwareConfigurationManagementDBApp
                     AttributeControl attControl = new AttributeControl(_userInfo);
 
                     attControl.viewAttributes(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[8].Value.ToString()),
+                        dataGridView1.SelectedRows[0].Cells[0].Value.ToString().Trim());
+                }
+                if (cmbDataViews.SelectedIndex == 2)
+                {
+                    AttributeControl attControl = new AttributeControl(_userInfo);
+
+                    attControl.viewAttributes(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[7].Value.ToString()),
                         dataGridView1.SelectedRows[0].Cells[0].Value.ToString().Trim());
                 }
                 else
