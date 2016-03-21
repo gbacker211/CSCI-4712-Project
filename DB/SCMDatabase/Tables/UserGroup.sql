@@ -1,7 +1,7 @@
 USE [SCMDatabase]
 GO
 
-/****** Object:  Table [dbo].[UserGroup]    Script Date: 3/20/2016 11:49:35 AM ******/
+/****** Object:  Table [dbo].[UserGroup]    Script Date: 3/20/2016 10:35:03 PM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -12,7 +12,6 @@ CREATE TABLE [dbo].[UserGroup](
 	[ID] [int] IDENTITY(1,1) NOT NULL,
 	[SoftwareID] [int] NULL,
 	[GroupId] [int] NOT NULL,
-	[UserId] [int] NOT NULL,
  CONSTRAINT [PK_ConnectGroupToSoftware] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC

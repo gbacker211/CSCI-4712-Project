@@ -1,7 +1,7 @@
 USE [SCMDatabase]
 GO
 
-/****** Object:  Table [dbo].[AccessUser]    Script Date: 2/27/2016 5:09:29 PM ******/
+/****** Object:  Table [dbo].[AccessUser]    Script Date: 3/20/2016 10:35:36 PM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -14,7 +14,8 @@ CREATE TABLE [dbo].[AccessUser](
 	[LastName] [nchar](10) NULL,
 	[Password] [nchar](10) NOT NULL,
 	[UserName] [nchar](10) NOT NULL,
-	[AccesGroup] [int] NULL,
+	[AccesGroup] [int] NOT NULL,
+	[GroupID] [int] NULL,
  CONSTRAINT [PK_User] PRIMARY KEY CLUSTERED 
 (
 	[User_Id] ASC
