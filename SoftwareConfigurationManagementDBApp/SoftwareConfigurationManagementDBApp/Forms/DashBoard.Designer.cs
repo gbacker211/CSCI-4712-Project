@@ -34,7 +34,6 @@
             this.cmbDataViews = new System.Windows.Forms.ComboBox();
             this.btnViewAttr = new System.Windows.Forms.Button();
             this.btnAddAttr = new System.Windows.Forms.Button();
-            this.btnEditUser = new System.Windows.Forms.Button();
             this.btnAddUser = new System.Windows.Forms.Button();
             this.btnDeleteSoft = new System.Windows.Forms.Button();
             this.btnEditSoftw = new System.Windows.Forms.Button();
@@ -47,6 +46,7 @@
             this.grpAdmin = new System.Windows.Forms.GroupBox();
             this.grpAttributes = new System.Windows.Forms.GroupBox();
             this.grpDataViewing = new System.Windows.Forms.GroupBox();
+            this.btnViewUser = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.grpAdmin.SuspendLayout();
             this.grpAttributes.SuspendLayout();
@@ -110,17 +110,6 @@
             this.btnAddAttr.Text = "Add Attribute";
             this.btnAddAttr.UseVisualStyleBackColor = true;
             this.btnAddAttr.Click += new System.EventHandler(this.btnAddAttr_Click);
-            // 
-            // btnEditUser
-            // 
-            this.btnEditUser.Location = new System.Drawing.Point(28, 276);
-            this.btnEditUser.Margin = new System.Windows.Forms.Padding(4);
-            this.btnEditUser.Name = "btnEditUser";
-            this.btnEditUser.Size = new System.Drawing.Size(115, 38);
-            this.btnEditUser.TabIndex = 31;
-            this.btnEditUser.Text = "Edit User";
-            this.btnEditUser.UseVisualStyleBackColor = true;
-            this.btnEditUser.Click += new System.EventHandler(this.btnEditUser_Click);
             // 
             // btnAddUser
             // 
@@ -224,11 +213,11 @@
             // 
             // grpAdmin
             // 
+            this.grpAdmin.Controls.Add(this.btnViewUser);
             this.grpAdmin.Controls.Add(this.btnAddSoftw);
             this.grpAdmin.Controls.Add(this.btnEditSoftw);
             this.grpAdmin.Controls.Add(this.btnDeleteSoft);
             this.grpAdmin.Controls.Add(this.btnAddUser);
-            this.grpAdmin.Controls.Add(this.btnEditUser);
             this.grpAdmin.Location = new System.Drawing.Point(12, 256);
             this.grpAdmin.Name = "grpAdmin";
             this.grpAdmin.Size = new System.Drawing.Size(160, 343);
@@ -256,6 +245,16 @@
             this.grpDataViewing.TabIndex = 46;
             this.grpDataViewing.TabStop = false;
             this.grpDataViewing.Text = "View Attributes and Print";
+            // 
+            // btnViewUser
+            // 
+            this.btnViewUser.Location = new System.Drawing.Point(28, 278);
+            this.btnViewUser.Name = "btnViewUser";
+            this.btnViewUser.Size = new System.Drawing.Size(115, 36);
+            this.btnViewUser.TabIndex = 31;
+            this.btnViewUser.Text = "View Users";
+            this.btnViewUser.UseVisualStyleBackColor = true;
+            this.btnViewUser.Click += new System.EventHandler(this.btnViewUser_Click);
             // 
             // DashBoard
             // 
@@ -293,7 +292,6 @@
         private System.Windows.Forms.ComboBox cmbDataViews;
         private System.Windows.Forms.Button btnViewAttr;
         private System.Windows.Forms.Button btnAddAttr;
-        private System.Windows.Forms.Button btnEditUser;
         private System.Windows.Forms.Button btnAddUser;
         private System.Windows.Forms.Button btnDeleteSoft;
         private System.Windows.Forms.Button btnEditSoftw;
@@ -306,5 +304,6 @@
         private System.Windows.Forms.GroupBox grpAdmin;
         private System.Windows.Forms.GroupBox grpAttributes;
         private System.Windows.Forms.GroupBox grpDataViewing;
+        private System.Windows.Forms.Button btnViewUser;
     }
 }

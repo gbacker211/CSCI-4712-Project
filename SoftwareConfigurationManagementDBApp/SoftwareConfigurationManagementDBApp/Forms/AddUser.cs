@@ -88,10 +88,10 @@ namespace SoftwareConfigurationManagementDBApp
                     var obj = new User()
                     {
                         User_ID = 1,
-                        Fname = txtFname.Text,
-                        Lname = txtLname.Text,
-                        Username = txtUsername.Text,
-                        Password = txtPassword.Text,
+                        Fname = txtFname.Text.Trim(),
+                        Lname = txtLname.Text.Trim(),
+                        Username = txtUsername.Text.Trim(),
+                        Password = txtPassword.Text.Trim(),
                         AccessGroup = AccessLvl,
                         GroupName = cmdGroups.SelectedItem.ToString().Trim()
                     };
@@ -107,6 +107,7 @@ namespace SoftwareConfigurationManagementDBApp
                         mUserControl.UpdateUser(obj);
                         MessageBox.Show("User has been updated!", "Success!", MessageBoxButtons.OK);
                         ViewUsers.ActiveForm.Close();
+                        this.Close();
                     }
                 }
                 else if(cmdGroups.SelectedText == String.Empty && txtGroupName.Text != String.Empty)
@@ -115,10 +116,10 @@ namespace SoftwareConfigurationManagementDBApp
                     var obj = new User()
                     {
                         User_ID = 1,
-                        Fname = txtFname.Text,
-                        Lname = txtLname.Text,
-                        Username = txtUsername.Text,
-                        Password = txtPassword.Text,
+                        Fname = txtFname.Text.Trim(),
+                        Lname = txtLname.Text.Trim(),
+                        Username = txtUsername.Text.Trim(),
+                        Password = txtPassword.Text.Trim(),
                         AccessGroup = AccessLvl,
                         GroupName = txtGroupName.Text.Trim()
                     };
@@ -133,7 +134,8 @@ namespace SoftwareConfigurationManagementDBApp
                     {
                         mUserControl.UpdateUser(obj);
                         MessageBox.Show("User has been updated!", "Success!", MessageBoxButtons.OK);
-                        ViewUsers.ActiveForm.Close();
+                        // ViewUsers.ActiveForm.Close();
+                        this.Close();
                     }
                 }
                 else

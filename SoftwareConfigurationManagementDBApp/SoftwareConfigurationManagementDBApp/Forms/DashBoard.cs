@@ -308,17 +308,10 @@ namespace SoftwareConfigurationManagementDBApp
             }
         }
 
-        //
-        private void btnViewUsers_Click(object sender, EventArgs e)
+        private void btnViewUser_Click(object sender, EventArgs e)
         {
             UserControl allUsers = new UserControl();
             allUsers.OpenUserView();
-            // DataTable dt = allUsers.getUsers();
-        }
-
-        private void btnEditUser_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
