@@ -82,7 +82,7 @@ namespace SoftwareConfigurationManagementDBApp
                 }
 
 
-                if (cmdGroups.SelectedItem != String.Empty && txtGroupName.Text == String.Empty)
+                if (cmdGroups.SelectedItem != null && txtGroupName.Text == String.Empty)
                 {
                     //use dropdown
                     var obj = new User()
@@ -111,7 +111,7 @@ namespace SoftwareConfigurationManagementDBApp
                         this.Close();
                     }
                 }
-                else if(cmdGroups.SelectedText == String.Empty && txtGroupName.Text != String.Empty)
+                else if(cmdGroups.SelectedText == null && txtGroupName.Text != String.Empty)
                 {
                     //use text
                     var obj = new User()
