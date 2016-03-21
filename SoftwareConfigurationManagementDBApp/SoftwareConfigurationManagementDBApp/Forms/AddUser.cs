@@ -128,14 +128,14 @@ namespace SoftwareConfigurationManagementDBApp
                     {
                         mUserControl.AddUser(obj);
                         MessageBox.Show("User has been added!", "Success!", MessageBoxButtons.OK);
-                        this.Close();
+                        Close();
                     }
                     if (mAddUpdate == 2)
                     {
                         mUserControl.UpdateUser(obj);
                         MessageBox.Show("User has been updated!", "Success!", MessageBoxButtons.OK);
                         // ViewUsers.ActiveForm.Close();
-                        this.Close();
+                        Close();
                     }
                 }
                 else
