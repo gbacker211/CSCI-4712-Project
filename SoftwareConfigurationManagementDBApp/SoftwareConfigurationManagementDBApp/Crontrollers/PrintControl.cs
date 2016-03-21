@@ -33,7 +33,25 @@ namespace SoftwareConfigurationManagementDBApp
                 xlWorkSheet = (MSExcel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
                 MSExcel.Range CR = (MSExcel.Range)xlWorkSheet.Cells[1, 1];
                 CR.Select();
+               
                 xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
+
+                MSExcel.Range formatRange;
+                formatRange = xlWorkSheet.get_Range("a1");
+                formatRange.EntireRow.Font.Bold = true;
+                //xlWorkSheet.Cells[1, 5] = "Bold";
+
+                MSExcel.Worksheet myWorksheet;
+                myWorksheet = xlWorkSheet;
+
+              
+
+                myWorksheet.Range["A1:A2", "Z1:Z2"].Columns.AutoFit();
+
+              //  myWorksheet.Range["A1"].Columns.Delete();
+
+
+
             }
             else
             {
@@ -44,9 +62,13 @@ namespace SoftwareConfigurationManagementDBApp
         private void copyGridData()
         {
             _dataGrid.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
+         //   _dataGrid.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableWithAutoHeaderText;
             _dataGrid.MultiSelect = true;
 
+            _dataGrid.RowHeadersVisible = false;
+
             _dataGrid.SelectAll();
+
             DataObject dataObject = _dataGrid.GetClipboardContent();
             if (dataObject != null)
                 Clipboard.SetDataObject(dataObject);

@@ -84,9 +84,9 @@ namespace SoftwareConfigurationManagementDBApp
                     dgvViewAttr.DataSource = attributes.SoftwareViewTwo(_softwareID);
                     dgvViewAttr.Columns["CI_ID"].Visible = false;
                     dgvViewAttr.Columns["SoftwareID"].Visible = false;
-                    dgvViewAttr.Columns["Name"].HeaderText = "Configuration Item:"  + Environment.NewLine +  "Name";
+                    dgvViewAttr.Columns["Name"].HeaderText = "Configuration Item: Name";
                     dgvViewAttr.Columns["Revision"].HeaderText = "Configuration Item:  Revision";
-                    dgvViewAttr.Columns["Date"].HeaderText = "Configuration Item:" + Environment.NewLine + "Date";
+                    dgvViewAttr.Columns["Date"].HeaderText = "Configuration Item: Date";
                     dgvViewAttr.Columns["Description"].HeaderText = "Configuration Item:  Description";
                     dgvViewAttr.Columns["Location"].HeaderText = "Configuration Item:  Location";
                     break;

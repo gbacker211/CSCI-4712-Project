@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using MSExcel =  Microsoft.Office.Interop.Excel;
+using MSExcel = Microsoft.Office.Interop.Excel;
 
 
 namespace SoftwareConfigurationManagementDBApp
@@ -39,7 +39,7 @@ namespace SoftwareConfigurationManagementDBApp
             }
         }
 
-       
+
 
         private void viewlb_Click(object sender, EventArgs e)
         {
@@ -48,37 +48,37 @@ namespace SoftwareConfigurationManagementDBApp
 
         private void selectView(object sender, EventArgs e)
         {
-            if(ddlGroups.SelectedValue != null)
-            { 
-            int viewSelection = Convert.ToInt32(cmbDataViews.SelectedIndex);
-            switch (viewSelection)
+            if (ddlGroups.SelectedValue != null)
             {
-                case 0:
-                    dataGridView1.DataSource = ViewSoftwareOverview();
-                    dataGridView1.Columns[8].Visible = false;
-                    setColumnHeadersForSoftwareOverview();
-                    break;
-                case 1:
-                    dataGridView1.DataSource = ViewSoftwareView();
-                    dataGridView1.Columns["SoftwareID"].Visible = false;
-                    setColumnHeadersForSoftwareView();
-                    break;
+                int viewSelection = Convert.ToInt32(cmbDataViews.SelectedIndex);
+                switch (viewSelection)
+                {
+                    case 0:
+                        dataGridView1.DataSource = ViewSoftwareOverview();
+                        dataGridView1.Columns[8].Visible = false;
+                        setColumnHeadersForSoftwareOverview();
+                        break;
+                    case 1:
+                        dataGridView1.DataSource = ViewSoftwareView();
+                        dataGridView1.Columns["SoftwareID"].Visible = false;
+                        setColumnHeadersForSoftwareView();
+                        break;
 
-                case 2:
-                    dataGridView1.DataSource = ShowAllSoftware();
-                    dataGridView1.Columns[7].Visible = false;
-                    setColumnHeadersForSoftwareOverview();
-                    break;
-                default:
-                    break;
+                    case 2:
+                        dataGridView1.DataSource = ShowAllSoftware();
+                        dataGridView1.Columns[7].Visible = false;
+                        setColumnHeadersForSoftwareOverview();
+                        break;
+                    default:
+                        break;
 
-            }
+                }
             }
             else
             {
                 MessageBox.Show("Must Select a Group First", "ERROR!", MessageBoxButtons.OK);
             }
-           
+
         }
 
         private void btnAddSoftw_Click(object sender, EventArgs e)
@@ -107,7 +107,7 @@ namespace SoftwareConfigurationManagementDBApp
                     Software_ID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[8].Value.ToString())
                 };
 
-                
+
 
                 Form aNewSoftware = new SoftwareForm(aSoftware, _userInfo, 2, this);
                 aNewSoftware.Show();
@@ -117,15 +117,15 @@ namespace SoftwareConfigurationManagementDBApp
                 MessageBox.Show("No Software Selected or Software Overview is not selected", "Error", MessageBoxButtons.OK);
             }
 
-          
+
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
             this.Close();
-           // LoginForm.ActiveForm.Show();
+            // LoginForm.ActiveForm.Show();
             //temp
-           LoginControl login = new LoginControl(_loginForm);
+            LoginControl login = new LoginControl(_loginForm);
             login.ReturnToLoginn();
 
         }
@@ -163,10 +163,10 @@ namespace SoftwareConfigurationManagementDBApp
             DataTable dt = new DataTable();
 
             DisplayControl displayData = new DisplayControl();
-          
-                dt = displayData.GetSoftwareOverview(Convert.ToInt32(ddlGroups.SelectedValue.ToString()), _userInfo.User_ID);
-           
-           
+
+            dt = displayData.GetSoftwareOverview(Convert.ToInt32(ddlGroups.SelectedValue.ToString()), _userInfo.User_ID);
+
+
 
             if (dt.Rows.Count == 0)
             {
@@ -197,23 +197,23 @@ namespace SoftwareConfigurationManagementDBApp
 
         private void btnPrintReport_Click(object sender, EventArgs e)
         {
-           PrintControl daPrintControl = new PrintControl(dataGridView1);
+            PrintControl daPrintControl = new PrintControl(dataGridView1);
             daPrintControl.ExportGridData();
         }
 
-       
+
         private void btnDeleteSoft_Click(object sender, EventArgs e)
         {
             SoftwareControl software = new SoftwareControl();
 
 
-            
+
             int column = 0;
             if (cmbDataViews.SelectedIndex == 0)
             {
                 column = 8;
             }
-            else if(cmbDataViews.SelectedIndex == 2)
+            else if (cmbDataViews.SelectedIndex == 2)
             {
                 column = 7;
             }
@@ -236,7 +236,7 @@ namespace SoftwareConfigurationManagementDBApp
                 {
                     MessageBox.Show("Failure has occured", "Error!", MessageBoxButtons.OK);
                 }
-                UpdateGrid(sender,e);
+                UpdateGrid(sender, e);
             }
             else
             {
@@ -244,7 +244,7 @@ namespace SoftwareConfigurationManagementDBApp
             }
         }
 
-       
+
 
         public void UpdateGrid(object sender, EventArgs e)
         {
@@ -269,7 +269,7 @@ namespace SoftwareConfigurationManagementDBApp
             {
                 dt = displayOperation.GetGroups(_userInfo);
             }
-           
+
 
 
             if (dt.Rows.Count > 0)
@@ -280,7 +280,7 @@ namespace SoftwareConfigurationManagementDBApp
             }
 
 
-            
+
         }
 
         private void btnAddAttr_Click(object sender, EventArgs e)
@@ -288,8 +288,8 @@ namespace SoftwareConfigurationManagementDBApp
 
             if (dataGridView1.SelectedRows.Count != 0)
             {
-                if(cmbDataViews.SelectedIndex == 0)
-                { 
+                if (cmbDataViews.SelectedIndex == 0)
+                {
                     AttributeControl attControl = new AttributeControl();
 
                     attControl.openAttributeForm(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[8].Value.ToString()),
@@ -308,7 +308,7 @@ namespace SoftwareConfigurationManagementDBApp
 
                     attControl.openAttributeForm(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[4].Value.ToString()),
                         dataGridView1.SelectedRows[0].Cells[0].Value.ToString().Trim(), this);
-                    
+
                 }
             }
         }
@@ -324,28 +324,26 @@ namespace SoftwareConfigurationManagementDBApp
             //Pass the software id into the form
             if (dataGridView1.SelectedRows.Count != 0)
             {
-                if (cmbDataViews.SelectedIndex == 0)
+                AttributeControl attControl = new AttributeControl(_userInfo);
+                switch (cmbDataViews.SelectedIndex)
                 {
-                    AttributeControl attControl = new AttributeControl(_userInfo);
+                    case 0:
+                        attControl.viewAttributes(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[8].Value.ToString()),
+                            dataGridView1.SelectedRows[0].Cells[0].Value.ToString().Trim());
+                        break;
+                    case 1:
 
-                    attControl.viewAttributes(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[8].Value.ToString()),
-                        dataGridView1.SelectedRows[0].Cells[0].Value.ToString().Trim());
-                }
-                if (cmbDataViews.SelectedIndex == 2)
-                {
-                    AttributeControl attControl = new AttributeControl(_userInfo);
-
-                    attControl.viewAttributes(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[7].Value.ToString()),
-                        dataGridView1.SelectedRows[0].Cells[0].Value.ToString().Trim());
-                }
-                else
-                {
-                    AttributeControl attControl = new AttributeControl(_userInfo);
-
-                    attControl.viewAttributes(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[4].Value.ToString()),
-                        dataGridView1.SelectedRows[0].Cells[0].Value.ToString().Trim());
+                        attControl.viewAttributes(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[4].Value.ToString()),
+                                dataGridView1.SelectedRows[0].Cells[0].Value.ToString().Trim());
+                        break;
+                    case 2:
+                        attControl.viewAttributes(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[7].Value.ToString()),
+                             dataGridView1.SelectedRows[0].Cells[0].Value.ToString().Trim());
+                        break;
 
                 }
+
+
             }
         }
 
