@@ -27,7 +27,7 @@ namespace SoftwareConfigurationManagementDBApp
                     connect.Open();
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("@GroupID", groupID);
-                   command.Parameters.AddWithValue("@UserID", UserID);
+                  // command.Parameters.AddWithValue("@UserID", UserID);
 
                     using (SqlDataAdapter getData = new SqlDataAdapter(command))
                     {
