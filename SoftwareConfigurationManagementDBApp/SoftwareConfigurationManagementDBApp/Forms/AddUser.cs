@@ -98,17 +98,36 @@ namespace SoftwareConfigurationManagementDBApp
 
                     if (mAddUpdate == 1)
                     {
-                        mUserControl.AddUser(obj);
-                        MessageBox.Show("User has been added!", "Success!", MessageBoxButtons.OK);
-                        this.Close();
+
+                        if (mUserControl.AddUser(obj))
+                        {
+                            MessageBox.Show("User has been added!", "Success!", MessageBoxButtons.OK);
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("User has not been added, please insure that the user has not been used",
+                                "ERROR", MessageBoxButtons.OK);
+
+                        }
+                        
+                      
 
                     }
                     if (mAddUpdate == 2)
                     {
-                        mUserControl.UpdateUser(obj);
-                        MessageBox.Show("User has been updated!", "Success!", MessageBoxButtons.OK);
-                        ViewUsers.ActiveForm.Close();
-                        this.Close();
+                        if (mUserControl.UpdateUser(obj))
+                        {
+                            MessageBox.Show("User has been updated!", "Success!", MessageBoxButtons.OK);
+                            ViewUsers.ActiveForm.Close();
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("User has not been updated, please insure that the user has not been used",
+                                "ERROR", MessageBoxButtons.OK);
+                        }
+                     
                     }
                 }
                 else if(cmdGroups.SelectedText == null && txtGroupName.Text != String.Empty)

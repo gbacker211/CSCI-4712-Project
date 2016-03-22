@@ -38,7 +38,7 @@ namespace SoftwareConfigurationManagementDBApp
             ViewAllUsers.Show();
         }
 
-        public void AddUser(User aUser)
+        public bool AddUser(User aUser)
         {
             bool result;
 
@@ -67,9 +67,10 @@ namespace SoftwareConfigurationManagementDBApp
                     }
                 }
             }
+            return result;
         }
 
-        public void UpdateUser(User aUser)
+        public bool UpdateUser(User aUser)
         {
             bool result;
 
@@ -98,6 +99,7 @@ namespace SoftwareConfigurationManagementDBApp
                     }
                 }
             }
+            return result;
         }
 
         public DataTable getUsers()
