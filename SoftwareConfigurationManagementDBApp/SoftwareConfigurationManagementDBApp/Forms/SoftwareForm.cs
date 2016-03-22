@@ -46,7 +46,6 @@ namespace SoftwareConfigurationManagementDBApp
                             Description = txtSoftwareDescription.Text,
                             DesignAuthority = txtDesignAuthority.Text
                         };
-                        // Add DB Code // 
 
                         SoftwareControl softwareOperation = new SoftwareControl();
 
@@ -80,7 +79,6 @@ namespace SoftwareConfigurationManagementDBApp
                             Description = txtSoftwareDescription.Text.Trim(),
                             DesignAuthority = txtDesignAuthority.Text.Trim()
                         };
-                        // ADD DB CODE //
 
                        SoftwareControl softwareOperation = new SoftwareControl();
 
@@ -92,7 +90,7 @@ namespace SoftwareConfigurationManagementDBApp
                         }
                         else
                         {
-                            MessageBox.Show("Contact Administrator", "ERROR", MessageBoxButtons.OK);
+                            MessageBox.Show("An Unknown Error has occur", "ERROR", MessageBoxButtons.OK);
                         }
                        
 

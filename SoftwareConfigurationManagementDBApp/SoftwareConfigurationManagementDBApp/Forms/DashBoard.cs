@@ -28,14 +28,14 @@ namespace SoftwareConfigurationManagementDBApp
             if (_userInfo.AccessGroup == 2)
             {
                 grpAdmin.Hide();
-                grpAttributes.Location = new Point(92, 258);
-                grpDataViewing.Location = new Point(92, 378);
+                grpAttributes.Location = new Point(75, 199);
+                grpDataViewing.Location = new Point(75, 289);
             }
             if (_userInfo.AccessGroup == 3)
             {
                 grpAdmin.Hide();
                 grpAttributes.Hide();
-                grpDataViewing.Location = new Point(92, 258);
+                grpDataViewing.Location = new Point(75, 255);
             }
         }
 
