@@ -57,5 +57,16 @@ namespace SoftwareConfigurationManagementDBApp
             DataTable dt = mUControl.getUsers();
             dataGridView1.DataSource = dt;
         }
+
+        private void btnEditUser_MouseHover(object sender, EventArgs e)
+        {
+            btnEditUser.BackColor = Color.CornflowerBlue;
+        }
+
+        private void btnEditUser_MouseLeave(object sender, EventArgs e)
+        {
+            btnEditUser.BackColor = Color.Empty;
+        }
+
     }
 }

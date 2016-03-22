@@ -60,12 +60,11 @@
             this.dgvViewAttr.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvViewAttr.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvViewAttr.GridColor = System.Drawing.SystemColors.Control;
-            this.dgvViewAttr.Location = new System.Drawing.Point(51, 133);
-            this.dgvViewAttr.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvViewAttr.Location = new System.Drawing.Point(38, 108);
             this.dgvViewAttr.MultiSelect = false;
             this.dgvViewAttr.Name = "dgvViewAttr";
             this.dgvViewAttr.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
-            this.dgvViewAttr.Size = new System.Drawing.Size(754, 612);
+            this.dgvViewAttr.Size = new System.Drawing.Size(566, 497);
             this.dgvViewAttr.TabIndex = 0;
             // 
             // comboViewAttr
@@ -77,10 +76,9 @@
             "Software Item View 1",
             "Software Item View 2",
             "Software Item View 3"});
-            this.comboViewAttr.Location = new System.Drawing.Point(146, 62);
-            this.comboViewAttr.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboViewAttr.Location = new System.Drawing.Point(110, 50);
             this.comboViewAttr.Name = "comboViewAttr";
-            this.comboViewAttr.Size = new System.Drawing.Size(160, 24);
+            this.comboViewAttr.Size = new System.Drawing.Size(121, 21);
             this.comboViewAttr.TabIndex = 1;
             this.comboViewAttr.SelectedIndexChanged += new System.EventHandler(this.selectView);
             // 
@@ -88,54 +86,57 @@
             // 
             this.lblviews.AutoSize = true;
             this.lblviews.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblviews.Location = new System.Drawing.Point(37, 62);
-            this.lblviews.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblviews.Location = new System.Drawing.Point(28, 50);
             this.lblviews.Name = "lblviews";
-            this.lblviews.Size = new System.Drawing.Size(85, 31);
+            this.lblviews.Size = new System.Drawing.Size(68, 23);
             this.lblviews.TabIndex = 2;
             this.lblviews.Text = "Views:";
             this.lblviews.Click += new System.EventHandler(this.label1_Click);
             // 
             // btnViewAttr
             // 
-            this.btnViewAttr.Location = new System.Drawing.Point(705, 57);
-            this.btnViewAttr.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnViewAttr.Location = new System.Drawing.Point(529, 46);
             this.btnViewAttr.Name = "btnViewAttr";
-            this.btnViewAttr.Size = new System.Drawing.Size(114, 46);
+            this.btnViewAttr.Size = new System.Drawing.Size(86, 37);
             this.btnViewAttr.TabIndex = 3;
             this.btnViewAttr.Text = "Close";
             this.btnViewAttr.UseVisualStyleBackColor = true;
             this.btnViewAttr.Click += new System.EventHandler(this.btnClose_Click);
+            this.btnViewAttr.MouseLeave += new System.EventHandler(this.btnViewAttr_MouseLeave);
+            this.btnViewAttr.MouseHover += new System.EventHandler(this.btnViewAttr_MouseHover);
             // 
             // btnEditViewAttr
             // 
-            this.btnEditViewAttr.Location = new System.Drawing.Point(329, 782);
-            this.btnEditViewAttr.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEditViewAttr.Location = new System.Drawing.Point(247, 635);
             this.btnEditViewAttr.Name = "btnEditViewAttr";
-            this.btnEditViewAttr.Size = new System.Drawing.Size(114, 46);
+            this.btnEditViewAttr.Size = new System.Drawing.Size(86, 37);
             this.btnEditViewAttr.TabIndex = 4;
             this.btnEditViewAttr.Text = "Edit Attribute";
             this.btnEditViewAttr.UseVisualStyleBackColor = true;
             this.btnEditViewAttr.Click += new System.EventHandler(this.btnEditViewAttr_Click);
+            this.btnEditViewAttr.MouseLeave += new System.EventHandler(this.btnEditViewAttr_MouseLeave);
+            this.btnEditViewAttr.MouseHover += new System.EventHandler(this.btnEditViewAttr_MouseHover);
             // 
             // btnDeleteAttr
             // 
-            this.btnDeleteAttr.Location = new System.Drawing.Point(617, 782);
-            this.btnDeleteAttr.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDeleteAttr.Location = new System.Drawing.Point(463, 635);
             this.btnDeleteAttr.Name = "btnDeleteAttr";
-            this.btnDeleteAttr.Size = new System.Drawing.Size(114, 46);
+            this.btnDeleteAttr.Size = new System.Drawing.Size(86, 37);
             this.btnDeleteAttr.TabIndex = 5;
             this.btnDeleteAttr.Text = "Delete Attribute";
             this.btnDeleteAttr.UseVisualStyleBackColor = true;
             this.btnDeleteAttr.Click += new System.EventHandler(this.btnDeleteAttr_Click);
+            this.btnDeleteAttr.MouseLeave += new System.EventHandler(this.btnDeleteAttr_MouseLeave);
+            this.btnDeleteAttr.MouseHover += new System.EventHandler(this.btnDeleteAttr_MouseHover);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(51, 10);
+            this.label1.Location = new System.Drawing.Point(38, 8);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(162, 29);
+            this.label1.Size = new System.Drawing.Size(126, 24);
             this.label1.TabIndex = 6;
             this.label1.Text = "Attributes For:";
             // 
@@ -143,29 +144,31 @@
             // 
             this.lblSoftwareName.AutoSize = true;
             this.lblSoftwareName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSoftwareName.Location = new System.Drawing.Point(222, 10);
+            this.lblSoftwareName.Location = new System.Drawing.Point(166, 8);
+            this.lblSoftwareName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSoftwareName.Name = "lblSoftwareName";
-            this.lblSoftwareName.Size = new System.Drawing.Size(0, 29);
+            this.lblSoftwareName.Size = new System.Drawing.Size(0, 24);
             this.lblSoftwareName.TabIndex = 7;
             // 
             // btnPrintReport
             // 
-            this.btnPrintReport.Location = new System.Drawing.Point(51, 782);
-            this.btnPrintReport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPrintReport.Location = new System.Drawing.Point(38, 635);
             this.btnPrintReport.Name = "btnPrintReport";
-            this.btnPrintReport.Size = new System.Drawing.Size(114, 46);
+            this.btnPrintReport.Size = new System.Drawing.Size(86, 37);
             this.btnPrintReport.TabIndex = 8;
             this.btnPrintReport.Text = "Print Report";
             this.btnPrintReport.UseVisualStyleBackColor = true;
             this.btnPrintReport.Click += new System.EventHandler(this.btnPrintReport_Click);
+            this.btnPrintReport.MouseLeave += new System.EventHandler(this.btnPrintReport_MouseLeave);
+            this.btnPrintReport.MouseHover += new System.EventHandler(this.btnPrintReport_MouseHover);
             // 
             // ViewAttributes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(856, 869);
+            this.ClientSize = new System.Drawing.Size(642, 706);
             this.Controls.Add(this.btnPrintReport);
             this.Controls.Add(this.lblSoftwareName);
             this.Controls.Add(this.label1);
@@ -176,7 +179,6 @@
             this.Controls.Add(this.comboViewAttr);
             this.Controls.Add(this.dgvViewAttr);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ViewAttributes";
             this.Text = "ViewAttributes";
             this.Load += new System.EventHandler(this.ViewAttributes_Load);

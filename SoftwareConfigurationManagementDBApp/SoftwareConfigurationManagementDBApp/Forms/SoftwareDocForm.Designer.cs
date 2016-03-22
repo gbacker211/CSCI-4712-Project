@@ -58,7 +58,7 @@
             // txtSoftDocName
             // 
             this.txtSoftDocName.Location = new System.Drawing.Point(92, 67);
-            this.txtSoftDocName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSoftDocName.Margin = new System.Windows.Forms.Padding(2);
             this.txtSoftDocName.Name = "txtSoftDocName";
             this.txtSoftDocName.Size = new System.Drawing.Size(140, 20);
             this.txtSoftDocName.TabIndex = 1;
@@ -88,7 +88,7 @@
             // txtSoftDocRevision
             // 
             this.txtSoftDocRevision.Location = new System.Drawing.Point(504, 68);
-            this.txtSoftDocRevision.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSoftDocRevision.Margin = new System.Windows.Forms.Padding(2);
             this.txtSoftDocRevision.Name = "txtSoftDocRevision";
             this.txtSoftDocRevision.Size = new System.Drawing.Size(111, 20);
             this.txtSoftDocRevision.TabIndex = 5;
@@ -107,7 +107,7 @@
             // txtSoftDocLocation
             // 
             this.txtSoftDocLocation.Location = new System.Drawing.Point(713, 68);
-            this.txtSoftDocLocation.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSoftDocLocation.Margin = new System.Windows.Forms.Padding(2);
             this.txtSoftDocLocation.Name = "txtSoftDocLocation";
             this.txtSoftDocLocation.Size = new System.Drawing.Size(134, 20);
             this.txtSoftDocLocation.TabIndex = 7;
@@ -126,7 +126,7 @@
             // txtSoftDocDescription
             // 
             this.txtSoftDocDescription.Location = new System.Drawing.Point(146, 124);
-            this.txtSoftDocDescription.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSoftDocDescription.Margin = new System.Windows.Forms.Padding(2);
             this.txtSoftDocDescription.Multiline = true;
             this.txtSoftDocDescription.Name = "txtSoftDocDescription";
             this.txtSoftDocDescription.Size = new System.Drawing.Size(624, 119);
@@ -147,29 +147,33 @@
             // 
             this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSubmit.Location = new System.Drawing.Point(252, 279);
-            this.btnSubmit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSubmit.Margin = new System.Windows.Forms.Padding(2);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(91, 43);
             this.btnSubmit.TabIndex = 11;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
+            this.btnSubmit.MouseLeave += new System.EventHandler(this.btnSubmit_MouseLeave);
+            this.btnSubmit.MouseHover += new System.EventHandler(this.btnSubmit_MouseHover);
             // 
             // btnBack
             // 
             this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.Location = new System.Drawing.Point(524, 279);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(2);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(91, 43);
             this.btnBack.TabIndex = 12;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.MouseLeave += new System.EventHandler(this.btnBack_MouseLeave);
+            this.btnBack.MouseHover += new System.EventHandler(this.btnBack_MouseHover);
             // 
             // SoftwarDocDate
             // 
             this.SoftwarDocDate.Location = new System.Drawing.Point(313, 68);
-            this.SoftwarDocDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SoftwarDocDate.Margin = new System.Windows.Forms.Padding(2);
             this.SoftwarDocDate.Name = "SoftwarDocDate";
             this.SoftwarDocDate.Size = new System.Drawing.Size(113, 20);
             this.SoftwarDocDate.TabIndex = 13;
@@ -193,7 +197,7 @@
             this.Controls.Add(this.txtSoftDocName);
             this.Controls.Add(this.lblSoftDocName);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "SoftwareDocForm";
             this.Text = "SoftwareDocForm";
             this.ResumeLayout(false);

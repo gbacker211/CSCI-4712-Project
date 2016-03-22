@@ -53,6 +53,8 @@
             this.btnSubmitCIDoc.Text = "Submit";
             this.btnSubmitCIDoc.UseVisualStyleBackColor = true;
             this.btnSubmitCIDoc.Click += new System.EventHandler(this.btnSubmitCIDoc_Click);
+            this.btnSubmitCIDoc.MouseLeave += new System.EventHandler(this.btnSubmitCIDoc_MouseLeave);
+            this.btnSubmitCIDoc.MouseHover += new System.EventHandler(this.btnSubmitCIDoc_MouseHover);
             // 
             // txtCIInfoCI
             // 
@@ -130,7 +132,7 @@
             // CIDocDate
             // 
             this.CIDocDate.Location = new System.Drawing.Point(156, 115);
-            this.CIDocDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CIDocDate.Margin = new System.Windows.Forms.Padding(2);
             this.CIDocDate.Name = "CIDocDate";
             this.CIDocDate.Size = new System.Drawing.Size(170, 20);
             this.CIDocDate.TabIndex = 38;
@@ -149,7 +151,7 @@
             // txtCIDocLocation
             // 
             this.txtCIDocLocation.Location = new System.Drawing.Point(156, 179);
-            this.txtCIDocLocation.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCIDocLocation.Margin = new System.Windows.Forms.Padding(2);
             this.txtCIDocLocation.Name = "txtCIDocLocation";
             this.txtCIDocLocation.Size = new System.Drawing.Size(170, 20);
             this.txtCIDocLocation.TabIndex = 40;
