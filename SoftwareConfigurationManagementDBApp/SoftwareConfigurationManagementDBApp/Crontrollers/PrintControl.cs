@@ -50,7 +50,7 @@ namespace SoftwareConfigurationManagementDBApp
 
               //  myWorksheet.Range["A1"].Columns.Delete();
 
-
+                _dataGrid.RowHeadersVisible = true;
 
             }
             else
