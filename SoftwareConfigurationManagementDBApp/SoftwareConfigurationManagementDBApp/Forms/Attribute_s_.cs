@@ -366,5 +366,16 @@ namespace SoftwareConfigurationManagementDBApp
 
 
         }
+
+        private void btnAttrSubmit_MouseHover(object sender, EventArgs e)
+        {
+            btnAttrSubmit.BackColor = Color.CornflowerBlue;
+
+        }
+
+        private void btnAttrSubmit_MouseLeave(object sender, EventArgs e)
+        {
+            btnAttrSubmit.BackColor = Color.Empty;
+        }
     }
 }

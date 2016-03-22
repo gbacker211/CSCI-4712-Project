@@ -354,6 +354,48 @@ namespace SoftwareConfigurationManagementDBApp
 
            
         }
-      
+
+        private void btnDeleteAttr_MouseHover(object sender, EventArgs e)
+        {
+            btnDeleteAttr.BackColor = Color.CornflowerBlue;
+        }
+
+        private void btnDeleteAttr_MouseLeave(object sender, EventArgs e)
+        {
+            btnDeleteAttr.BackColor = Color.Empty;
+        }
+
+        private void btnEditViewAttr_MouseHover(object sender, EventArgs e)
+        {
+            btnEditViewAttr.BackColor = Color.CornflowerBlue;
+        }
+
+        private void btnEditViewAttr_MouseLeave(object sender, EventArgs e)
+        {
+            btnEditViewAttr.BackColor = Color.Empty;
+        }
+
+        private void btnPrintReport_MouseHover(object sender, EventArgs e)
+        {
+            btnPrintReport.BackColor = Color.CornflowerBlue;
+        }
+
+        private void btnPrintReport_MouseLeave(object sender, EventArgs e)
+        {
+            btnPrintReport.BackColor = Color.Empty;
+
+        }
+
+        private void btnViewAttr_MouseHover(object sender, EventArgs e)
+        {
+            btnViewAttr.BackColor = Color.CornflowerBlue;
+
+        }
+
+        private void btnViewAttr_MouseLeave(object sender, EventArgs e)
+        {
+            btnViewAttr.BackColor = Color.Empty;
+
+        }
     }
 }

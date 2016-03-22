@@ -28,5 +28,27 @@ namespace SoftwareConfigurationManagementDBApp
                 Description = txtSoftDocDescription.Text,
             };
         }
+
+        private void btnBack_MouseHover(object sender, EventArgs e)
+        {
+            btnBack.BackColor = Color.CornflowerBlue;
+
+        }
+
+        private void btnBack_MouseLeave(object sender, EventArgs e)
+        {
+            btnBack.BackColor = Color.Empty;
+        }
+
+        private void btnSubmit_MouseHover(object sender, EventArgs e)
+        {
+            btnSubmit.BackColor = Color.CornflowerBlue;
+        }
+
+        private void btnSubmit_MouseLeave(object sender, EventArgs e)
+        {
+            btnSubmit.BackColor = Color.Empty;
+
+        }
     }
 }

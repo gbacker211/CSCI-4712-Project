@@ -41,14 +41,12 @@
             this.btnSubmit = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txtLname = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.cmdGroups = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.txtGroupName = new System.Windows.Forms.TextBox();
             this.gBoxUserGroup = new System.Windows.Forms.GroupBox();
-            this.gBoxUserGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -143,6 +141,7 @@
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
+            this.btnSubmit.MouseHover += new System.EventHandler(this.btnSubmit_MouseHover);
             // 
             // label2
             // 
@@ -163,22 +162,12 @@
             this.txtLname.Size = new System.Drawing.Size(100, 20);
             this.txtLname.TabIndex = 12;
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(15, 29);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(99, 21);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "User Group";
-            // 
             // cmdGroups
             // 
             this.cmdGroups.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmdGroups.FormattingEnabled = true;
             this.cmdGroups.Location = new System.Drawing.Point(115, 320);
-            this.cmdGroups.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmdGroups.Margin = new System.Windows.Forms.Padding(2);
             this.cmdGroups.Name = "cmdGroups";
             this.cmdGroups.Size = new System.Drawing.Size(82, 21);
             this.cmdGroups.TabIndex = 14;
@@ -222,11 +211,10 @@
             // 
             // gBoxUserGroup
             // 
-            this.gBoxUserGroup.Controls.Add(this.label6);
-            this.gBoxUserGroup.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gBoxUserGroup.Location = new System.Drawing.Point(12, 258);
+            this.gBoxUserGroup.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gBoxUserGroup.Location = new System.Drawing.Point(12, 279);
             this.gBoxUserGroup.Name = "gBoxUserGroup";
-            this.gBoxUserGroup.Size = new System.Drawing.Size(248, 172);
+            this.gBoxUserGroup.Size = new System.Drawing.Size(248, 151);
             this.gBoxUserGroup.TabIndex = 19;
             this.gBoxUserGroup.TabStop = false;
             this.gBoxUserGroup.Text = "User Group";
@@ -258,8 +246,6 @@
             this.Name = "AddUser";
             this.Text = "AddUser";
             this.Load += new System.EventHandler(this.AddUser_Load);
-            this.gBoxUserGroup.ResumeLayout(false);
-            this.gBoxUserGroup.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -279,7 +265,6 @@
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtLname;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cmdGroups;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
