@@ -55,23 +55,23 @@
             // 
             // btnLogOut
             // 
-            this.btnLogOut.Location = new System.Drawing.Point(139, 693);
-            this.btnLogOut.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLogOut.Location = new System.Drawing.Point(104, 563);
             this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.Size = new System.Drawing.Size(115, 38);
+            this.btnLogOut.Size = new System.Drawing.Size(86, 31);
             this.btnLogOut.TabIndex = 38;
             this.btnLogOut.Text = "Log Out";
             this.btnLogOut.UseVisualStyleBackColor = true;
             this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
+            this.btnLogOut.MouseLeave += new System.EventHandler(this.btnLogOut_MouseLeave);
+            this.btnLogOut.MouseHover += new System.EventHandler(this.btnLogOut_MouseHover);
             // 
             // viewlb
             // 
             this.viewlb.AutoSize = true;
             this.viewlb.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.viewlb.Location = new System.Drawing.Point(132, 115);
-            this.viewlb.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.viewlb.Location = new System.Drawing.Point(99, 93);
             this.viewlb.Name = "viewlb";
-            this.viewlb.Size = new System.Drawing.Size(77, 35);
+            this.viewlb.Size = new System.Drawing.Size(63, 26);
             this.viewlb.TabIndex = 37;
             this.viewlb.Text = "View";
             // 
@@ -83,78 +83,83 @@
             "Software Overview",
             "Software View",
             "All Software"});
-            this.cmbDataViews.Location = new System.Drawing.Point(76, 181);
-            this.cmbDataViews.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbDataViews.Location = new System.Drawing.Point(57, 147);
             this.cmbDataViews.Name = "cmbDataViews";
-            this.cmbDataViews.Size = new System.Drawing.Size(205, 24);
+            this.cmbDataViews.Size = new System.Drawing.Size(155, 21);
             this.cmbDataViews.TabIndex = 36;
             this.cmbDataViews.SelectedIndexChanged += new System.EventHandler(this.selectView);
             // 
             // btnViewAttr
             // 
-            this.btnViewAttr.Location = new System.Drawing.Point(27, 34);
-            this.btnViewAttr.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnViewAttr.Location = new System.Drawing.Point(20, 28);
             this.btnViewAttr.Name = "btnViewAttr";
-            this.btnViewAttr.Size = new System.Drawing.Size(115, 38);
+            this.btnViewAttr.Size = new System.Drawing.Size(86, 31);
             this.btnViewAttr.TabIndex = 35;
             this.btnViewAttr.Text = "View Attributes";
             this.btnViewAttr.UseVisualStyleBackColor = true;
             this.btnViewAttr.Click += new System.EventHandler(this.btnViewAttr_Click);
+            this.btnViewAttr.MouseLeave += new System.EventHandler(this.btnViewAttr_MouseLeave);
+            this.btnViewAttr.MouseHover += new System.EventHandler(this.btnViewAttr_MouseHover);
             // 
             // btnAddAttr
             // 
-            this.btnAddAttr.Location = new System.Drawing.Point(27, 22);
-            this.btnAddAttr.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddAttr.Location = new System.Drawing.Point(20, 18);
             this.btnAddAttr.Name = "btnAddAttr";
-            this.btnAddAttr.Size = new System.Drawing.Size(115, 38);
+            this.btnAddAttr.Size = new System.Drawing.Size(86, 31);
             this.btnAddAttr.TabIndex = 32;
             this.btnAddAttr.Text = "Add Attribute";
             this.btnAddAttr.UseVisualStyleBackColor = true;
             this.btnAddAttr.Click += new System.EventHandler(this.btnAddAttr_Click);
+            this.btnAddAttr.MouseLeave += new System.EventHandler(this.btnAddAttr_MouseLeave);
+            this.btnAddAttr.MouseHover += new System.EventHandler(this.btnAddAttr_MouseHover);
             // 
             // btnAddUser
             // 
-            this.btnAddUser.Location = new System.Drawing.Point(28, 218);
-            this.btnAddUser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddUser.Location = new System.Drawing.Point(21, 177);
             this.btnAddUser.Name = "btnAddUser";
-            this.btnAddUser.Size = new System.Drawing.Size(115, 38);
+            this.btnAddUser.Size = new System.Drawing.Size(86, 31);
             this.btnAddUser.TabIndex = 30;
             this.btnAddUser.Text = "Add User";
             this.btnAddUser.UseVisualStyleBackColor = true;
             this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
+            this.btnAddUser.MouseLeave += new System.EventHandler(this.btnAddUser_MouseLeave);
+            this.btnAddUser.MouseHover += new System.EventHandler(this.btnAddUser_MouseHover);
             // 
             // btnDeleteSoft
             // 
-            this.btnDeleteSoft.Location = new System.Drawing.Point(28, 142);
-            this.btnDeleteSoft.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDeleteSoft.Location = new System.Drawing.Point(21, 115);
             this.btnDeleteSoft.Name = "btnDeleteSoft";
-            this.btnDeleteSoft.Size = new System.Drawing.Size(115, 57);
+            this.btnDeleteSoft.Size = new System.Drawing.Size(86, 46);
             this.btnDeleteSoft.TabIndex = 29;
             this.btnDeleteSoft.Text = "Delete Software";
             this.btnDeleteSoft.UseVisualStyleBackColor = true;
             this.btnDeleteSoft.Click += new System.EventHandler(this.btnDeleteSoft_Click);
+            this.btnDeleteSoft.MouseLeave += new System.EventHandler(this.btnDeleteSoft_MouseLeave);
+            this.btnDeleteSoft.MouseHover += new System.EventHandler(this.btnDeleteSoft_MouseHover);
             // 
             // btnEditSoftw
             // 
-            this.btnEditSoftw.Location = new System.Drawing.Point(28, 79);
-            this.btnEditSoftw.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEditSoftw.Location = new System.Drawing.Point(21, 64);
             this.btnEditSoftw.Name = "btnEditSoftw";
-            this.btnEditSoftw.Size = new System.Drawing.Size(115, 38);
+            this.btnEditSoftw.Size = new System.Drawing.Size(86, 31);
             this.btnEditSoftw.TabIndex = 28;
             this.btnEditSoftw.Text = "Edit Software";
             this.btnEditSoftw.UseVisualStyleBackColor = true;
             this.btnEditSoftw.Click += new System.EventHandler(this.btnEditSoftw_Click);
+            this.btnEditSoftw.MouseLeave += new System.EventHandler(this.btnEditSoftw_MouseLeave);
+            this.btnEditSoftw.MouseHover += new System.EventHandler(this.btnEditSoftw_MouseHover);
             // 
             // btnAddSoftw
             // 
-            this.btnAddSoftw.Location = new System.Drawing.Point(28, 22);
-            this.btnAddSoftw.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddSoftw.Location = new System.Drawing.Point(21, 18);
             this.btnAddSoftw.Name = "btnAddSoftw";
-            this.btnAddSoftw.Size = new System.Drawing.Size(115, 38);
+            this.btnAddSoftw.Size = new System.Drawing.Size(86, 31);
             this.btnAddSoftw.TabIndex = 27;
             this.btnAddSoftw.Text = "Add Software";
             this.btnAddSoftw.UseVisualStyleBackColor = true;
             this.btnAddSoftw.Click += new System.EventHandler(this.btnAddSoftw_Click);
+            this.btnAddSoftw.MouseLeave += new System.EventHandler(this.btnAddSoftw_MouseLeave);
+            this.btnAddSoftw.MouseHover += new System.EventHandler(this.btnAddSoftw_MouseHover);
             // 
             // dataGridView1
             // 
@@ -165,50 +170,51 @@
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(397, 137);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Location = new System.Drawing.Point(298, 111);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1021, 608);
+            this.dataGridView1.Size = new System.Drawing.Size(766, 494);
             this.dataGridView1.TabIndex = 39;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(85, 49);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(64, 40);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(212, 45);
+            this.label1.Size = new System.Drawing.Size(170, 36);
             this.label1.TabIndex = 40;
             this.label1.Text = "DashBoard";
             // 
             // btnPrintReport
             // 
-            this.btnPrintReport.Location = new System.Drawing.Point(27, 89);
-            this.btnPrintReport.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnPrintReport.Location = new System.Drawing.Point(20, 72);
+            this.btnPrintReport.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnPrintReport.Name = "btnPrintReport";
-            this.btnPrintReport.Size = new System.Drawing.Size(115, 38);
+            this.btnPrintReport.Size = new System.Drawing.Size(86, 31);
             this.btnPrintReport.TabIndex = 41;
             this.btnPrintReport.Text = "Print Report";
             this.btnPrintReport.UseVisualStyleBackColor = true;
             this.btnPrintReport.Click += new System.EventHandler(this.btnPrintReport_Click);
+            this.btnPrintReport.MouseLeave += new System.EventHandler(this.btnPrintReport_MouseLeave);
+            this.btnPrintReport.MouseHover += new System.EventHandler(this.btnPrintReport_MouseHover);
             // 
             // ddlGroups
             // 
             this.ddlGroups.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddlGroups.FormattingEnabled = true;
-            this.ddlGroups.Location = new System.Drawing.Point(160, 150);
-            this.ddlGroups.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ddlGroups.Location = new System.Drawing.Point(120, 122);
+            this.ddlGroups.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ddlGroups.Name = "ddlGroups";
-            this.ddlGroups.Size = new System.Drawing.Size(108, 24);
+            this.ddlGroups.Size = new System.Drawing.Size(82, 21);
             this.ddlGroups.TabIndex = 42;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(60, 153);
+            this.label2.Location = new System.Drawing.Point(45, 124);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 17);
+            this.label2.Size = new System.Drawing.Size(72, 13);
             this.label2.TabIndex = 43;
             this.label2.Text = "Select Group:";
             // 
@@ -219,29 +225,36 @@
             this.grpAdmin.Controls.Add(this.btnEditSoftw);
             this.grpAdmin.Controls.Add(this.btnDeleteSoft);
             this.grpAdmin.Controls.Add(this.btnAddUser);
-            this.grpAdmin.Location = new System.Drawing.Point(12, 256);
+            this.grpAdmin.Location = new System.Drawing.Point(9, 208);
+            this.grpAdmin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.grpAdmin.Name = "grpAdmin";
-            this.grpAdmin.Size = new System.Drawing.Size(160, 343);
+            this.grpAdmin.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpAdmin.Size = new System.Drawing.Size(120, 279);
             this.grpAdmin.TabIndex = 44;
             this.grpAdmin.TabStop = false;
             this.grpAdmin.Text = "Admin Functions";
             // 
             // btnViewUser
             // 
-            this.btnViewUser.Location = new System.Drawing.Point(28, 278);
+            this.btnViewUser.Location = new System.Drawing.Point(21, 226);
+            this.btnViewUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnViewUser.Name = "btnViewUser";
-            this.btnViewUser.Size = new System.Drawing.Size(115, 36);
+            this.btnViewUser.Size = new System.Drawing.Size(86, 29);
             this.btnViewUser.TabIndex = 31;
             this.btnViewUser.Text = "View Users";
             this.btnViewUser.UseVisualStyleBackColor = true;
             this.btnViewUser.Click += new System.EventHandler(this.btnViewUser_Click);
+            this.btnViewUser.MouseLeave += new System.EventHandler(this.btnViewUser_MouseLeave);
+            this.btnViewUser.MouseHover += new System.EventHandler(this.btnViewUser_MouseHover);
             // 
             // grpAttributes
             // 
             this.grpAttributes.Controls.Add(this.btnAddAttr);
-            this.grpAttributes.Location = new System.Drawing.Point(190, 256);
+            this.grpAttributes.Location = new System.Drawing.Point(142, 208);
+            this.grpAttributes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.grpAttributes.Name = "grpAttributes";
-            this.grpAttributes.Size = new System.Drawing.Size(176, 78);
+            this.grpAttributes.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpAttributes.Size = new System.Drawing.Size(132, 63);
             this.grpAttributes.TabIndex = 45;
             this.grpAttributes.TabStop = false;
             this.grpAttributes.Text = "Add Attributes";
@@ -250,18 +263,20 @@
             // 
             this.grpDataViewing.Controls.Add(this.btnViewAttr);
             this.grpDataViewing.Controls.Add(this.btnPrintReport);
-            this.grpDataViewing.Location = new System.Drawing.Point(190, 431);
+            this.grpDataViewing.Location = new System.Drawing.Point(142, 350);
+            this.grpDataViewing.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.grpDataViewing.Name = "grpDataViewing";
-            this.grpDataViewing.Size = new System.Drawing.Size(176, 139);
+            this.grpDataViewing.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpDataViewing.Size = new System.Drawing.Size(132, 113);
             this.grpDataViewing.TabIndex = 46;
             this.grpDataViewing.TabStop = false;
             this.grpDataViewing.Text = "View Attributes and Print";
             // 
             // DashBoard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1501, 756);
+            this.ClientSize = new System.Drawing.Size(1126, 614);
             this.Controls.Add(this.grpDataViewing);
             this.Controls.Add(this.grpAttributes);
             this.Controls.Add(this.grpAdmin);
@@ -273,7 +288,6 @@
             this.Controls.Add(this.viewlb);
             this.Controls.Add(this.cmbDataViews);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "DashBoard";
             this.Text = "DashBoard";
             this.Load += new System.EventHandler(this.DashBoard_Load);
