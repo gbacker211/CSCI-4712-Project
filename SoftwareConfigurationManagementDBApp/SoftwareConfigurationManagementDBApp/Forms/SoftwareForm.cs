@@ -118,7 +118,7 @@ namespace SoftwareConfigurationManagementDBApp
             ddlGroups.ValueMember = "ID";
 
 
-            cmbClass.Items.Add("Select");
+            //cmbClass.Items.Add("Select");
             cmbClass.Items.Add("A ");
             cmbClass.Items.Add("B ");
             cmbClass.Items.Add("C ");
