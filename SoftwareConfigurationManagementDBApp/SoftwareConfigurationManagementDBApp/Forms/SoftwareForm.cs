@@ -31,7 +31,7 @@ namespace SoftwareConfigurationManagementDBApp
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            if (txtSoftwareName.Text == String.Empty || txtSystemName.Text == String.Empty || cmbClass.SelectedIndex == 0 || ddlGroups.SelectedIndex == 0)
+            if (txtSoftwareName.Text == String.Empty || txtSystemName.Text == String.Empty || cmbClass.SelectedIndex == 0 || ddlGroups.SelectedItem == null)
                 MessageBox.Show("Please make sure that the Software and System Name fields are filled, and that the Group and Classification is selected!", "ERROR!", MessageBoxButtons.OK);
             else
             {
@@ -118,7 +118,7 @@ namespace SoftwareConfigurationManagementDBApp
             ddlGroups.ValueMember = "ID";
 
 
-            cmbClass.Items.Add("Select");
+            //cmbClass.Items.Add("Select");
             cmbClass.Items.Add("A ");
             cmbClass.Items.Add("B ");
             cmbClass.Items.Add("C ");
