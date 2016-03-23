@@ -28,14 +28,14 @@ namespace SoftwareConfigurationManagementDBApp
             if (_userInfo.AccessGroup == 2)
             {
                 grpAdmin.Hide();
-                grpAttributes.Location = new Point(92, 258);
-                grpDataViewing.Location = new Point(92, 378);
+                grpAttributes.Location = new Point(75, 199);
+                grpDataViewing.Location = new Point(75, 289);
             }
             if (_userInfo.AccessGroup == 3)
             {
                 grpAdmin.Hide();
                 grpAttributes.Hide();
-                grpDataViewing.Location = new Point(92, 258);
+                grpDataViewing.Location = new Point(75, 255);
             }
         }
 
@@ -356,6 +356,96 @@ namespace SoftwareConfigurationManagementDBApp
         {
             UserControl allUsers = new UserControl();
             allUsers.OpenUserView();
+        }
+
+        private void btnLogOut_MouseHover(object sender, EventArgs e)
+        {
+            btnLogOut.BackColor = Color.CornflowerBlue;
+        }
+
+        private void btnLogOut_MouseLeave(object sender, EventArgs e)
+        {
+            btnLogOut.BackColor = Color.Empty;
+        }
+
+        private void btnPrintReport_MouseHover(object sender, EventArgs e)
+        {
+            btnPrintReport.BackColor = Color.CornflowerBlue;
+        }
+
+        private void btnPrintReport_MouseLeave(object sender, EventArgs e)
+        {
+            btnPrintReport.BackColor = Color.Empty;
+        }
+
+        private void btnViewAttr_MouseHover(object sender, EventArgs e)
+        {
+            btnViewAttr.BackColor = Color.CornflowerBlue;
+        }
+
+        private void btnViewAttr_MouseLeave(object sender, EventArgs e)
+        {
+            btnViewAttr.BackColor = Color.Empty;
+        }
+
+        private void btnAddAttr_MouseHover(object sender, EventArgs e)
+        {
+            btnAddAttr.BackColor = Color.CornflowerBlue;
+        }
+
+        private void btnAddAttr_MouseLeave(object sender, EventArgs e)
+        {
+            btnAddAttr.BackColor = Color.Empty;
+        }
+
+        private void btnViewUser_MouseHover(object sender, EventArgs e)
+        {
+            btnViewUser.BackColor = Color.CornflowerBlue;
+        }
+
+        private void btnViewUser_MouseLeave(object sender, EventArgs e)
+        {
+            btnViewUser.BackColor = Color.Empty;
+        }
+
+        private void btnAddUser_MouseHover(object sender, EventArgs e)
+        {
+            btnAddUser.BackColor = Color.CornflowerBlue;
+        }
+
+        private void btnAddUser_MouseLeave(object sender, EventArgs e)
+        {
+            btnAddUser.BackColor = Color.Empty;
+        }
+
+        private void btnDeleteSoft_MouseHover(object sender, EventArgs e)
+        {
+            btnDeleteSoft.BackColor = Color.CornflowerBlue;
+        }
+
+        private void btnDeleteSoft_MouseLeave(object sender, EventArgs e)
+        {
+            btnDeleteSoft.BackColor = Color.Empty;
+        }
+
+        private void btnEditSoftw_MouseHover(object sender, EventArgs e)
+        {
+            btnEditSoftw.BackColor = Color.CornflowerBlue;
+        }
+
+        private void btnEditSoftw_MouseLeave(object sender, EventArgs e)
+        {
+            btnEditSoftw.BackColor = Color.Empty;
+        }
+
+        private void btnAddSoftw_MouseHover(object sender, EventArgs e)
+        {
+            btnAddSoftw.BackColor = Color.CornflowerBlue;
+        }
+
+        private void btnAddSoftw_MouseLeave(object sender, EventArgs e)
+        {
+            btnAddSoftw.BackColor = Color.Empty;
         }
     }
 }

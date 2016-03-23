@@ -132,6 +132,8 @@
             this.btnSubmitCI.Text = "Submit";
             this.btnSubmitCI.UseVisualStyleBackColor = true;
             this.btnSubmitCI.Click += new System.EventHandler(this.btnSubmitCI_Click);
+            this.btnSubmitCI.MouseLeave += new System.EventHandler(this.btnSubmitCI_MouseLeave);
+            this.btnSubmitCI.MouseHover += new System.EventHandler(this.btnSubmitCI_MouseHover);
             // 
             // label4
             // 
@@ -147,7 +149,7 @@
             // CIDate
             // 
             this.CIDate.Location = new System.Drawing.Point(120, 125);
-            this.CIDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CIDate.Margin = new System.Windows.Forms.Padding(2);
             this.CIDate.Name = "CIDate";
             this.CIDate.Size = new System.Drawing.Size(174, 20);
             this.CIDate.TabIndex = 14;

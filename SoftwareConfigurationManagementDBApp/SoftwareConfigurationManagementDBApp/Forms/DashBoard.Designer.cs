@@ -56,7 +56,7 @@
             // btnLogOut
             // 
             this.btnLogOut.Location = new System.Drawing.Point(139, 693);
-            this.btnLogOut.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLogOut.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Size = new System.Drawing.Size(115, 38);
             this.btnLogOut.TabIndex = 38;
@@ -84,7 +84,7 @@
             "Software View",
             "All Software"});
             this.cmbDataViews.Location = new System.Drawing.Point(76, 181);
-            this.cmbDataViews.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbDataViews.Margin = new System.Windows.Forms.Padding(4);
             this.cmbDataViews.Name = "cmbDataViews";
             this.cmbDataViews.Size = new System.Drawing.Size(205, 24);
             this.cmbDataViews.TabIndex = 36;
@@ -93,7 +93,7 @@
             // btnViewAttr
             // 
             this.btnViewAttr.Location = new System.Drawing.Point(27, 34);
-            this.btnViewAttr.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnViewAttr.Margin = new System.Windows.Forms.Padding(4);
             this.btnViewAttr.Name = "btnViewAttr";
             this.btnViewAttr.Size = new System.Drawing.Size(115, 38);
             this.btnViewAttr.TabIndex = 35;
@@ -104,7 +104,7 @@
             // btnAddAttr
             // 
             this.btnAddAttr.Location = new System.Drawing.Point(27, 22);
-            this.btnAddAttr.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddAttr.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddAttr.Name = "btnAddAttr";
             this.btnAddAttr.Size = new System.Drawing.Size(115, 38);
             this.btnAddAttr.TabIndex = 32;
@@ -115,7 +115,7 @@
             // btnAddUser
             // 
             this.btnAddUser.Location = new System.Drawing.Point(28, 218);
-            this.btnAddUser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddUser.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddUser.Name = "btnAddUser";
             this.btnAddUser.Size = new System.Drawing.Size(115, 38);
             this.btnAddUser.TabIndex = 30;
@@ -126,7 +126,7 @@
             // btnDeleteSoft
             // 
             this.btnDeleteSoft.Location = new System.Drawing.Point(28, 142);
-            this.btnDeleteSoft.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDeleteSoft.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeleteSoft.Name = "btnDeleteSoft";
             this.btnDeleteSoft.Size = new System.Drawing.Size(115, 57);
             this.btnDeleteSoft.TabIndex = 29;
@@ -137,7 +137,7 @@
             // btnEditSoftw
             // 
             this.btnEditSoftw.Location = new System.Drawing.Point(28, 79);
-            this.btnEditSoftw.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEditSoftw.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditSoftw.Name = "btnEditSoftw";
             this.btnEditSoftw.Size = new System.Drawing.Size(115, 38);
             this.btnEditSoftw.TabIndex = 28;
@@ -148,7 +148,7 @@
             // btnAddSoftw
             // 
             this.btnAddSoftw.Location = new System.Drawing.Point(28, 22);
-            this.btnAddSoftw.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddSoftw.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddSoftw.Name = "btnAddSoftw";
             this.btnAddSoftw.Size = new System.Drawing.Size(115, 38);
             this.btnAddSoftw.TabIndex = 27;
@@ -166,7 +166,7 @@
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(397, 137);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(1021, 608);
             this.dataGridView1.TabIndex = 39;
@@ -273,7 +273,7 @@
             this.Controls.Add(this.viewlb);
             this.Controls.Add(this.cmbDataViews);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "DashBoard";
             this.Text = "DashBoard";
             this.Load += new System.EventHandler(this.DashBoard_Load);

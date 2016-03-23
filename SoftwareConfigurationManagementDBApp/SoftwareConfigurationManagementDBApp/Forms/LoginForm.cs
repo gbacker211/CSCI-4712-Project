@@ -40,5 +40,15 @@ namespace SoftwareConfigurationManagementDBApp
         {
             txtPassword.PasswordChar = '*';
         }
+
+        private void btnLogin_MouseHover(object sender, EventArgs e)
+        {
+            btnLogin.BackColor = Color.CornflowerBlue;
+        }
+
+        private void btnLogin_MouseLeave(object sender, EventArgs e)
+        {
+            btnLogin.BackColor = Color.Empty;
+        }
     }
 }

@@ -199,6 +199,8 @@
             this.btnAttrSubmit.Text = "Submit";
             this.btnAttrSubmit.UseVisualStyleBackColor = true;
             this.btnAttrSubmit.Click += new System.EventHandler(this.btnAttrSubmit_Click);
+            this.btnAttrSubmit.MouseLeave += new System.EventHandler(this.btnAttrSubmit_MouseLeave);
+            this.btnAttrSubmit.MouseHover += new System.EventHandler(this.btnAttrSubmit_MouseHover);
             // 
             // lblConfigItem
             // 

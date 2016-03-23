@@ -163,15 +163,20 @@ namespace SoftwareConfigurationManagementDBApp
                     MessageBox.Show("Must enter group name, or select one from the drop down", "Error",
                         MessageBoxButtons.OK);
                 }
-
-                  
-
-             
-
-              
-
               
             }
         }
+
+        private void btnSubmit_MouseHover(object sender, EventArgs e)
+        {
+
+            btnSubmit.BackColor = Color.CornflowerBlue;
+        }
+
+        private void btnSubmit_MouseLeave(object sender, EventArgs e)
+        {
+            btnSubmit.BackColor = Color.Empty;
+        }
+    }
     }
 }

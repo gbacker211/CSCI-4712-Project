@@ -33,5 +33,15 @@ namespace SoftwareConfigurationManagementDBApp.Forms
                 Description = txtCIInfoCI.Text,
             };
         }
+
+        private void btnSubmitCI_MouseHover(object sender, EventArgs e)
+        {
+            btnSubmitCI.BackColor = Color.CornflowerBlue;
+        }
+
+        private void btnSubmitCI_MouseLeave(object sender, EventArgs e)
+        {
+            btnSubmitCI.BackColor = Color.Empty;
+        }
     }
 }
