@@ -32,7 +32,15 @@ namespace SoftwareConfigurationManagementDBApp
 
 
                     int success = command.ExecuteNonQuery();
-                    value = Convert.ToBoolean(success);
+                    if (success > 0)
+                    {
+                        value = true;
+                    }
+                    else
+                    {
+
+                        value = false;
+                    }
 
                     return value;
                 }
@@ -62,7 +70,18 @@ namespace SoftwareConfigurationManagementDBApp
                         AddSoftware.Parameters.AddWithValue("@GroupID", software.Group);
 
                         int success = AddSoftware.ExecuteNonQuery();
-                        result = Convert.ToBoolean(success);
+
+
+                        if (success > 0)
+                        {
+                            result = true;
+                        }
+                        else
+                        {
+
+                            result = false;
+                        }
+
                     }
                     finally
                     {
@@ -100,7 +119,12 @@ namespace SoftwareConfigurationManagementDBApp
                         UpdateSoftware.Parameters.AddWithValue("@MangingGroup", software.Group);
 
                         int success = UpdateSoftware.ExecuteNonQuery();
-                        value = Convert.ToBoolean(success);
+                        if (success > 0)
+                            value = true;
+                        else
+                        {
+                            value = false;
+                        }
                     }
                     finally
                     {

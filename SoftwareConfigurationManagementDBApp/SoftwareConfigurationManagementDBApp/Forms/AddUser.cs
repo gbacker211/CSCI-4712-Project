@@ -106,7 +106,7 @@ namespace SoftwareConfigurationManagementDBApp
                         }
                         else
                         {
-                            MessageBox.Show("User has not been added, please insure that the user has not been used",
+                            MessageBox.Show("User has not been added, please insure that the user name has not been used",
                                 "ERROR", MessageBoxButtons.OK);
 
                         }

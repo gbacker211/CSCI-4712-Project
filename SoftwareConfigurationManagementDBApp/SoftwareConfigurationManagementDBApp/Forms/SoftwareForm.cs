@@ -31,7 +31,7 @@ namespace SoftwareConfigurationManagementDBApp
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            if (txtSoftwareName.Text == String.Empty || txtSystemName.Text == String.Empty || cmbClass.SelectedIndex == 0 || ddlGroups.SelectedIndex == 0)
+            if (txtSoftwareName.Text == String.Empty || txtSystemName.Text == String.Empty || cmbClass.SelectedIndex == 0 ) //A group will always be selected
                 MessageBox.Show("Please make sure that the Software and System Name fields are filled, and that the Group and Classification is selected!", "ERROR!", MessageBoxButtons.OK);
             else
             {
@@ -61,7 +61,7 @@ namespace SoftwareConfigurationManagementDBApp
                             }
                             else
                             {
-                                MessageBox.Show("An unknown error has occur", "ERROR!", MessageBoxButtons.OK);
+                                MessageBox.Show("An unknown error has occur, or the software already exists", "ERROR!", MessageBoxButtons.OK);
                             }
 
 
