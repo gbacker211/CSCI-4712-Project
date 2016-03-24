@@ -31,76 +31,79 @@ namespace SoftwareConfigurationManagementDBApp
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            switch (mAddUpdate)
+            if (txtSoftwareName.Text == String.Empty || txtSystemName.Text == String.Empty || cmbClass.SelectedIndex == 0 ) //A group will always be selected
+                MessageBox.Show("Please make sure that the Software and System Name fields are filled, and that the Group and Classification is selected!", "ERROR!", MessageBoxButtons.OK);
+            else
             {
-                case 1: // add
-                    {
-                        var obj = new Software()
+                switch (mAddUpdate)
+                {
+                    case 1: // add
                         {
-                            SoftwareName = txtSoftwareName.Text,
-                            SystemName = txtSystemName.Text,
-                            Group = ddlGroups.SelectedValue.ToString().Trim(),
-                            Owner = txtOwner.Text,
-                            Classification = cmbClass.SelectedItem.ToString(),
-                            ResponsibleEngineer = txtResponsibleEngineer.Text,
-                            Description = txtSoftwareDescription.Text,
-                            DesignAuthority = txtDesignAuthority.Text
-                        };
-                        // Add DB Code // 
+                            var obj = new Software()
+                            {
+                                SoftwareName = txtSoftwareName.Text,
+                                SystemName = txtSystemName.Text,
+                                Group = ddlGroups.SelectedValue.ToString().Trim(),
+                                Owner = txtOwner.Text,
+                                Classification = cmbClass.SelectedItem.ToString(),
+                                ResponsibleEngineer = txtResponsibleEngineer.Text,
+                                Description = txtSoftwareDescription.Text,
+                                DesignAuthority = txtDesignAuthority.Text
+                            };
 
-                        SoftwareControl softwareOperation = new SoftwareControl();
+                            SoftwareControl softwareOperation = new SoftwareControl();
 
-                        if (softwareOperation.AddNewSoftware(mUser, obj))
-                        {
-                            MessageBox.Show("Software System has been added");
-                            myDashBoard.UpdateGrid(sender, e);
-                            Close();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Please contact Administrator", "ERROR!", MessageBoxButtons.OK);
-                        }
+                            if (softwareOperation.AddNewSoftware(mUser, obj))
+                            {
+                                MessageBox.Show("Software System has been added");
+                                myDashBoard.UpdateGrid(sender, e);
+                                Close();
+                            }
+                            else
+                            {
+                                MessageBox.Show("An unknown error has occur, or the software already exists", "ERROR!", MessageBoxButtons.OK);
+                            }
 
-                       
-                      
+
+
 
                             break;
-                    }
-                case 2: // update 
-                    {
-                        var obj = new Software()
-                        {
-                            Software_ID = mSoftware.Software_ID,
-                            SoftwareName = txtSoftwareName.Text.Trim(),
-                            SystemName = txtSystemName.Text.Trim(),
-                            Group = ddlGroups.SelectedValue.ToString().Trim(),
-                            Owner = txtOwner.Text.Trim(),
-                            Classification = cmbClass.SelectedItem.ToString().Trim(),
-                            ResponsibleEngineer = txtResponsibleEngineer.Text.Trim(),
-                            Description = txtSoftwareDescription.Text.Trim(),
-                            DesignAuthority = txtDesignAuthority.Text.Trim()
-                        };
-                        // ADD DB CODE //
-
-                       SoftwareControl softwareOperation = new SoftwareControl();
-
-                        if (softwareOperation.UpdateSoftware(obj))
-                        {
-                            MessageBox.Show("Software System has been updated");
-                            myDashBoard.UpdateGrid(sender, e);
-                            Close();
                         }
-                        else
+                    case 2: // update 
                         {
-                            MessageBox.Show("Contact Administrator", "ERROR", MessageBoxButtons.OK);
-                        }
-                       
+                            var obj = new Software()
+                            {
+                                Software_ID = mSoftware.Software_ID,
+                                SoftwareName = txtSoftwareName.Text.Trim(),
+                                SystemName = txtSystemName.Text.Trim(),
+                                Group = ddlGroups.SelectedValue.ToString().Trim(),
+                                Owner = txtOwner.Text.Trim(),
+                                Classification = cmbClass.SelectedItem.ToString().Trim(),
+                                ResponsibleEngineer = txtResponsibleEngineer.Text.Trim(),
+                                Description = txtSoftwareDescription.Text.Trim(),
+                                DesignAuthority = txtDesignAuthority.Text.Trim()
+                            };
 
+                            SoftwareControl softwareOperation = new SoftwareControl();
+
+                            if (softwareOperation.UpdateSoftware(obj))
+                            {
+                                MessageBox.Show("Software System has been updated");
+                                myDashBoard.UpdateGrid(sender, e);
+                                Close();
+                            }
+                            else
+                            {
+                                MessageBox.Show("An unknown error has occur", "ERROR!", MessageBoxButtons.OK);
+                            }
+
+
+                            break;
+                        }
+
+                    default:
                         break;
-                    }
-
-                default:
-                    break;
+                }
             }
         }
 
@@ -109,13 +112,13 @@ namespace SoftwareConfigurationManagementDBApp
 
             UserControl getgroups = new UserControl();
 
-
+            ddlGroups.Items.Add("Select Group");
             ddlGroups.DataSource = getgroups.getGroups();
             ddlGroups.DisplayMember = "GroupName";
             ddlGroups.ValueMember = "ID";
-            
 
 
+            //cmbClass.Items.Add("Select");
             cmbClass.Items.Add("A ");
             cmbClass.Items.Add("B ");
             cmbClass.Items.Add("C ");

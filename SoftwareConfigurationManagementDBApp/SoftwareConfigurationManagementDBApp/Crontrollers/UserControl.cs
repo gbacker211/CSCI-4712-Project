@@ -58,8 +58,16 @@ namespace SoftwareConfigurationManagementDBApp
                         AddUser.Parameters.AddWithValue("@GroupName", aUser.GroupName);
 
                         int success = AddUser.ExecuteNonQuery();
+                        if (success > 0)
+                        {
+                            result = true;
+                        }
+                        else
+                        {
+                            result = false;
+                        }
 
-                        result = Convert.ToBoolean(success);
+
                     }
                     finally
                     {
@@ -91,7 +99,14 @@ namespace SoftwareConfigurationManagementDBApp
 
                         int success = AddUser.ExecuteNonQuery();
 
-                        result = Convert.ToBoolean(success);
+                        if (success > 0)
+                        {
+                            result = true;
+                        }
+                        else
+                        {
+                            result = false;
+                        }
                     }
                     finally
                     {

@@ -62,7 +62,7 @@ namespace SoftwareConfigurationManagementDBApp
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             if (txtFname.Text == "" || txtLname.Text == "" || txtUsername.Text == "" || txtPassword.Text == "" || cmbAccessGroup.SelectedIndex == 0)
-                MessageBox.Show("Please make sure that the fields are filled and a User Group is selected.");
+                MessageBox.Show("Please make sure that the fields are filled and a User Access Level is selected.");
             else
             {
                 int AccessLvl = 3; // for assigning User access level.
@@ -106,7 +106,7 @@ namespace SoftwareConfigurationManagementDBApp
                         }
                         else
                         {
-                            MessageBox.Show("User has not been added, please insure that the user has not been used",
+                            MessageBox.Show("User has not been added, please insure that the user name has not been used",
                                 "ERROR", MessageBoxButtons.OK);
 
                         }
@@ -179,4 +179,4 @@ namespace SoftwareConfigurationManagementDBApp
         }
     }
     }
-}
+

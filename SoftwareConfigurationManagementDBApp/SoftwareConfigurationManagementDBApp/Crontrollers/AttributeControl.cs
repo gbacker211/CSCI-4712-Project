@@ -81,7 +81,14 @@ namespace SoftwareConfigurationManagementDBApp
                     command.Parameters.AddWithValue("@Location", aDoc.Location);
 
                     int success = command.ExecuteNonQuery();
-                    value = Convert.ToBoolean(success);
+                    if (success > 0)
+                    {
+                        value = true;
+                    }
+                    else
+                    {
+                        value = false;
+                    }
 
                 }
             }
@@ -109,7 +116,14 @@ namespace SoftwareConfigurationManagementDBApp
                     command.Parameters.AddWithValue("@Location", aCI.Location);
 
                     int success = command.ExecuteNonQuery();
-                    value = Convert.ToBoolean(success);
+                    if (success > 0)
+                    {
+                        value = true;
+                    }
+                    else
+                    {
+                        value = false;
+                    }
 
                 }
             }
@@ -138,7 +152,14 @@ namespace SoftwareConfigurationManagementDBApp
                     command.Parameters.AddWithValue("@Location", aCIDoc.Location);
 
                     int success = command.ExecuteNonQuery();
-                    value = Convert.ToBoolean(success);
+                    if (success > 0)
+                    {
+                        value = true;
+                    }
+                    else
+                    {
+                        value = false;
+                    }
 
                 }
             }
@@ -212,7 +233,14 @@ namespace SoftwareConfigurationManagementDBApp
 
                     int success = Convert.ToInt32(command.ExecuteNonQuery());
 
-                    result = Convert.ToBoolean(success);
+                    if (success > 0)
+                    {
+                        result = true;
+                    }
+                    else
+                    {
+                        result = false;
+                    }
 
                 }
             }
@@ -252,7 +280,14 @@ namespace SoftwareConfigurationManagementDBApp
 
                     int success = Convert.ToInt32(command.ExecuteNonQuery());
 
-                    result = Convert.ToBoolean(success);
+                    if (success > 0)
+                    {
+                        result = true;
+                    }
+                    else
+                    {
+                        result = false;
+                    }
 
                 }
             }
@@ -292,7 +327,14 @@ namespace SoftwareConfigurationManagementDBApp
 
                     int success = Convert.ToInt32(command.ExecuteNonQuery());
 
-                    result = Convert.ToBoolean(success);
+                    if (success > 0)
+                    {
+                        result = true;
+                    }
+                    else
+                    {
+                        result = false;
+                    }
 
                 }
             }
@@ -315,7 +357,14 @@ namespace SoftwareConfigurationManagementDBApp
 
                     int success = Convert.ToInt32(command.ExecuteNonQuery());
 
-                    result = Convert.ToBoolean(success);
+                    if (success > 0)
+                    {
+                        result = true;
+                    }
+                    else
+                    {
+                        result = false;
+                    }
                 }
             }
 
@@ -335,7 +384,14 @@ namespace SoftwareConfigurationManagementDBApp
 
                     int success = Convert.ToInt32(command.ExecuteNonQuery());
 
-                    result = Convert.ToBoolean(success);
+                    if (success > 0)
+                    {
+                        result = true;
+                    }
+                    else
+                    {
+                        result = false;
+                    }
                 }
             }
 
@@ -355,7 +411,14 @@ namespace SoftwareConfigurationManagementDBApp
 
                     int success = Convert.ToInt32(command.ExecuteNonQuery());
 
-                    result = Convert.ToBoolean(success);
+                    if (success > 0)
+                    {
+                        result = true;
+                    }
+                    else
+                    {
+                        result = false;
+                    }
                 }
             }
 

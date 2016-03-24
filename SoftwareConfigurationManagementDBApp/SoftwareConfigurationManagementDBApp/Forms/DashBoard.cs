@@ -28,14 +28,14 @@ namespace SoftwareConfigurationManagementDBApp
             if (_userInfo.AccessGroup == 2)
             {
                 grpAdmin.Hide();
-                grpAttributes.Location = new Point(92, 258);
-                grpDataViewing.Location = new Point(92, 378);
+                grpAttributes.Location = new Point(75, 199);
+                grpDataViewing.Location = new Point(75, 289);
             }
             if (_userInfo.AccessGroup == 3)
             {
                 grpAdmin.Hide();
                 grpAttributes.Hide();
-                grpDataViewing.Location = new Point(92, 258);
+                grpDataViewing.Location = new Point(75, 255);
             }
         }
 
@@ -288,27 +288,26 @@ namespace SoftwareConfigurationManagementDBApp
 
             if (dataGridView1.SelectedRows.Count != 0)
             {
-                if (cmbDataViews.SelectedIndex == 0)
+                AttributeControl attControl = new AttributeControl();
+                switch (cmbDataViews.SelectedIndex)
                 {
-                    AttributeControl attControl = new AttributeControl();
+                    case 0:
+                        attControl.openAttributeForm(
+                            Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[8].Value.ToString()),
+                            dataGridView1.SelectedRows[0].Cells[0].Value.ToString().Trim(), this);
+                        break;
+                    case 1:
+                        attControl.openAttributeForm(
+                            Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[4].Value.ToString()),
+                            dataGridView1.SelectedRows[0].Cells[0].Value.ToString().Trim(), this);
 
-                    attControl.openAttributeForm(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[8].Value.ToString()),
-                        dataGridView1.SelectedRows[0].Cells[0].Value.ToString().Trim(), this);
-                }
-                if (cmbDataViews.SelectedIndex == 2)
-                {
-                    AttributeControl attControl = new AttributeControl(_userInfo);
+                        break;
+                    case 2:
+                        attControl.openAttributeForm(
+                            Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[7].Value.ToString()),
+                            dataGridView1.SelectedRows[0].Cells[0].Value.ToString().Trim(), this);
 
-                    attControl.openAttributeForm(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[7].Value.ToString()),
-                        dataGridView1.SelectedRows[0].Cells[0].Value.ToString().Trim(), this);
-                }
-                else
-                {
-                    AttributeControl attControl = new AttributeControl();
-
-                    attControl.openAttributeForm(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[4].Value.ToString()),
-                        dataGridView1.SelectedRows[0].Cells[0].Value.ToString().Trim(), this);
-
+                        break;
                 }
             }
         }
