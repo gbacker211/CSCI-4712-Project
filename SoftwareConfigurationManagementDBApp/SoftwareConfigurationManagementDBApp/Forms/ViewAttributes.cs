@@ -190,7 +190,9 @@ namespace SoftwareConfigurationManagementDBApp
                                 Location = dgvViewAttr.SelectedRows[0].Cells[6].Value.ToString()
                             };
                             AttributeControl attributeControl = new AttributeControl();
-                            attributeControl.openAttributForEdit(attribute, 1, this);
+                           // attributeControl.openAttributForEdit(attribute, 1, this);
+
+                            attributeControl.openSoftwareDocForEdit(attribute);
 
                         }
                         break;

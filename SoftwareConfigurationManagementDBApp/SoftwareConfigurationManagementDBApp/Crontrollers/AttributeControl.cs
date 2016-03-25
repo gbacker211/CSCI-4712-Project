@@ -187,6 +187,12 @@ namespace SoftwareConfigurationManagementDBApp
             attForm.Show();
         }
 
+        public void openSoftwareDocForEdit(Attributes info)
+        {
+            SoftwareDocForm sdform = new SoftwareDocForm(info);
+            sdform.Show();
+        }
+
         /// <summary>
         /// Method for editing all attributes for a specific software
         /// item count should be only three

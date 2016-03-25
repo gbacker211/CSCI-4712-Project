@@ -12,9 +12,17 @@ namespace SoftwareConfigurationManagementDBApp
 {
     public partial class SoftwareDocForm : Form
     {
+        private Attributes _softwareDocument;
         public SoftwareDocForm()
         {
             InitializeComponent();
+        }
+
+        public SoftwareDocForm(Attributes attributes)
+        {
+            InitializeComponent();
+            _softwareDocument = attributes;
+            SetUpdateFields();
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -22,7 +30,7 @@ namespace SoftwareConfigurationManagementDBApp
             var obj = new SoftwareDoc
             {
                 Name = txtSoftDocName.Text,
-                Date = Convert.ToString(SoftwarDocDate.Value.Date),
+                Date = Convert.ToString(SoftwarDocDate.Value.Date.ToShortDateString()),
                 Revision = txtSoftDocRevision.Text,
                 Location = txtSoftDocRevision.Text,
                 Description = txtSoftDocDescription.Text,
@@ -48,6 +56,17 @@ namespace SoftwareConfigurationManagementDBApp
         private void btnSubmit_MouseLeave(object sender, EventArgs e)
         {
             btnSubmit.BackColor = Color.Empty;
+
+        }
+
+        private void SetUpdateFields()
+        {
+
+            txtSoftDocName.Text = _softwareDocument.Name;
+            txtSoftDocDescription.Text = _softwareDocument.Description;
+            txtSoftDocLocation.Text = _softwareDocument.Location;
+            txtSoftDocRevision.Text = _softwareDocument.Revision;
+            SoftwarDocDate.Value =  _softwareDocument.Date != "N/A" ? Convert.ToDateTime(_softwareDocument.Date) : DateTime.Today;
 
         }
     }
