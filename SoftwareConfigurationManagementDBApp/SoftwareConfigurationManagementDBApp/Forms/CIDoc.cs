@@ -62,5 +62,20 @@ namespace SoftwareConfigurationManagementDBApp
             CIDocDate.Value = _cidocInfo.Date != "N/A" ? Convert.ToDateTime(_cidocInfo.Date) : DateTime.Today;
             //Should set a hidden field for ID?
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnBack_MouseHover(object sender, EventArgs e)
+        {
+            btnBack.BackColor = Color.CornflowerBlue;
+        }
+
+        private void btnBack_MouseLeave(object sender, EventArgs e)
+        {
+            btnBack.BackColor = Color.Empty;
+        }
     }
 }

@@ -61,5 +61,20 @@ namespace SoftwareConfigurationManagementDBApp
             txtCIName.Text = _CI.Name;
             CIDate.Value = _CI.Date != "N/A" ? Convert.ToDateTime(_CI.Date) : DateTime.Today;
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnBack_MouseHover(object sender, EventArgs e)
+        {
+            btnBack.BackColor = Color.CornflowerBlue;
+        }
+
+        private void btnBack_MouseLeave(object sender, EventArgs e)
+        {
+            btnBack.BackColor = Color.Empty;
+        }
     }
 }

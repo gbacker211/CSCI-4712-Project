@@ -377,5 +377,21 @@ namespace SoftwareConfigurationManagementDBApp
         {
             btnAttrSubmit.BackColor = Color.Empty;
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnBack_MouseHover(object sender, EventArgs e)
+        {
+            btnBack.BackColor = Color.CornflowerBlue;
+
+        }
+
+        private void btnBack_MouseLeave(object sender, EventArgs e)
+        {
+            btnBack.BackColor = Color.Empty;
+        }
     }
 }

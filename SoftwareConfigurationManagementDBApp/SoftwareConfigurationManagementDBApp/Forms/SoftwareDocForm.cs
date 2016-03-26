@@ -69,5 +69,10 @@ namespace SoftwareConfigurationManagementDBApp
             SoftwarDocDate.Value =  _softwareDocument.Date != "N/A" ? Convert.ToDateTime(_softwareDocument.Date) : DateTime.Today;
 
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

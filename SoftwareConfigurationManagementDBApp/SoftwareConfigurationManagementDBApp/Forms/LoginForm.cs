@@ -50,5 +50,20 @@ namespace SoftwareConfigurationManagementDBApp
         {
             btnLogin.BackColor = Color.Empty;
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnExit_MouseHover(object sender, EventArgs e)
+        {
+            btnExit.BackColor = Color.CornflowerBlue;
+        }
+
+        private void btnExit_MouseLeave(object sender, EventArgs e)
+        {
+            btnExit.BackColor = Color.Empty;
+        }
     }
 }
