@@ -193,6 +193,18 @@ namespace SoftwareConfigurationManagementDBApp
             sdform.Show();
         }
 
+        public void openConfigItemForEdit(Attributes info)
+        {
+            CIForm ciForm = new CIForm(info);
+            ciForm.Show();
+        }
+
+        public void openConfigItemDocForEdit(Attributes info)
+        {
+            CIDoc cidForm = new CIDoc(info);
+            cidForm.Show();
+        }
+
         /// <summary>
         /// Method for editing all attributes for a specific software
         /// item count should be only three

@@ -211,7 +211,8 @@ namespace SoftwareConfigurationManagementDBApp
                                 Location = dgvViewAttr.SelectedRows[0].Cells[6].Value.ToString()
                             };
                             AttributeControl attributeControl = new AttributeControl();
-                            attributeControl.openAttributForEdit(attribute, 2, this);
+                          //  attributeControl.openAttributForEdit(attribute, 2, this);
+                            attributeControl.openConfigItemForEdit(attribute);
                         }
                         break;
 
@@ -228,7 +229,8 @@ namespace SoftwareConfigurationManagementDBApp
                                 Date = dgvViewAttr.SelectedRows[0].Cells[5].Value.ToString()
                             };
                             AttributeControl attributeControl = new AttributeControl();
-                            attributeControl.openAttributForEdit(attribute, 3, this);
+                            //attributeControl.openAttributForEdit(attribute, 3, this);
+                            attributeControl.openConfigItemDocForEdit(attribute);
                         }
                         break;
 

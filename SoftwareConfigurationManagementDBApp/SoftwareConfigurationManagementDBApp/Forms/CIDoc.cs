@@ -4,17 +4,26 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SoftwareConfigurationManagementDBApp.Forms
+namespace SoftwareConfigurationManagementDBApp
 {
     public partial class CIDoc : Form
     {
+        private Attributes _cidocInfo;
         public CIDoc()
         {
             InitializeComponent();
+        }
+
+        public CIDoc(Attributes info)
+        {
+            InitializeComponent();
+            _cidocInfo = info;
+            SetFields();
         }
 
         private void CIDoc_Load(object sender, EventArgs e)
@@ -42,6 +51,16 @@ namespace SoftwareConfigurationManagementDBApp.Forms
         private void btnSubmitCIDoc_MouseLeave(object sender, EventArgs e)
         {
             btnSubmitCIDoc.BackColor = Color.Empty;
+        }
+
+        private void SetFields()
+        {
+            txtCIDocName.Text = _cidocInfo.Name;
+            txtCIDocLocation.Text = _cidocInfo.Location;
+            txtCIDocRevision.Text = _cidocInfo.Revision;
+            txtCIInfoCI.Text = _cidocInfo.Description;
+            CIDocDate.Value = _cidocInfo.Date != "N/A" ? Convert.ToDateTime(_cidocInfo.Date) : DateTime.Today;
+            //Should set a hidden field for ID?
         }
     }
 }

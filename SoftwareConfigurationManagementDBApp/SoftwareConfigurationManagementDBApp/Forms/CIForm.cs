@@ -8,13 +8,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SoftwareConfigurationManagementDBApp.Forms
+namespace SoftwareConfigurationManagementDBApp
 {
     public partial class CIForm : Form
     {
+        private Attributes _CI;
+
         public CIForm()
         {
             InitializeComponent();
+        }
+
+        public CIForm(Attributes info)
+        {
+            InitializeComponent();
+            _CI = info;
+            SetFields();
         }
 
         private void CIForm_Load(object sender, EventArgs e)
@@ -42,6 +51,15 @@ namespace SoftwareConfigurationManagementDBApp.Forms
         private void btnSubmitCI_MouseLeave(object sender, EventArgs e)
         {
             btnSubmitCI.BackColor = Color.Empty;
+        }
+
+        private void SetFields()
+        {
+            txtCIInfoCI.Text = _CI.Description;
+            txtCIRevision.Text = _CI.Revision;
+            txtCILocation.Text = _CI.Location;
+            txtCIName.Text = _CI.Name;
+            CIDate.Value = _CI.Date != "N/A" ? Convert.ToDateTime(_CI.Date) : DateTime.Today;
         }
     }
 }
