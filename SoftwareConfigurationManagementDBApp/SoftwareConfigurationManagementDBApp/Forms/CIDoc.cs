@@ -14,9 +14,13 @@ namespace SoftwareConfigurationManagementDBApp
     public partial class CIDoc : Form
     {
         private Attributes _cidocInfo;
-        public CIDoc()
+        private bool _update = false;
+        private int _ci;
+        public CIDoc(int CI)
         {
             InitializeComponent();
+            _update = false;
+            _ci = CI;
         }
 
         public CIDoc(Attributes info)
@@ -24,6 +28,7 @@ namespace SoftwareConfigurationManagementDBApp
             InitializeComponent();
             _cidocInfo = info;
             SetFields();
+            _update = true;
         }
 
         private void CIDoc_Load(object sender, EventArgs e)
@@ -35,12 +40,43 @@ namespace SoftwareConfigurationManagementDBApp
         {
             var obj = new CIDocs()
             {
-                Name = txtCIDocName.Text,
+                ID = _cidocInfo.ID != null ? Convert.ToInt32(_cidocInfo.ID) : 0,
+                Name = txtCIDocName.Text.Trim(),
                 Date = Convert.ToString(CIDocDate.Value.Date),
-                Revision = txtCIDocRevision.Text,
-                Location = txtCIDocLocation.Text,
-                Description = txtCIInfoCI.Text
+                Revision = txtCIDocRevision.Text.Trim(),
+                Location = txtCIDocLocation.Text.Trim(),
+                Description = txtCIInfoCI.Text.Trim(),
             };
+
+            AttributeControl control = new AttributeControl();
+
+            if (_update)
+            {
+                if (control.updateConfigItemDoc(obj))
+                {
+                    MessageBox.Show("Update succeeded", "Message", MessageBoxButtons.OK);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("An unknown error occured", "Error", MessageBoxButtons.OK);
+                    this.Close();
+                }
+            }
+            else
+            {
+                if (control.submitCIDoc(obj, _ci))
+                {
+                    MessageBox.Show("Item added", "Message", MessageBoxButtons.OK);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("An unknown error occured", "Error", MessageBoxButtons.OK);
+                    this.Close();
+                }
+                
+            }
         }
 
         private void btnSubmitCIDoc_MouseHover(object sender, EventArgs e)

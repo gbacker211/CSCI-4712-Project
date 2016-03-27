@@ -13,9 +13,12 @@ namespace SoftwareConfigurationManagementDBApp
     public partial class SoftwareDocForm : Form
     {
         private Attributes _softwareDocument;
-        public SoftwareDocForm()
+        private int _softwareID;
+        private bool _update;
+        public SoftwareDocForm(int softwareID)
         {
             InitializeComponent();
+            _update = false;
         }
 
         public SoftwareDocForm(Attributes attributes)
@@ -23,18 +26,49 @@ namespace SoftwareConfigurationManagementDBApp
             InitializeComponent();
             _softwareDocument = attributes;
             SetUpdateFields();
+            _update = true;
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             var obj = new SoftwareDoc
             {
-                Name = txtSoftDocName.Text,
-                Date = Convert.ToString(SoftwarDocDate.Value.Date.ToShortDateString()),
-                Revision = txtSoftDocRevision.Text,
-                Location = txtSoftDocRevision.Text,
-                Description = txtSoftDocDescription.Text,
+                ID = _softwareDocument != null ? Convert.ToInt32(_softwareDocument.ID) : 0,
+                Name = txtSoftDocName.Text.Trim(),
+                Date = Convert.ToString(SoftwarDocDate.Value.Date),
+                Revision = txtSoftDocRevision.Text.Trim(),
+                Location = txtSoftDocRevision.Text.Trim(),
+                Description = txtSoftDocDescription.Text.Trim(),
             };
+
+            AttributeControl attributeControl = new AttributeControl();
+
+            if (_update)
+            {
+                if (attributeControl.updateSoftDoc(obj))
+                {
+                    MessageBox.Show("Software Doc updated", "Success", MessageBoxButtons.OK);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("An error occured while updating", "ERROR", MessageBoxButtons.OK);
+                    this.Close();
+                }
+
+            }
+            else
+            {
+                if (attributeControl.submitSoftDoc(obj, _softwareID))
+                {
+                    MessageBox.Show("Software Doc added", "Success", MessageBoxButtons.OK);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("An error occured while updating", "ERROR", MessageBoxButtons.OK);
+                }
+            }
         }
 
         private void btnBack_MouseHover(object sender, EventArgs e)

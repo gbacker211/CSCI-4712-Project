@@ -13,16 +13,21 @@ namespace SoftwareConfigurationManagementDBApp
     public partial class CIForm : Form
     {
         private Attributes _CI;
+        private bool _update;
+        private int _softwareID;
 
-        public CIForm()
+        public CIForm(int softwareID)
         {
             InitializeComponent();
+            _update = false;
+            _softwareID = softwareID;
         }
 
         public CIForm(Attributes info)
         {
             InitializeComponent();
             _CI = info;
+            _update = true;
             SetFields();
         }
 
@@ -35,12 +40,42 @@ namespace SoftwareConfigurationManagementDBApp
         {
             var Obj = new CI()
             {
-                Name = txtCIName.Text,
+                ID = _CI.ID != null ?  Convert.ToInt32(_CI.ID) : 0,
+                Name = txtCIName.Text.Trim(),
                 Date = Convert.ToString(CIDate.Value.Date),
-                Revision = txtCIRevision.Text,
-                Location = txtCILocation.Text,
-                Description = txtCIInfoCI.Text,
+                Revision = txtCIRevision.Text.Trim(),
+                Location = txtCILocation.Text.Trim(),
+                Description = txtCIInfoCI.Text.Trim(),
             };
+
+            AttributeControl attributeControl = new AttributeControl();
+
+            if (_update)
+            {
+                if (attributeControl.updateConfigItem(Obj))
+                {
+                    MessageBox.Show("ConfigItem updated", "Success", MessageBoxButtons.OK);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("An error occured while updating", "ERROR", MessageBoxButtons.OK);
+                    this.Close();
+                }
+                
+            }
+            else
+            {
+                if (attributeControl.submitCI(Obj, _softwareID))
+                {
+                    MessageBox.Show("ConfigItem added", "Success", MessageBoxButtons.OK);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("An error occured while updating", "ERROR", MessageBoxButtons.OK);
+                }
+            }
         }
 
         private void btnSubmitCI_MouseHover(object sender, EventArgs e)
