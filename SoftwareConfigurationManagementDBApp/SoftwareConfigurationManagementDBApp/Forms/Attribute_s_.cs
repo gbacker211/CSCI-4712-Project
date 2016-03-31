@@ -223,62 +223,72 @@ namespace SoftwareConfigurationManagementDBApp
             {
                 if (chkboxSoftDocAttr.Checked == false)
                 {
-                    var objSoftware = new SoftwareDoc()
+                    if (txtSoftDocNameAttr.Text != String.Empty && txtSoftDocRevisionAttr.Text != String.Empty)
                     {
-                        Name = txtSoftDocNameAttr.Text,
-                        Date = Convert.ToString(dateSoftDocAttr.Value.Date),
-                        Revision = txtSoftDocRevisionAttr.Text,
-                        Location = txtSoftDocLocAttr.Text,
-                        Description = txtSoftDocDescAttr.Text,
-                    };
+                        var objSoftware = new SoftwareDoc()
+                        {
+                            Name = txtSoftDocNameAttr.Text,
+                            Date = Convert.ToString(dateSoftDocAttr.Value.Date),
+                            Revision = txtSoftDocRevisionAttr.Text,
+                            Location = txtSoftDocLocAttr.Text,
+                            Description = txtSoftDocDescAttr.Text,
+                        };
 
-                    if (newAttributes.submitSoftDoc(objSoftware, _softwareID))
-                    {
-                        result.Append("Software Document has been added" + Environment.NewLine);
+                        if (newAttributes.submitSoftDoc(objSoftware, _softwareID))
+                        {
+                            result.Append("Software Document has been added" + Environment.NewLine);
+                        }
                     }
 
-
-
-
+                    else
+                        MessageBox.Show("Please make sure that a Name and Revision for Software Document are filled", "ERROR!", MessageBoxButtons.OK);
                 }
 
                 if (chkboxCIAttr.Checked == false)
                 {
-                    var objCI = new CI()
+                    if (txtCINameAttr.Text != String.Empty && txtCIRevisionAttr.Text != String.Empty)
                     {
-                        Name = txtCINameAttr.Text.Trim(),
-                        Date = Convert.ToString(dateCIAttr.Value.Date),
-                        Revision = txtCIRevisionAttr.Text.Trim(),
-                        Location = txtCILocAttr.Text.Trim(),
-                        Description = txtCIDesAttr.Text.Trim()
-                    };
+                        var objCI = new CI()
+                        {
+                            Name = txtCINameAttr.Text.Trim(),
+                            Date = Convert.ToString(dateCIAttr.Value.Date),
+                            Revision = txtCIRevisionAttr.Text.Trim(),
+                            Location = txtCILocAttr.Text.Trim(),
+                            Description = txtCIDesAttr.Text.Trim()
+                        };
 
-                    if (newAttributes.submitCI(objCI, _softwareID))
-                    {
-                        result.Append("ConfigItem added" + Environment.NewLine);
+                        if (newAttributes.submitCI(objCI, _softwareID))
+                        {
+                            result.Append("ConfigItem added" + Environment.NewLine);
+                        }
                     }
-
-
+                    
+                    else
+                        MessageBox.Show("Please make sure that a Name and Revision for Configuration Item are filled", "ERROR!", MessageBoxButtons.OK);
                 }
 
                 if (chkboxCIDocAttr.Checked == false)
                 {
-                    var objCIDoc = new CIDocs()
+                    if (txtCIDocNameAttr.Text != String.Empty && txtCIDocRevisAttr.Text != String.Empty)
                     {
-                       
-                        Name = txtCIDocNameAttr.Text.Trim(),
-                        Date = Convert.ToString(dateCIDocAttr.Value.Date),
-                        Revision = txtCIDocRevisAttr.Text.Trim(),
-                        Location = txtCIDocLocAttr.Text.Trim(),
-                        Description = txtCIDocDesAttr.Text.Trim()
-                    };
+                        var objCIDoc = new CIDocs()
+                        {
 
-                    if (newAttributes.submitCIDoc(objCIDoc, _configItemID))
-                    {
-                        result.Append("ConfigItem Doc Added" + Environment.NewLine);
+                            Name = txtCIDocNameAttr.Text.Trim(),
+                            Date = Convert.ToString(dateCIDocAttr.Value.Date),
+                            Revision = txtCIDocRevisAttr.Text.Trim(),
+                            Location = txtCIDocLocAttr.Text.Trim(),
+                            Description = txtCIDocDesAttr.Text.Trim()
+                        };
+
+                        if (newAttributes.submitCIDoc(objCIDoc, _configItemID))
+                        {
+                            result.Append("ConfigItem Doc Added" + Environment.NewLine);
+                        }
                     }
 
-
+                    else
+                        MessageBox.Show("Please make sure that a Name and Revision for Configuration Item Document are filled", "ERROR!", MessageBoxButtons.OK);
                 }
 
 
