@@ -27,6 +27,11 @@ namespace SoftwareConfigurationManagementDBApp
             mUser = aUser;
             mAddUpdate = aAddUpdate;
             myDashBoard = aDashBoard;
+
+            if (mAddUpdate == 2)
+                txtSoftwareName.Enabled = false;
+            else
+                txtSoftwareName.Enabled = true;
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -69,12 +74,12 @@ namespace SoftwareConfigurationManagementDBApp
 
                             break;
                         }
-                    case 2: // update 
+                    case 2: // update except software nmae
                         {
                             var obj = new Software()
                             {
                                 Software_ID = mSoftware.Software_ID,
-                                SoftwareName = txtSoftwareName.Text.Trim(),
+                              //  SoftwareName = txtSoftwareName.Text.Trim(),
                                 SystemName = txtSystemName.Text.Trim(),
                                 Group = ddlGroups.SelectedValue.ToString().Trim(),
                                 Owner = txtOwner.Text.Trim(),

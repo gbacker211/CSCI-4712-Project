@@ -110,7 +110,7 @@ namespace SoftwareConfigurationManagementDBApp
                         UpdateSoftware.CommandType = CommandType.StoredProcedure;
                         UpdateSoftware.Parameters.AddWithValue("@SoftwareID", software.Software_ID);
                         UpdateSoftware.Parameters.AddWithValue("@Classification", software.Classification);
-                        UpdateSoftware.Parameters.AddWithValue("@Name", software.SoftwareName);
+                       // UpdateSoftware.Parameters.AddWithValue("@Name", software.SoftwareName);
                         UpdateSoftware.Parameters.AddWithValue("@DesignAuthority", software.DesignAuthority);
                         UpdateSoftware.Parameters.AddWithValue("@SystemName", software.SystemName);
                         UpdateSoftware.Parameters.AddWithValue("@Engineer", software.ResponsibleEngineer);
