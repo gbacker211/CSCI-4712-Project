@@ -36,7 +36,7 @@ namespace SoftwareConfigurationManagementDBApp
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            if (txtSoftwareName.Text == String.Empty || txtSystemName.Text == String.Empty || cmbClass.SelectedIndex == 0 ) //A group will always be selected
+            if (txtSoftwareName.Text == String.Empty || txtSystemName.Text == String.Empty  ) //A group will always be selected
                 MessageBox.Show("Please make sure that the Software and System Name fields are filled, and that the Group and Classification is selected!", "ERROR!", MessageBoxButtons.OK);
             else
             {

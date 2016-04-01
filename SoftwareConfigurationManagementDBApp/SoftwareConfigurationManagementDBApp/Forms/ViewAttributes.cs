@@ -256,7 +256,7 @@ namespace SoftwareConfigurationManagementDBApp
 
         private void btnPrintReport_Click(object sender, EventArgs e)
         {
-            PrintControl dataControl = new PrintControl(dgvViewAttr);
+            PrintControl dataControl = new PrintControl(dgvViewAttr, comboViewAttr.SelectedItem.ToString());
             dataControl.ExportGridData();
         }
 

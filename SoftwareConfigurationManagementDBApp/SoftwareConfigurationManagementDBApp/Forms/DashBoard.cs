@@ -197,7 +197,7 @@ namespace SoftwareConfigurationManagementDBApp
 
         private void btnPrintReport_Click(object sender, EventArgs e)
         {
-            PrintControl daPrintControl = new PrintControl(dataGridView1);
+            PrintControl daPrintControl = new PrintControl(dataGridView1, cmbDataViews.SelectedItem.ToString());
             daPrintControl.ExportGridData();
         }
 
