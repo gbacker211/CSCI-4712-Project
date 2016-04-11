@@ -90,9 +90,23 @@ namespace SoftwareConfigurationManagementDBApp
 
         private void btnEditSoftw_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0 && cmbDataViews.SelectedIndex == 0)
+            if (dataGridView1.SelectedRows.Count > 0 && cmbDataViews.SelectedIndex != 1)
             {
+                int column = 0;
 
+                switch (cmbDataViews.SelectedIndex)
+                {
+                    case 0:
+                        column = 8;
+                        break;
+
+                    case 2:
+                        column = 7;
+                        break;
+
+                    default:
+                        break;
+                }
 
                 var aSoftware = new Software()
                 {
@@ -103,8 +117,8 @@ namespace SoftwareConfigurationManagementDBApp
                     ResponsibleEngineer = dataGridView1.SelectedRows[0].Cells[4].Value.ToString(),
                     SystemName = dataGridView1.SelectedRows[0].Cells[5].Value.ToString(),
                     Owner = dataGridView1.SelectedRows[0].Cells[6].Value.ToString(),
-                    Group = dataGridView1.SelectedRows[0].Cells[7].Value.ToString(),
-                    Software_ID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[8].Value.ToString())
+                    Group = cmbDataViews.SelectedIndex == 2 ? ddlGroups.SelectedText  : dataGridView1.SelectedRows[0].Cells[7].Value.ToString(),
+                    Software_ID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[column].Value.ToString())
                 };
 
 
@@ -114,7 +128,7 @@ namespace SoftwareConfigurationManagementDBApp
             }
             else
             {
-                MessageBox.Show("No Software Selected or Software Overview is not selected", "Error", MessageBoxButtons.OK);
+                MessageBox.Show("No Software Selected or Software View is selected", "Error", MessageBoxButtons.OK);
             }
 
 
