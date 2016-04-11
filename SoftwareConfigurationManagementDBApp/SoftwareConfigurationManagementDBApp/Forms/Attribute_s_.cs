@@ -259,7 +259,7 @@ namespace SoftwareConfigurationManagementDBApp
 
                         if (newAttributes.submitCI(objCI, _softwareID))
                         {
-                            result.Append("ConfigItem added" + Environment.NewLine);
+                            result.Append("Configuration Item added" + Environment.NewLine);
                         }
                     }
                     
@@ -283,16 +283,13 @@ namespace SoftwareConfigurationManagementDBApp
 
                         if (newAttributes.submitCIDoc(objCIDoc, _configItemID))
                         {
-                            result.Append("ConfigItem Doc Added" + Environment.NewLine);
+                            result.Append("CI Document Added" + Environment.NewLine);
                         }
                     }
-
-                    else
-                        MessageBox.Show("Please make sure that a Name and Revision for Configuration Item Document are filled", "ERROR!", MessageBoxButtons.OK);
                 }
 
 
-                MessageBox.Show(result.ToString(), "Adding Attribute(s) Result", MessageBoxButtons.OK);
+                MessageBox.Show(result.ToString(), "Adding Attribute(s) Result:", MessageBoxButtons.OK);
               _myDashBoard.UpdateGrid(sender,e);
                 this.Close();
             }
