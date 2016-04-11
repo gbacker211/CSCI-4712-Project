@@ -153,6 +153,9 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -187,7 +190,7 @@
             this.ddlGroups.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddlGroups.FormattingEnabled = true;
             this.ddlGroups.Location = new System.Drawing.Point(120, 122);
-            this.ddlGroups.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ddlGroups.Margin = new System.Windows.Forms.Padding(2);
             this.ddlGroups.Name = "ddlGroups";
             this.ddlGroups.Size = new System.Drawing.Size(82, 21);
             this.ddlGroups.TabIndex = 42;
@@ -210,9 +213,9 @@
             this.grpAdmin.Controls.Add(this.btnDeleteSoft);
             this.grpAdmin.Controls.Add(this.btnAddUser);
             this.grpAdmin.Location = new System.Drawing.Point(9, 208);
-            this.grpAdmin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpAdmin.Margin = new System.Windows.Forms.Padding(2);
             this.grpAdmin.Name = "grpAdmin";
-            this.grpAdmin.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpAdmin.Padding = new System.Windows.Forms.Padding(2);
             this.grpAdmin.Size = new System.Drawing.Size(120, 279);
             this.grpAdmin.TabIndex = 44;
             this.grpAdmin.TabStop = false;
@@ -221,7 +224,7 @@
             // btnViewUser
             // 
             this.btnViewUser.Location = new System.Drawing.Point(21, 226);
-            this.btnViewUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnViewUser.Margin = new System.Windows.Forms.Padding(2);
             this.btnViewUser.Name = "btnViewUser";
             this.btnViewUser.Size = new System.Drawing.Size(86, 29);
             this.btnViewUser.TabIndex = 31;
@@ -233,9 +236,9 @@
             // 
             this.grpAttributes.Controls.Add(this.btnAddAttr);
             this.grpAttributes.Location = new System.Drawing.Point(142, 208);
-            this.grpAttributes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpAttributes.Margin = new System.Windows.Forms.Padding(2);
             this.grpAttributes.Name = "grpAttributes";
-            this.grpAttributes.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpAttributes.Padding = new System.Windows.Forms.Padding(2);
             this.grpAttributes.Size = new System.Drawing.Size(132, 63);
             this.grpAttributes.TabIndex = 45;
             this.grpAttributes.TabStop = false;
@@ -246,9 +249,9 @@
             this.grpDataViewing.Controls.Add(this.btnViewAttr);
             this.grpDataViewing.Controls.Add(this.btnPrintReport);
             this.grpDataViewing.Location = new System.Drawing.Point(142, 350);
-            this.grpDataViewing.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpDataViewing.Margin = new System.Windows.Forms.Padding(2);
             this.grpDataViewing.Name = "grpDataViewing";
-            this.grpDataViewing.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpDataViewing.Padding = new System.Windows.Forms.Padding(2);
             this.grpDataViewing.Size = new System.Drawing.Size(132, 113);
             this.grpDataViewing.TabIndex = 46;
             this.grpDataViewing.TabStop = false;

@@ -48,6 +48,9 @@
             this.dgvViewAttr.AllowUserToDeleteRows = false;
             this.dgvViewAttr.AllowUserToResizeColumns = false;
             this.dgvViewAttr.AllowUserToResizeRows = false;
+            this.dgvViewAttr.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvViewAttr.BackgroundColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
