@@ -17,9 +17,14 @@ namespace SoftwareConfigurationManagementDBApp
         public LoginForm()
         {
             InitializeComponent();
-            txtUsername.Text = string.Empty;
-            txtPassword.Text = String.Empty;
+          
+            //Need to check if connection string is set up
+           
+
+
         }
+
+
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
@@ -34,6 +39,9 @@ namespace SoftwareConfigurationManagementDBApp
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
+            txtUsername.Text = string.Empty;
+            txtPassword.Text = String.Empty;
+            CheckForConnectionToDB();
         }
 
         private void txtPassword_TextChanged(object sender, EventArgs e)
@@ -64,6 +72,40 @@ namespace SoftwareConfigurationManagementDBApp
         private void btnExit_MouseLeave(object sender, EventArgs e)
         {
             btnExit.BackColor = Color.Empty;
+        }
+
+        private void CheckForConnectionToDB()
+        {
+            //Just need the form to be created
+
+            try
+            {
+                string connection =
+                    ConfigurationManager.ConnectionStrings["SCMDatabaseConnectionString"].ConnectionString;
+
+            }
+            catch (NullReferenceException ex)
+            {
+
+                if (MessageBox.Show("There is no connection to the database, would you like to set up the connection?",
+              "Warning", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    //Go to set up application
+                }
+                else
+                {
+                    Application.Exit();
+                }
+                
+               
+            }
+
+       
+
+          
+               
+
+            
         }
     }
 }

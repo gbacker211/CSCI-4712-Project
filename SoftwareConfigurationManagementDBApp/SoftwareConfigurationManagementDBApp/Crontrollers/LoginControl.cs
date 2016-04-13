@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Reflection;
 
 namespace SoftwareConfigurationManagementDBApp
 {
@@ -63,6 +64,36 @@ namespace SoftwareConfigurationManagementDBApp
                 }
                     }
 
+        }
+
+
+        public void DisplaySetUpApplication()
+        {
+            //Need a form for this
+
+        }
+
+        public void SetUpApplication(string server, string userName = "", string password = "")
+        {
+            StringBuilder connectionString = new StringBuilder();
+
+            var settings = ConfigurationManager.ConnectionStrings[0];
+
+            var fi = typeof (ConfigurationElement).GetField("_bReadOnly", BindingFlags.Instance | BindingFlags.NonPublic);
+
+            fi.SetValue(settings, false);
+
+            connectionString.Append("Data Source=" + server +
+                                        ";Initial Catalog=SCMDatabase;Integrated Security=True");
+            if (userName != String.Empty && password != String.Empty)
+            {
+                connectionString.Append(";User Id=" + userName + ";Password=" + password + ";");
+            }
+
+            settings.ConnectionString = connectionString.ToString();
+
+            ConfigurationManager.ConnectionStrings[0].Name = "SCMDatabaseConnectionString";
+            ConfigurationManager.ConnectionStrings[0].ProviderName = "System.Data.SqlClient";
         }
 
         public void ReturnToLoginn()
