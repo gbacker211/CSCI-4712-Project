@@ -83,14 +83,19 @@ namespace SoftwareConfigurationManagementDBApp
                 string connection =
                     ConfigurationManager.ConnectionStrings["SCMDatabaseConnectionString"].ConnectionString;
 
+           
+
             }
-            catch (NullReferenceException ex)
+            catch (Exception ex)
             {
 
                 if (MessageBox.Show("There is no connection to the database, would you like to set up the connection?",
               "Warning", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     //Go to set up application
+                    LoginControl setupApplication = new LoginControl(this);
+                 
+                    setupApplication.DisplaySetUpApplication();
                 }
                 else
                 {

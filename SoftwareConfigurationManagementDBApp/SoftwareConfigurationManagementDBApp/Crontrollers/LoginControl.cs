@@ -8,6 +8,8 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Reflection;
+using System.Xml;
+using System.IO;
 
 namespace SoftwareConfigurationManagementDBApp
 {
@@ -69,31 +71,89 @@ namespace SoftwareConfigurationManagementDBApp
 
         public void DisplaySetUpApplication()
         {
-            //Need a form for this
+            Pathway pathwayOperation = new Pathway(_loginForm);
+
+            pathwayOperation.ShowDialog();
 
         }
 
-        public void SetUpApplication(string server, string userName = "", string password = "")
+        public bool SetUpApplication(string server, string userName = "", string password = "")
         {
-            StringBuilder connectionString = new StringBuilder();
+         
 
-            var settings = ConfigurationManager.ConnectionStrings[0];
+            string ApplicationPath = Application.StartupPath;
+            string YourPath = Path.GetDirectoryName(ApplicationPath);
+            bool isNew = false;
 
-            var fi = typeof (ConfigurationElement).GetField("_bReadOnly", BindingFlags.Instance | BindingFlags.NonPublic);
+            string path = Path.GetDirectoryName(YourPath) + "\\App.config";
+            XmlDocument doc = new XmlDocument();
+            doc.Load(path);
+            XmlNodeList list = doc.DocumentElement.SelectNodes(string.Format("connectionStrings/add[@name='{0}']", server));
+            XmlNode node;
+            isNew = list.Count == 0;
+            if (isNew)
+            {
+                node = doc.CreateNode(XmlNodeType.Element, "add", null);
+                XmlAttribute attribute = doc.CreateAttribute("name");
+                attribute.Value = "SCMDatabaseConnectionString";
+                node.Attributes.Append(attribute);
 
-            fi.SetValue(settings, false);
+                attribute = doc.CreateAttribute("connectionString");
+                attribute.Value = "";
+                node.Attributes.Append(attribute);
 
-            connectionString.Append("Data Source=" + server +
-                                        ";Initial Catalog=SCMDatabase;Integrated Security=True");
+                attribute = doc.CreateAttribute("providerName");
+                attribute.Value = "System.Data.SqlClient";
+                node.Attributes.Append(attribute);
+            }
+            else
+            {
+                node = list[0];
+            }
+            string conString = node.Attributes["connectionString"].Value;
+            SqlConnectionStringBuilder conStringBuilder = new SqlConnectionStringBuilder(conString);
+            conStringBuilder.InitialCatalog = "SCMDatabase";
+            conStringBuilder.DataSource = server;
+            conStringBuilder.IntegratedSecurity = true;
             if (userName != String.Empty && password != String.Empty)
             {
-                connectionString.Append(";User Id=" + userName + ";Password=" + password + ";");
+                conStringBuilder.UserID = userName;
+                conStringBuilder.Password = password;
+            }
+          
+         
+
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(conStringBuilder.ConnectionString))
+                {
+                    conn.Open();
+                }
+
+                node.Attributes["connectionString"].Value = conStringBuilder.ConnectionString;
+                if (isNew)
+                {
+                    doc.DocumentElement.SelectNodes("connectionStrings")[0].AppendChild(node);
+                }
+                doc.Save(path);
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(
+                    "There was error in creating the connection to the database please ensure that the information is valid",
+                    "Error", MessageBoxButtons.OK);
+
+                return false;
+
             }
 
-            settings.ConnectionString = connectionString.ToString();
 
-            ConfigurationManager.ConnectionStrings[0].Name = "SCMDatabaseConnectionString";
-            ConfigurationManager.ConnectionStrings[0].ProviderName = "System.Data.SqlClient";
+         
+            
         }
 
         public void ReturnToLoginn()
