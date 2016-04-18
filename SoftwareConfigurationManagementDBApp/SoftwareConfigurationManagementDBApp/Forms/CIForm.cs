@@ -38,44 +38,54 @@ namespace SoftwareConfigurationManagementDBApp
 
         private void btnSubmitCI_Click(object sender, EventArgs e)
         {
-            var Obj = new CI()
-            {
-                ID = _CI.ID != null ?  Convert.ToInt32(_CI.ID) : 0,
-                Name = txtCIName.Text.Trim(),
-                Date = Convert.ToString(CIDate.Value.Date),
-                Revision = txtCIRevision.Text.Trim(),
-                Location = txtCILocation.Text.Trim(),
-                Description = txtCIInfoCI.Text.Trim(),
-            };
 
-            AttributeControl attributeControl = new AttributeControl();
-
-            if (_update)
+            if (txtCIName.Text != String.Empty && txtCIRevision.Text != String.Empty)
             {
-                if (attributeControl.updateConfigItem(Obj))
+                var Obj = new CI()
                 {
-                    MessageBox.Show("ConfigItem updated", "Success", MessageBoxButtons.OK);
-                    this.Close();
+                    ID = _CI.ID != null ? Convert.ToInt32(_CI.ID) : 0,
+                    Name = txtCIName.Text.Trim(),
+                    Date = Convert.ToString(CIDate.Value.Date),
+                    Revision = txtCIRevision.Text.Trim(),
+                    Location = txtCILocation.Text.Trim(),
+                    Description = txtCIInfoCI.Text.Trim(),
+                };
+
+                AttributeControl attributeControl = new AttributeControl();
+
+                if (_update)
+                {
+                    if (attributeControl.updateConfigItem(Obj))
+                    {
+                        MessageBox.Show("ConfigItem updated", "Success", MessageBoxButtons.OK);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("An error occured while updating", "ERROR", MessageBoxButtons.OK);
+                        this.Close();
+                    }
+
                 }
                 else
                 {
-                    MessageBox.Show("An error occured while updating", "ERROR", MessageBoxButtons.OK);
-                    this.Close();
+                    if (attributeControl.submitCI(Obj, _softwareID))
+                    {
+                        MessageBox.Show("ConfigItem added", "Success", MessageBoxButtons.OK);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("An error occured while updating", "ERROR", MessageBoxButtons.OK);
+                    }
                 }
-                
             }
             else
             {
-                if (attributeControl.submitCI(Obj, _softwareID))
-                {
-                    MessageBox.Show("ConfigItem added", "Success", MessageBoxButtons.OK);
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("An error occured while updating", "ERROR", MessageBoxButtons.OK);
-                }
+                MessageBox.Show("Name and Revision fields cannot be empty", "ERROR", MessageBoxButtons.OK);
             }
+
+           
         }
 
         private void btnSubmitCI_MouseHover(object sender, EventArgs e)

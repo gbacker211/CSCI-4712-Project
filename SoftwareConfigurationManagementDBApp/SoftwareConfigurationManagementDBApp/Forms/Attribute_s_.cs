@@ -20,7 +20,7 @@ namespace SoftwareConfigurationManagementDBApp
         private ViewAttributes _attributes;
         private DashBoard _myDashBoard;
         private int _configItemID;
-       
+
 
         //TODO: Need to decide if there is a mistake, should we allow them to make corrections or start over.
 
@@ -57,7 +57,7 @@ namespace SoftwareConfigurationManagementDBApp
             SetTextInsert(InsertAttribute);
         }
 
-         public Attribute_s_(int softwareID, string softwareName, DashBoard dashBoard, int InsertAttribute, int configItemID)
+        public Attribute_s_(int softwareID, string softwareName, DashBoard dashBoard, int InsertAttribute, int configItemID)
         {
             _softwareID = softwareID;
 
@@ -65,7 +65,7 @@ namespace SoftwareConfigurationManagementDBApp
             lblSoftwareName.Text = softwareName;
             _myDashBoard = dashBoard;
             _update = false;
-             _configItemID = configItemID;
+            _configItemID = configItemID;
             SetTextInsert(InsertAttribute);
         }
 
@@ -117,7 +117,7 @@ namespace SoftwareConfigurationManagementDBApp
                                         txtSoftDocDescAttr.Text = _attributesesInfoAll[i].Description;
                                         txtSoftDocLocAttr.Text = _attributesesInfoAll[i].Location;
                                         txtSoftDocRevisionAttr.Text = _attributesesInfoAll[i].Revision;
-                                        dateSoftDocAttr.Value = _attributesesInfoAll[i].Date != "N/A" ?  Convert.ToDateTime(_attributesesInfoAll[i].Date): DateTime.Now ;
+                                        dateSoftDocAttr.Value = _attributesesInfoAll[i].Date != "N/A" ? Convert.ToDateTime(_attributesesInfoAll[i].Date) : DateTime.Now;
                                         break;
                                     }
 
@@ -202,12 +202,12 @@ namespace SoftwareConfigurationManagementDBApp
                     lblSoftwareDoc.Select();
                     break;
                 case 2: // ConfigItem
-                    if(_configItemID == 0)
-                       lblConfigItem.Select();
+                    if (_configItemID == 0)
+                        lblConfigItem.Select();
                     else
                         lblConfigItemDOC.Select();
                     break;
-              
+
                 default:
                     break;
             }
@@ -219,6 +219,7 @@ namespace SoftwareConfigurationManagementDBApp
 
             AttributeControl newAttributes = new AttributeControl();
 
+            bool haultFormCloser = false;
             if (!_update)
             {
                 if (chkboxSoftDocAttr.Checked == false)
@@ -237,11 +238,17 @@ namespace SoftwareConfigurationManagementDBApp
                         if (newAttributes.submitSoftDoc(objSoftware, _softwareID))
                         {
                             result.Append("Software Document has been added" + Environment.NewLine);
+                            chkboxSoftDocAttr.Checked = true;
                         }
                     }
 
                     else
-                        MessageBox.Show("Please make sure that a Name and Revision for Software Document are filled", "ERROR!", MessageBoxButtons.OK);
+                    {
+                        MessageBox.Show("Please make sure that a Name and Revision for Software Document are filled",
+                            "ERROR!", MessageBoxButtons.OK);
+
+                        haultFormCloser = true;
+                    }
                 }
 
                 if (chkboxCIAttr.Checked == false)
@@ -260,11 +267,16 @@ namespace SoftwareConfigurationManagementDBApp
                         if (newAttributes.submitCI(objCI, _softwareID))
                         {
                             result.Append("Configuration Item added" + Environment.NewLine);
+                            chkboxCIAttr.Checked = true;
                         }
                     }
-                    
+
                     else
-                        MessageBox.Show("Please make sure that a Name and Revision for Configuration Item are filled", "ERROR!", MessageBoxButtons.OK);
+                    {
+                        MessageBox.Show("Please make sure that a Name and Revision for Configuration Item are filled",
+                            "ERROR!", MessageBoxButtons.OK);
+                        haultFormCloser = true;
+                    }
                 }
 
                 if (chkboxCIDocAttr.Checked == false)
@@ -284,14 +296,26 @@ namespace SoftwareConfigurationManagementDBApp
                         if (newAttributes.submitCIDoc(objCIDoc, _configItemID))
                         {
                             result.Append("CI Document Added" + Environment.NewLine);
+                            chkboxCIDocAttr.Checked = true;
                         }
                     }
+                    else
+                    {
+                        MessageBox.Show("Please make sure that a Name and Revision for Configuration Item Document are filled", "ERROR!", MessageBoxButtons.OK);
+                        haultFormCloser = true;
+                    }
+
                 }
 
-
                 MessageBox.Show(result.ToString(), "Adding Attribute(s) Result:", MessageBoxButtons.OK);
-              _myDashBoard.UpdateGrid(sender,e);
-                this.Close();
+
+                if (!haultFormCloser)
+                {
+                   
+                    _myDashBoard.UpdateGrid(sender, e);
+                    this.Close();
+                }
+               
             }
             else
             {
@@ -299,7 +323,7 @@ namespace SoftwareConfigurationManagementDBApp
 
 
                 //MessageBox.Show("Update", "Message", MessageBoxButtons.OK);
-              
+
                 if (chkboxSoftDocAttr.Checked == false)
                 {
                     var objSoftware = new SoftwareDoc()
@@ -367,7 +391,7 @@ namespace SoftwareConfigurationManagementDBApp
                 _attributes.RefreshGrid(sender, e);
                 this.Close();
 
-               
+
 
             }
 

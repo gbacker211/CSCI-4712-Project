@@ -8,6 +8,7 @@ using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace SoftwareConfigurationManagementDBApp
 {
@@ -33,49 +34,57 @@ namespace SoftwareConfigurationManagementDBApp
 
         private void CIDoc_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnSubmitCIDoc_Click(object sender, EventArgs e)
         {
-            var obj = new CIDocs()
+            if (txtCIDocName.Text != String.Empty && txtCIDocRevision.Text != String.Empty)
             {
-                ID = _cidocInfo.ID != null ? Convert.ToInt32(_cidocInfo.ID) : 0,
-                Name = txtCIDocName.Text.Trim(),
-                Date = Convert.ToString(CIDocDate.Value.Date),
-                Revision = txtCIDocRevision.Text.Trim(),
-                Location = txtCIDocLocation.Text.Trim(),
-                Description = txtCIInfoCI.Text.Trim(),
-            };
-
-            AttributeControl control = new AttributeControl();
-
-            if (_update)
-            {
-                if (control.updateConfigItemDoc(obj))
+                var obj = new CIDocs()
                 {
-                    MessageBox.Show("Update succeeded", "Message", MessageBoxButtons.OK);
-                    this.Close();
+                    ID = _cidocInfo.ID != null ? Convert.ToInt32(_cidocInfo.ID) : 0,
+                    Name = txtCIDocName.Text.Trim(),
+                    Date = Convert.ToString(CIDocDate.Value.Date),
+                    Revision = txtCIDocRevision.Text.Trim(),
+                    Location = txtCIDocLocation.Text.Trim(),
+                    Description = txtCIInfoCI.Text.Trim(),
+                };
+
+                AttributeControl control = new AttributeControl();
+
+                if (_update)
+                {
+                    if (control.updateConfigItemDoc(obj))
+                    {
+                        MessageBox.Show("Update succeeded", "Message", MessageBoxButtons.OK);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("An unknown error occured", "Error", MessageBoxButtons.OK);
+                        this.Close();
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("An unknown error occured", "Error", MessageBoxButtons.OK);
-                    this.Close();
+                    if (control.submitCIDoc(obj, _ci))
+                    {
+                        MessageBox.Show("Item added", "Message", MessageBoxButtons.OK);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("An unknown error occured", "Error", MessageBoxButtons.OK);
+                        this.Close();
+                    }
+
                 }
             }
             else
             {
-                if (control.submitCIDoc(obj, _ci))
-                {
-                    MessageBox.Show("Item added", "Message", MessageBoxButtons.OK);
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("An unknown error occured", "Error", MessageBoxButtons.OK);
-                    this.Close();
-                }
-                
+                MessageBox.Show("Name and Revision fields cannot be empty", "ERROR", MessageBoxButtons.OK);
+
             }
         }
 

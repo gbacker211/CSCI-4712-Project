@@ -31,44 +31,53 @@ namespace SoftwareConfigurationManagementDBApp
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            var obj = new SoftwareDoc
+            if (txtSoftDocName.Text != String.Empty && txtSoftDocRevision.Text != String.Empty)
             {
-                ID = _softwareDocument != null ? Convert.ToInt32(_softwareDocument.ID) : 0,
-                Name = txtSoftDocName.Text.Trim(),
-                Date = Convert.ToString(SoftwarDocDate.Value.Date),
-                Revision = txtSoftDocRevision.Text.Trim(),
-                Location = txtSoftDocRevision.Text.Trim(),
-                Description = txtSoftDocDescription.Text.Trim(),
-            };
 
-            AttributeControl attributeControl = new AttributeControl();
-
-            if (_update)
-            {
-                if (attributeControl.updateSoftDoc(obj))
+                var obj = new SoftwareDoc
                 {
-                    MessageBox.Show("Software Doc updated", "Success", MessageBoxButtons.OK);
-                    this.Close();
+                    ID = _softwareDocument != null ? Convert.ToInt32(_softwareDocument.ID) : 0,
+                    Name = txtSoftDocName.Text.Trim(),
+                    Date = Convert.ToString(SoftwarDocDate.Value.Date),
+                    Revision = txtSoftDocRevision.Text.Trim(),
+                    Location = txtSoftDocRevision.Text.Trim(),
+                    Description = txtSoftDocDescription.Text.Trim(),
+                };
+
+                AttributeControl attributeControl = new AttributeControl();
+
+                if (_update)
+                {
+                    if (attributeControl.updateSoftDoc(obj))
+                    {
+                        MessageBox.Show("Software Doc updated", "Success", MessageBoxButtons.OK);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("An error occured while updating", "ERROR", MessageBoxButtons.OK);
+                        this.Close();
+                    }
+
                 }
                 else
                 {
-                    MessageBox.Show("An error occured while updating", "ERROR", MessageBoxButtons.OK);
-                    this.Close();
+                    if (attributeControl.submitSoftDoc(obj, _softwareID))
+                    {
+                        MessageBox.Show("Software Doc added", "Success", MessageBoxButtons.OK);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("An error occured while updating", "ERROR", MessageBoxButtons.OK);
+                    }
                 }
-
             }
             else
             {
-                if (attributeControl.submitSoftDoc(obj, _softwareID))
-                {
-                    MessageBox.Show("Software Doc added", "Success", MessageBoxButtons.OK);
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("An error occured while updating", "ERROR", MessageBoxButtons.OK);
-                }
+                MessageBox.Show("Name and Revision fields cannot be empty", "ERROR", MessageBoxButtons.OK);
             }
+
         }
 
         private void btnBack_MouseHover(object sender, EventArgs e)
