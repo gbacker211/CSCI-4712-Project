@@ -106,7 +106,7 @@ namespace SoftwareConfigurationManagementDBApp
                         }
                         else
                         {
-                            MessageBox.Show("User has not been added, please insure that the user name has not been used",
+                            MessageBox.Show("User name already exists in the system",
                                 "ERROR", MessageBoxButtons.OK);
 
                         }
@@ -124,7 +124,7 @@ namespace SoftwareConfigurationManagementDBApp
                         }
                         else
                         {
-                            MessageBox.Show("User has not been updated, please insure that the user has not been used",
+                            MessageBox.Show("User name already exists in the system",
                                 "ERROR", MessageBoxButtons.OK);
                         }
                      
