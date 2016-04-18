@@ -121,6 +121,7 @@
             // 
             // btnDeleteAttr
             // 
+            this.btnDeleteAttr.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnDeleteAttr.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnDeleteAttr.Location = new System.Drawing.Point(463, 635);
             this.btnDeleteAttr.Name = "btnDeleteAttr";
