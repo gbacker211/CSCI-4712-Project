@@ -48,8 +48,7 @@
             this.dgvViewAttr.AllowUserToDeleteRows = false;
             this.dgvViewAttr.AllowUserToResizeColumns = false;
             this.dgvViewAttr.AllowUserToResizeRows = false;
-            this.dgvViewAttr.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.dgvViewAttr.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvViewAttr.BackgroundColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -122,6 +121,7 @@
             // 
             // btnDeleteAttr
             // 
+            this.btnDeleteAttr.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnDeleteAttr.Location = new System.Drawing.Point(463, 635);
             this.btnDeleteAttr.Name = "btnDeleteAttr";
             this.btnDeleteAttr.Size = new System.Drawing.Size(86, 37);
