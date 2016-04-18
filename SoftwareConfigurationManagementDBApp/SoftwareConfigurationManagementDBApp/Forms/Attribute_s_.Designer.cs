@@ -85,7 +85,7 @@
             // txtCIDocDesAttr
             // 
             this.txtCIDocDesAttr.Location = new System.Drawing.Point(1003, 647);
-            this.txtCIDocDesAttr.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCIDocDesAttr.Margin = new System.Windows.Forms.Padding(4);
             this.txtCIDocDesAttr.Multiline = true;
             this.txtCIDocDesAttr.Name = "txtCIDocDesAttr";
             this.txtCIDocDesAttr.Size = new System.Drawing.Size(572, 107);
@@ -94,7 +94,7 @@
             // txtCIDocLocAttr
             // 
             this.txtCIDocLocAttr.Location = new System.Drawing.Point(543, 153);
-            this.txtCIDocLocAttr.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCIDocLocAttr.Margin = new System.Windows.Forms.Padding(4);
             this.txtCIDocLocAttr.Name = "txtCIDocLocAttr";
             this.txtCIDocLocAttr.Size = new System.Drawing.Size(185, 22);
             this.txtCIDocLocAttr.TabIndex = 75;
@@ -102,7 +102,7 @@
             // txtCIDocRevisAttr
             // 
             this.txtCIDocRevisAttr.Location = new System.Drawing.Point(135, 153);
-            this.txtCIDocRevisAttr.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCIDocRevisAttr.Margin = new System.Windows.Forms.Padding(4);
             this.txtCIDocRevisAttr.Name = "txtCIDocRevisAttr";
             this.txtCIDocRevisAttr.Size = new System.Drawing.Size(128, 22);
             this.txtCIDocRevisAttr.TabIndex = 74;
@@ -110,7 +110,7 @@
             // txtCIDocNameAttr
             // 
             this.txtCIDocNameAttr.Location = new System.Drawing.Point(956, 565);
-            this.txtCIDocNameAttr.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCIDocNameAttr.Margin = new System.Windows.Forms.Padding(4);
             this.txtCIDocNameAttr.Name = "txtCIDocNameAttr";
             this.txtCIDocNameAttr.Size = new System.Drawing.Size(301, 22);
             this.txtCIDocNameAttr.TabIndex = 73;
@@ -118,7 +118,7 @@
             // txtCIDesAttr
             // 
             this.txtCIDesAttr.Location = new System.Drawing.Point(151, 174);
-            this.txtCIDesAttr.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCIDesAttr.Margin = new System.Windows.Forms.Padding(4);
             this.txtCIDesAttr.Multiline = true;
             this.txtCIDesAttr.Name = "txtCIDesAttr";
             this.txtCIDesAttr.Size = new System.Drawing.Size(600, 111);
@@ -127,7 +127,7 @@
             // txtCILocAttr
             // 
             this.txtCILocAttr.Location = new System.Drawing.Point(483, 130);
-            this.txtCILocAttr.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCILocAttr.Margin = new System.Windows.Forms.Padding(4);
             this.txtCILocAttr.Name = "txtCILocAttr";
             this.txtCILocAttr.Size = new System.Drawing.Size(175, 22);
             this.txtCILocAttr.TabIndex = 71;
@@ -135,7 +135,7 @@
             // txtCIRevisionAttr
             // 
             this.txtCIRevisionAttr.Location = new System.Drawing.Point(121, 135);
-            this.txtCIRevisionAttr.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCIRevisionAttr.Margin = new System.Windows.Forms.Padding(4);
             this.txtCIRevisionAttr.Name = "txtCIRevisionAttr";
             this.txtCIRevisionAttr.Size = new System.Drawing.Size(135, 22);
             this.txtCIRevisionAttr.TabIndex = 70;
@@ -143,7 +143,7 @@
             // txtCINameAttr
             // 
             this.txtCINameAttr.Location = new System.Drawing.Point(128, 550);
-            this.txtCINameAttr.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCINameAttr.Margin = new System.Windows.Forms.Padding(4);
             this.txtCINameAttr.Name = "txtCINameAttr";
             this.txtCINameAttr.Size = new System.Drawing.Size(249, 22);
             this.txtCINameAttr.TabIndex = 69;
@@ -151,7 +151,7 @@
             // txtSoftDocDescAttr
             // 
             this.txtSoftDocDescAttr.Location = new System.Drawing.Point(411, 129);
-            this.txtSoftDocDescAttr.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSoftDocDescAttr.Margin = new System.Windows.Forms.Padding(4);
             this.txtSoftDocDescAttr.Multiline = true;
             this.txtSoftDocDescAttr.Name = "txtSoftDocDescAttr";
             this.txtSoftDocDescAttr.Size = new System.Drawing.Size(891, 86);
@@ -160,7 +160,7 @@
             // txtSoftDocLocAttr
             // 
             this.txtSoftDocLocAttr.Location = new System.Drawing.Point(1227, 92);
-            this.txtSoftDocLocAttr.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSoftDocLocAttr.Margin = new System.Windows.Forms.Padding(4);
             this.txtSoftDocLocAttr.Name = "txtSoftDocLocAttr";
             this.txtSoftDocLocAttr.Size = new System.Drawing.Size(299, 22);
             this.txtSoftDocLocAttr.TabIndex = 67;
@@ -168,7 +168,7 @@
             // txtSoftDocRevisionAttr
             // 
             this.txtSoftDocRevisionAttr.Location = new System.Drawing.Point(979, 214);
-            this.txtSoftDocRevisionAttr.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSoftDocRevisionAttr.Margin = new System.Windows.Forms.Padding(4);
             this.txtSoftDocRevisionAttr.Name = "txtSoftDocRevisionAttr";
             this.txtSoftDocRevisionAttr.Size = new System.Drawing.Size(145, 22);
             this.txtSoftDocRevisionAttr.TabIndex = 66;
@@ -176,7 +176,7 @@
             // dateCIDocAttr
             // 
             this.dateCIDocAttr.Location = new System.Drawing.Point(1363, 566);
-            this.dateCIDocAttr.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateCIDocAttr.Margin = new System.Windows.Forms.Padding(4);
             this.dateCIDocAttr.Name = "dateCIDocAttr";
             this.dateCIDocAttr.Size = new System.Drawing.Size(265, 22);
             this.dateCIDocAttr.TabIndex = 65;
@@ -184,7 +184,7 @@
             // dateCIAttr
             // 
             this.dateCIAttr.Location = new System.Drawing.Point(469, 553);
-            this.dateCIAttr.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateCIAttr.Margin = new System.Windows.Forms.Padding(4);
             this.dateCIAttr.Name = "dateCIAttr";
             this.dateCIAttr.Size = new System.Drawing.Size(265, 22);
             this.dateCIAttr.TabIndex = 64;
@@ -192,7 +192,7 @@
             // dateSoftDocAttr
             // 
             this.dateSoftDocAttr.Location = new System.Drawing.Point(568, 210);
-            this.dateSoftDocAttr.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateSoftDocAttr.Margin = new System.Windows.Forms.Padding(4);
             this.dateSoftDocAttr.Name = "dateSoftDocAttr";
             this.dateSoftDocAttr.Size = new System.Drawing.Size(265, 22);
             this.dateSoftDocAttr.TabIndex = 63;
@@ -200,7 +200,7 @@
             // txtSoftDocNameAttr
             // 
             this.txtSoftDocNameAttr.Location = new System.Drawing.Point(253, 209);
-            this.txtSoftDocNameAttr.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSoftDocNameAttr.Margin = new System.Windows.Forms.Padding(4);
             this.txtSoftDocNameAttr.Name = "txtSoftDocNameAttr";
             this.txtSoftDocNameAttr.Size = new System.Drawing.Size(224, 22);
             this.txtSoftDocNameAttr.TabIndex = 62;
@@ -209,7 +209,7 @@
             // 
             this.btnAttrSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAttrSubmit.Location = new System.Drawing.Point(648, 840);
-            this.btnAttrSubmit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAttrSubmit.Margin = new System.Windows.Forms.Padding(4);
             this.btnAttrSubmit.Name = "btnAttrSubmit";
             this.btnAttrSubmit.Size = new System.Drawing.Size(135, 59);
             this.btnAttrSubmit.TabIndex = 61;
@@ -245,12 +245,12 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(199, 773);
+            this.label19.Location = new System.Drawing.Point(299, 317);
             this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(382, 31);
+            this.label19.Size = new System.Drawing.Size(245, 31);
             this.label19.TabIndex = 57;
-            this.label19.Text = "Continue without documentation:";
+            this.label19.Text = "Continue without CI:";
             // 
             // label13
             // 
@@ -454,7 +454,7 @@
             // 
             this.chkboxSoftDocAttr.AutoSize = true;
             this.chkboxSoftDocAttr.Location = new System.Drawing.Point(1053, 384);
-            this.chkboxSoftDocAttr.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chkboxSoftDocAttr.Margin = new System.Windows.Forms.Padding(4);
             this.chkboxSoftDocAttr.Name = "chkboxSoftDocAttr";
             this.chkboxSoftDocAttr.Size = new System.Drawing.Size(18, 17);
             this.chkboxSoftDocAttr.TabIndex = 77;
@@ -464,7 +464,7 @@
             // 
             this.chkboxCIAttr.AutoSize = true;
             this.chkboxCIAttr.Location = new System.Drawing.Point(584, 782);
-            this.chkboxCIAttr.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chkboxCIAttr.Margin = new System.Windows.Forms.Padding(4);
             this.chkboxCIAttr.Name = "chkboxCIAttr";
             this.chkboxCIAttr.Size = new System.Drawing.Size(18, 17);
             this.chkboxCIAttr.TabIndex = 78;
@@ -474,7 +474,7 @@
             // 
             this.chkboxCIDocAttr.AutoSize = true;
             this.chkboxCIDocAttr.Location = new System.Drawing.Point(1447, 768);
-            this.chkboxCIDocAttr.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chkboxCIDocAttr.Margin = new System.Windows.Forms.Padding(4);
             this.chkboxCIDocAttr.Name = "chkboxCIDocAttr";
             this.chkboxCIDocAttr.Size = new System.Drawing.Size(18, 17);
             this.chkboxCIDocAttr.TabIndex = 79;
@@ -529,9 +529,9 @@
             this.gBoxSoftDoc.Controls.Add(this.lblSoftwareDoc);
             this.gBoxSoftDoc.ForeColor = System.Drawing.SystemColors.ControlText;
             this.gBoxSoftDoc.Location = new System.Drawing.Point(37, 127);
-            this.gBoxSoftDoc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gBoxSoftDoc.Margin = new System.Windows.Forms.Padding(4);
             this.gBoxSoftDoc.Name = "gBoxSoftDoc";
-            this.gBoxSoftDoc.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gBoxSoftDoc.Padding = new System.Windows.Forms.Padding(4);
             this.gBoxSoftDoc.Size = new System.Drawing.Size(1596, 300);
             this.gBoxSoftDoc.TabIndex = 83;
             this.gBoxSoftDoc.TabStop = false;
@@ -544,10 +544,11 @@
             this.gBoxCIAttr.Controls.Add(this.label12);
             this.gBoxCIAttr.Controls.Add(this.txtCIRevisionAttr);
             this.gBoxCIAttr.Controls.Add(this.label11);
+            this.gBoxCIAttr.Controls.Add(this.label19);
             this.gBoxCIAttr.Location = new System.Drawing.Point(32, 454);
-            this.gBoxCIAttr.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gBoxCIAttr.Margin = new System.Windows.Forms.Padding(4);
             this.gBoxCIAttr.Name = "gBoxCIAttr";
-            this.gBoxCIAttr.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gBoxCIAttr.Padding = new System.Windows.Forms.Padding(4);
             this.gBoxCIAttr.Size = new System.Drawing.Size(808, 367);
             this.gBoxCIAttr.TabIndex = 84;
             this.gBoxCIAttr.TabStop = false;
@@ -561,9 +562,9 @@
             this.gBoxCIDocAttr.Controls.Add(this.txtCIDocRevisAttr);
             this.gBoxCIDocAttr.Controls.Add(this.lblConfigItemDOC);
             this.gBoxCIDocAttr.Location = new System.Drawing.Point(847, 454);
-            this.gBoxCIDocAttr.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gBoxCIDocAttr.Margin = new System.Windows.Forms.Padding(4);
             this.gBoxCIDocAttr.Name = "gBoxCIDocAttr";
-            this.gBoxCIDocAttr.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gBoxCIDocAttr.Padding = new System.Windows.Forms.Padding(4);
             this.gBoxCIDocAttr.Size = new System.Drawing.Size(792, 362);
             this.gBoxCIDocAttr.TabIndex = 85;
             this.gBoxCIDocAttr.TabStop = false;
@@ -605,7 +606,6 @@
             this.Controls.Add(this.btnAttrSubmit);
             this.Controls.Add(this.lblConfigItem);
             this.Controls.Add(this.label20);
-            this.Controls.Add(this.label19);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label18);
@@ -621,7 +621,7 @@
             this.Controls.Add(this.gBoxCIDocAttr);
             this.Controls.Add(this.gBoxCIAttr);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Attribute_s_";
             this.Text = "Attribute_s_";
             this.gBoxSoftDoc.ResumeLayout(false);
