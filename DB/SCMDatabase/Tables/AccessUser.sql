@@ -1,7 +1,7 @@
 USE [SCMDatabase]
 GO
 
-/****** Object:  Table [dbo].[AccessUser]    Script Date: 3/20/2016 10:35:36 PM ******/
+/****** Object:  Table [dbo].[AccessUser]    Script Date: 4/20/2016 2:47:22 PM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -12,7 +12,7 @@ CREATE TABLE [dbo].[AccessUser](
 	[User_Id] [int] IDENTITY(1,1) NOT NULL,
 	[FirstName] [nchar](10) NULL,
 	[LastName] [nchar](10) NULL,
-	[Password] [nchar](10) NOT NULL,
+	[Password] [nchar](32) NOT NULL,
 	[UserName] [nchar](10) NOT NULL,
 	[AccesGroup] [int] NOT NULL,
 	[GroupID] [int] NULL,
@@ -23,5 +23,4 @@ CREATE TABLE [dbo].[AccessUser](
 ) ON [PRIMARY]
 
 GO
-
 
