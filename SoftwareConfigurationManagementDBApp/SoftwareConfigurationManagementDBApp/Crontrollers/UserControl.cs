@@ -91,11 +91,21 @@ namespace SoftwareConfigurationManagementDBApp
                         conn.Open();
                         AddUser.CommandType = CommandType.StoredProcedure;
                         AddUser.Parameters.AddWithValue("@UserID", aUser.User_ID);
-                        AddUser.Parameters.AddWithValue("@Username", aUser.Username);
+                       // AddUser.Parameters.AddWithValue("@Username", aUser.Username);
                         AddUser.Parameters.AddWithValue("@Password", aUser.Password);
                         AddUser.Parameters.AddWithValue("@AccessGroup", aUser.AccessGroup);
                         AddUser.Parameters.AddWithValue("@Firstname", aUser.Fname);
                         AddUser.Parameters.AddWithValue("@Lastname", aUser.Lname);
+
+                        if (aUser.GroupID == 0)
+                        {
+                            AddUser.Parameters.AddWithValue("@GroupName", aUser.GroupName);
+                        }
+                        else
+                        {
+                            AddUser.Parameters.AddWithValue("@GroupID", aUser.GroupID);
+                        }
+                        //Add either groupid or group name
 
                         int success = AddUser.ExecuteNonQuery();
 

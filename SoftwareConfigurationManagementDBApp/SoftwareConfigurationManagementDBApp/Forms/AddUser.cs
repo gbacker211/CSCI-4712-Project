@@ -54,6 +54,7 @@ namespace SoftwareConfigurationManagementDBApp
                 txtFname.Text = mUser.Fname;
                 txtLname.Text = mUser.Lname;
                 txtUsername.Text = mUser.Username;
+                txtUsername.Enabled = false;
                 txtPassword.Text = mUser.Password;
                 cmbAccessGroup.SelectedIndex = mUser.AccessGroup;
             }
@@ -82,7 +83,7 @@ namespace SoftwareConfigurationManagementDBApp
                 }
 
 
-                if (cmdGroups.SelectedItem != null && txtGroupName.Text == String.Empty)
+                if (cmdGroups.SelectedText != String.Empty && txtGroupName.Text == String.Empty)
                 {
                     //use dropdown
                     var obj = new User()
@@ -93,7 +94,7 @@ namespace SoftwareConfigurationManagementDBApp
                         Username = txtUsername.Text.Trim(),
                         Password = txtPassword.Text.Trim(),
                         AccessGroup = AccessLvl,
-                        GroupName = cmdGroups.SelectedItem.ToString().Trim()
+                        GroupID = Convert.ToInt32(cmdGroups.SelectedValue.ToString())
                     };
 
                     if (mAddUpdate == 1)
@@ -130,7 +131,7 @@ namespace SoftwareConfigurationManagementDBApp
                      
                     }
                 }
-                else if(cmdGroups.SelectedText == null && txtGroupName.Text != String.Empty)
+                else if(cmdGroups.SelectedText == String.Empty && txtGroupName.Text != String.Empty)
                 {
                     //use text
                     var obj = new User()
