@@ -33,14 +33,21 @@ namespace SoftwareConfigurationManagementDBApp
 
             dt = userGroups.getGroups();
 
-            cmdGroups.Items.Insert(0, " ");
 
-            foreach (DataRow row in dt.Rows)
+            DataRow dr = dt.NewRow();
+
+            dr["ID"] = "0";
+            dr["GroupName"] = " ";
+            dt.Rows.InsertAt(dr, 0);
+
+            if (dt.Rows.Count > 0)
             {
-                cmdGroups.Items.Add(row[1].ToString());
+                cmdGroups.DataSource = dt;
+                cmdGroups.DisplayMember = "GroupName";
+                cmdGroups.ValueMember = "ID";
             }
 
-          
+         //   cmdGroups.Items.Insert(0, " ");
             
            
             
@@ -62,7 +69,7 @@ namespace SoftwareConfigurationManagementDBApp
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            if (txtFname.Text == "" || txtLname.Text == "" || txtUsername.Text == "" || txtPassword.Text == "" || cmbAccessGroup.SelectedIndex == 0)
+            if (txtFname.Text == "" || txtLname.Text == "" || txtUsername.Text == "" || txtPassword.Text == "" || cmbAccessGroup.SelectedIndex == -1)
                 MessageBox.Show("Please make sure that the fields are filled and a User Access Level is selected.");
             else
             {
@@ -83,22 +90,24 @@ namespace SoftwareConfigurationManagementDBApp
                 }
 
 
-                if (cmdGroups.SelectedText != String.Empty && txtGroupName.Text == String.Empty)
+                if (cmdGroups.SelectedValue != "0" && txtGroupName.Text == String.Empty)
                 {
                     //use dropdown
-                    var obj = new User()
-                    {
-                        User_ID = 1,
-                        Fname = txtFname.Text.Trim(),
-                        Lname = txtLname.Text.Trim(),
-                        Username = txtUsername.Text.Trim(),
-                        Password = txtPassword.Text.Trim(),
-                        AccessGroup = AccessLvl,
-                        GroupID = Convert.ToInt32(cmdGroups.SelectedValue.ToString())
-                    };
+                   
 
                     if (mAddUpdate == 1)
                     {
+
+                        var obj = new User()
+                        {
+                            User_ID = 1,
+                            Fname = txtFname.Text.Trim(),
+                            Lname = txtLname.Text.Trim(),
+                            Username = txtUsername.Text.Trim(),
+                            Password = txtPassword.Text.Trim(),
+                            AccessGroup = AccessLvl,
+                            GroupName = cmdGroups.Text.Trim()
+                        };
 
                         if (mUserControl.AddUser(obj))
                         {
@@ -117,6 +126,18 @@ namespace SoftwareConfigurationManagementDBApp
                     }
                     if (mAddUpdate == 2)
                     {
+
+                        var obj = new User()
+                        {
+                            User_ID = 1,
+                            Fname = txtFname.Text.Trim(),
+                            Lname = txtLname.Text.Trim(),
+                            Username = txtUsername.Text.Trim(),
+                            Password = txtPassword.Text.Trim(),
+                            AccessGroup = AccessLvl,
+                            GroupID = Convert.ToInt32(cmdGroups.SelectedValue.ToString())
+                        };
+
                         if (mUserControl.UpdateUser(obj))
                         {
                             MessageBox.Show("User has been updated!", "Success!", MessageBoxButtons.OK);
@@ -131,7 +152,7 @@ namespace SoftwareConfigurationManagementDBApp
                      
                     }
                 }
-                else if(cmdGroups.SelectedText == String.Empty && txtGroupName.Text != String.Empty)
+                else if(cmdGroups.SelectedValue == "0" && txtGroupName.Text != String.Empty)
                 {
                     //use text
                     var obj = new User()
