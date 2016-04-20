@@ -27,7 +27,7 @@ namespace SoftwareConfigurationManagementDBApp
             dataGridView1.Columns[0].HeaderText = "First Name";
             dataGridView1.Columns[1].HeaderText = "Last Name";
             dataGridView1.Columns[2].HeaderText = "Username";
-            dataGridView1.Columns[3].HeaderText = "Password";
+            dataGridView1.Columns[3].Visible = false;
             dataGridView1.Columns[4].HeaderText = "Access Group";
         }
 
@@ -56,6 +56,7 @@ namespace SoftwareConfigurationManagementDBApp
         {
             DataTable dt = mUControl.getUsers();
             dataGridView1.DataSource = dt;
+            setColumnHeadersForUser();
         }
 
         private void btnEditUser_MouseHover(object sender, EventArgs e)
