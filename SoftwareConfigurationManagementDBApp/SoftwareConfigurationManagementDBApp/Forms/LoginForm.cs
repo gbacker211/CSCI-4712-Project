@@ -115,17 +115,6 @@ namespace SoftwareConfigurationManagementDBApp
             
         }
 
-        private void ResetSCMSApp(object sender, EventArgs e)
-        {
-            if (
-                MessageBox.Show(
-                    "Doing this means that you will have to re-enter the connection to the database, are you sure?",
-                    "Warning", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                LoginControl operation = new LoginControl();
-
-                operation.ResetApplication();
-            }
-        }
+        
     }
 }
