@@ -23,14 +23,15 @@ namespace SoftwareConfigurationManagementDBApp.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=GEOFFPC2P0\\SQLEXPRESS;Initial Catalog=SCMDatabase;Integrated Security" +
-            "=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string SCMDatabaseConnectionString {
             get {
                 return ((string)(this["SCMDatabaseConnectionString"]));
+            }
+            set {
+                this["SCMDatabaseConnectionString"] = value;
             }
         }
     }

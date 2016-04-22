@@ -76,14 +76,15 @@ namespace SoftwareConfigurationManagementDBApp
 
         private void CheckForConnectionToDB()
         {
-            //Just need the form to be created
-
             try
             {
                 string connection =
                     ConfigurationManager.ConnectionStrings["SCMDatabaseConnectionString"].ConnectionString;
 
-           
+
+
+                if (connection == String.Empty)
+                    throw new Exception();
 
             }
             catch (Exception ex)
@@ -93,24 +94,38 @@ namespace SoftwareConfigurationManagementDBApp
               "Warning", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     //Go to set up application
-                    LoginControl setupApplication = new LoginControl(this);
-                 
+                    LoginControl setupApplication = new LoginControl();
+
                     setupApplication.DisplaySetUpApplication();
                 }
                 else
                 {
                     Application.Exit();
                 }
-                
-               
+
+
             }
 
        
 
           
                
+               
 
             
+        }
+
+        private void ResetSCMSApp(object sender, EventArgs e)
+        {
+            if (
+                MessageBox.Show(
+                    "Doing this means that you will have to re-enter the connection to the database, are you sure?",
+                    "Warning", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                LoginControl operation = new LoginControl();
+
+                operation.ResetApplication();
+            }
         }
     }
 }

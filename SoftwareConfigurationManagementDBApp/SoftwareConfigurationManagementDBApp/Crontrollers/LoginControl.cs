@@ -16,17 +16,22 @@ namespace SoftwareConfigurationManagementDBApp
     class LoginControl
     {
         private LoginForm _loginForm;
+        private String _connectionString;
         public LoginControl(LoginForm login)
         {
             _loginForm = login;
+            _connectionString = ConfigurationManager.ConnectionStrings["SCMDatabaseConnectionString"].ConnectionString;
         }
 
+        public LoginControl()
+        {
 
+        }
         public void submit(string aUsername, string aPassword)
         {
                 SqlConnection conn = new SqlConnection();
-                conn.ConnectionString =
-                    ConfigurationManager.ConnectionStrings["SCMDatabaseConnectionString"].ConnectionString;
+            conn.ConnectionString =
+                _connectionString;
                     using (conn)
                     {
                 try
@@ -79,64 +84,28 @@ namespace SoftwareConfigurationManagementDBApp
 
         public bool SetUpApplication(string server, string userName = "", string password = "")
         {
-         
 
-            string ApplicationPath = Application.StartupPath;
-            string YourPath = Path.GetDirectoryName(ApplicationPath);
-            bool isNew = false;
+            SqlConnectionStringBuilder connection = new SqlConnectionStringBuilder();
 
-            string path = Path.GetDirectoryName(YourPath) + "\\App.config";
-            XmlDocument doc = new XmlDocument();
-            doc.Load(path);
-            XmlNodeList list = doc.DocumentElement.SelectNodes(string.Format("connectionStrings/add[@name='{0}']", server));
-            XmlNode node;
-            isNew = list.Count == 0;
-            if (isNew)
-            {
-                node = doc.CreateNode(XmlNodeType.Element, "add", null);
-                XmlAttribute attribute = doc.CreateAttribute("name");
-                attribute.Value = "SCMDatabaseConnectionString";
-                node.Attributes.Append(attribute);
-
-                attribute = doc.CreateAttribute("connectionString");
-                attribute.Value = "";
-                node.Attributes.Append(attribute);
-
-                attribute = doc.CreateAttribute("providerName");
-                attribute.Value = "System.Data.SqlClient";
-                node.Attributes.Append(attribute);
-            }
-            else
-            {
-                node = list[0];
-            }
-            string conString = node.Attributes["connectionString"].Value;
-            SqlConnectionStringBuilder conStringBuilder = new SqlConnectionStringBuilder(conString);
-            conStringBuilder.InitialCatalog = "SCMDatabase";
-            conStringBuilder.DataSource = server;
-            conStringBuilder.IntegratedSecurity = true;
+            connection.InitialCatalog = "SCMDatabase";
+            connection.DataSource = server;
+            connection.IntegratedSecurity = true;
             if (userName != String.Empty && password != String.Empty)
             {
-                conStringBuilder.UserID = userName;
-                conStringBuilder.Password = password;
+                connection.UserID = userName;
+                connection.Password = password;
             }
-          
-         
-
 
             try
             {
-                using (SqlConnection conn = new SqlConnection(conStringBuilder.ConnectionString))
+                using (SqlConnection conn = new SqlConnection(connection.ConnectionString))
                 {
                     conn.Open();
                 }
 
-                node.Attributes["connectionString"].Value = conStringBuilder.ConnectionString;
-                if (isNew)
-                {
-                    doc.DocumentElement.SelectNodes("connectionStrings")[0].AppendChild(node);
-                }
-                doc.Save(path);
+
+
+                UpdateConfigFile(connection.ConnectionString);
 
                 return true;
             }
@@ -152,14 +121,35 @@ namespace SoftwareConfigurationManagementDBApp
             }
 
 
-         
-            
+        }
+        public void UpdateConfigFile(string con)
+        {
+            Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            config.ConnectionStrings.ConnectionStrings.Clear();
+
+            config.ConnectionStrings.ConnectionStrings.Add(new ConnectionStringSettings("SCMDatabaseConnectionString", con));
+
+            config.Save();
+
+            ConfigurationManager.RefreshSection((config.ConnectionStrings.SectionInformation.SectionName));
+
+
         }
 
         public void ReturnToLoginn()
         {
            _loginForm.Show();
            
+        }
+        public void ResetApplication()
+        {
+            Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            config.ConnectionStrings.ConnectionStrings.Clear();
+            config.Save();
+
+            ConfigurationManager.RefreshSection((config.ConnectionStrings.SectionInformation.SectionName));
+
+            Application.Exit();
         }
     }
 }
