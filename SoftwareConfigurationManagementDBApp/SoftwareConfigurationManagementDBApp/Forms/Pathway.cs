@@ -25,7 +25,7 @@ namespace SoftwareConfigurationManagementDBApp
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
-            LoginControl setPathway = new LoginControl(_login);
+            LoginControl setPathway = new LoginControl();
 
             try
             {
